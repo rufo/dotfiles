@@ -9,7 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'wincent/command-t'
 Plugin 'tpope/vim-cucumber'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
@@ -110,10 +110,9 @@ nnoremap <leader>; :if &number <Bar>
 
 nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 
-"nnoremap <leader>r :CommandTFlush
-"nnoremap <leader>p :CommandT<CR>
+nnoremap <leader>r :CommandTFlush
+nnoremap <leader>p :CommandT<CR>
 
-let g:ctrlp_map = '<leader>p'
 nnoremap <leader>. :CtrlPTag<cr>
 
 "nnoremap <leader>b :buffers<CR>:buffer<Space>

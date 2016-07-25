@@ -171,9 +171,6 @@ set wildignore+=*/public/thumbnails/*
 set wildignore+=*/coverage/*
 set wildignore+=*/script/*
 
-" check out the silver searcher
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
 highlight clear SignColumn
 
 " Rspec.vim mappings

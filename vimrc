@@ -113,8 +113,6 @@ nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 nnoremap <leader>r :CommandTFlush
 nnoremap <leader>p :CommandT<CR>
 
-nnoremap <leader>. :CtrlPTag<cr>
-
 "nnoremap <leader>b :buffers<CR>:buffer<Space>
 
 syntax on

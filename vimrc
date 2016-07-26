@@ -3,6 +3,8 @@
 set nocompatible
 filetype off
 
+runtime macros/matchit.vim
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -51,6 +53,8 @@ Plugin 'file:///Users/rufo/sandbox/psl.vim'
 Plugin 'chrisbra/csv.vim'
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 
 call vundle#end()
 filetype plugin indent on

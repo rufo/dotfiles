@@ -125,7 +125,7 @@ filetype plugin indent on
 set background=dark
 set guifont=Source\ Code\ Pro:h12
 set guioptions-=T
-colorscheme base16-default
+colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red
 au BufNewFile,BufRead *.nghaml set filetype=haml
 

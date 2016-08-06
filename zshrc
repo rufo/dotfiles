@@ -86,6 +86,7 @@ dash(){ command open dash://$1 }
 alias fixynab="sed -i .bak 's/<renderMode>direct/<renderMode>cpu/' /Applications/YNAB\ 4.app/Contents/Resources/META-INF/AIR/application.xml"
 alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
+alias youtube-dl-mp4 'youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 

@@ -17,8 +17,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-haml'
-"Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'tpope/vim-rails'
@@ -51,7 +49,6 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'file:///Users/rufo/sandbox/psl.vim'
 Plugin 'chrisbra/csv.vim'
-" Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -98,9 +95,6 @@ set colorcolumn=85
 nnoremap j gj
 nnoremap k gk
 
-"nnoremap ; :
-"vnoremap ; :
-
 inoremap jj <ESC>
 inoremap jk <ESC>
 
@@ -118,7 +112,6 @@ nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 nnoremap <leader>r :CommandTFlush
 nnoremap <leader>p :CommandT<CR>
 
-"nnoremap <leader>b :buffers<CR>:buffer<Space>
 
 syntax on
 filetype plugin indent on
@@ -142,10 +135,6 @@ if has("gui_running")
 endif
 
 let g:NERDTreeQuitOnOpen = 1
-
-"let g:EasyMotion_leader_key = '<Leader>m'
-
-"nmap <silent> <Leader>p :CommandT<CR>
 
 " from http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
 function! s:DiffWithSaved()
@@ -177,14 +166,6 @@ set wildignore+=*/coverage/*
 set wildignore+=*/script/*
 
 highlight clear SignColumn
-
-" Rspec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-let g:rspec_command = "Dispatch rspec --drb {spec}"
 
 au BufRead, BufNewFile *.xls.eku setfiletype ruby
 

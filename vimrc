@@ -1,61 +1,64 @@
 " with inspiration from http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 set nocompatible
-filetype off
 
 runtime macros/matchit.vim
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'mileszs/ack.vim'
-Plugin 'wincent/command-t'
-Plugin 'tpope/vim-cucumber'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-fugitive'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-haml'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'puppetlabs/puppet-syntax-vim'
-Plugin 'tpope/vim-rails'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tpope/vim-repeat'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
-Plugin 'timcharper/textile.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-endwise'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/YankRing.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'tpope/vim-dispatch'
-Plugin 'pangloss/vim-javascript'
-Plugin 'ap/vim-css-color'
-Plugin 'gcmt/wildfire.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-sleuth'
-Plugin 'vim-scripts/dbext.vim'
-Plugin 'file:///Users/rufo/sandbox/psl.vim'
-Plugin 'chrisbra/csv.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'janko-m/vim-test'
-
-call vundle#end()
-filetype plugin indent on
+if has("win32")
+  call plug#begin('~/vimfiles/bundle')
+else
+  call plug#begin('~/.vim/bundle')
+end
+Plug 'mileszs/ack.vim'
+Plug 'wincent/command-t'
+Plug 'tpope/vim-cucumber'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-haml'
+Plug 'StanAngeloff/php.vim'
+Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'tpope/vim-rails'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-repeat'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'timcharper/textile.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-endwise'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-dispatch'
+Plug 'pangloss/vim-javascript'
+Plug 'ap/vim-css-color'
+Plug 'gcmt/wildfire.vim'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-sleuth'
+Plug 'vim-scripts/dbext.vim'
+Plug 'file:///Users/rufo/sandbox/psl.vim'
+Plug 'chrisbra/csv.vim'
+Plug 'tpope/vim-commentary'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'elixir-lang/vim-elixir'
+Plug 'janko-m/vim-test'
+call plug#end()
 
 set tabstop=2
 set shiftwidth=2
@@ -118,8 +121,6 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
-syntax on
-filetype plugin indent on
 set background=dark
 set guifont=Source\ Code\ Pro:h12
 set guioptions-=T

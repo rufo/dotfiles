@@ -36,7 +36,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'chriskempson/base16-vim'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ap/vim-css-color'
@@ -53,6 +52,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'janko-m/vim-test'
 
 call vundle#end()
 filetype plugin indent on
@@ -112,6 +112,11 @@ nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 nnoremap <leader>r :CommandTFlush
 nnoremap <leader>p :CommandT<CR>
 
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 syntax on
 filetype plugin indent on

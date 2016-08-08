@@ -94,7 +94,7 @@ vnoremap <tab> %
 
 set wrap
 set linebreak
-set colorcolumn=85
+set colorcolumn=80
 
 nnoremap j gj
 nnoremap k gk

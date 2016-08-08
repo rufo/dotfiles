@@ -15,6 +15,7 @@ if has("win32")
 else
   call plug#begin('~/.vim/bundle')
 end
+Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'wincent/command-t'
 Plug 'tpope/vim-cucumber'

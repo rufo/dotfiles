@@ -1,5 +1,6 @@
-export PATH="/usr/local/bin:/Users/rufo/.bin:/usr/local/share/npm/bin:/opt/android-sdk/tools:/opt/android-sdk/platforms/android-1.5/tools:/usr/local/libexec/git-core:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/opt/local/bin:$PATH:$HOME/.composer/vendor/bin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:$MANPATH"
+export PATH="$HOME/.linuxbrew/bin:/usr/local/bin:/Users/rufo/.bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:/usr/local/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:/usr/local/share/info:$INFOPATH"
 export EDITOR="vim"
 export CLICOLOR=true
 export MENU_COMPLETE=false

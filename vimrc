@@ -145,6 +145,8 @@ endif
 
 let g:NERDTreeQuitOnOpen = 1
 
+let g:CommandTFileScanner = "git"
+
 " from http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
 function! s:DiffWithSaved()
   let filetype=&ft

@@ -122,6 +122,8 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
+
 set background=dark
 set guifont=Source\ Code\ Pro:h12
 set guioptions-=T

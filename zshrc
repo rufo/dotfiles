@@ -124,7 +124,7 @@ eval "$(hub alias -s)" # activate hub helper script
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-unalias run-help
+unalias run-help &> /dev/null
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 

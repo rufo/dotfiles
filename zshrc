@@ -48,7 +48,7 @@ RPS1="%F{green}%~%f @ %F{yellow}%D{%H:%M}%f"
 
 autoload -U compinit
 compinit
-setopt correctall
+setopt nocorrectall
 
 alias m="mvim"
 alias m.="mvim ."

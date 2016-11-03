@@ -176,6 +176,7 @@ set wildignore+=*/public/pdf_previews/*
 set wildignore+=*/public/thumbnails/*
 set wildignore+=*/coverage/*
 set wildignore+=*/script/*
+set wildignore+=*.gif,*.jpg,*.png
 
 highlight clear SignColumn
 

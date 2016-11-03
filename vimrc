@@ -59,6 +59,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'elixir-lang/vim-elixir'
 Plug 'janko-m/vim-test'
+Plug 'lambdatoast/elm.vim'
 call plug#end()
 
 set tabstop=2

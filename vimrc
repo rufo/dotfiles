@@ -41,7 +41,6 @@ Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
@@ -59,6 +58,9 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'elixir-lang/vim-elixir'
 Plug 'janko-m/vim-test'
+
+" colorschemes
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 set tabstop=2

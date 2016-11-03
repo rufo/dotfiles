@@ -191,3 +191,5 @@ autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+set termguicolors

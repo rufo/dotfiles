@@ -41,7 +41,6 @@ Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
@@ -60,6 +59,9 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'elixir-lang/vim-elixir'
 Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
+
+" colorschemes
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 set tabstop=2
@@ -191,3 +193,5 @@ autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+set termguicolors

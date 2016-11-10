@@ -59,6 +59,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'elixir-lang/vim-elixir'
 Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " colorschemes
 Plug 'chriskempson/base16-vim'

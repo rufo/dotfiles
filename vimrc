@@ -195,4 +195,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-set termguicolors
+if has("termguicolors")
+  set termguicolors
+end

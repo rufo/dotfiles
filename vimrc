@@ -17,7 +17,9 @@ else
 end
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
-Plug 'wincent/command-t'
+Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t && /usr/bin/ruby extconf.rb && make'
+    \ }
 Plug 'tpope/vim-cucumber'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'

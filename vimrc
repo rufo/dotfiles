@@ -191,7 +191,9 @@ set mouse=a
 
 autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
 
-if executable('ag')
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 

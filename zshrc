@@ -1,3 +1,5 @@
+exists() { type -t "$1" > /dev/null 2>&1; }
+
 export PATH="$HOME/.linuxbrew/bin:/usr/local/bin:/Users/rufo/.bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:/usr/local/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:/usr/local/share/info:$INFOPATH"
@@ -23,7 +25,10 @@ setopt histexpiredupsfirst
 autoload -Uz vcs_info
 
 unamestr=`uname`
-. `brew --prefix`/etc/profile.d/z.sh
+
+if exists brew; then
+  . `brew --prefix`/etc/profile.d/z.sh
+fi
 
 if [[ "$unamestr" == 'Darwin' ]]; then
   PS1="%F{blue}rufo-mba%f%(1v.%F{red}%1v%f.-)%# "
@@ -120,7 +125,9 @@ _rake () {
 
 compdef _rake rake
 
-eval "$(hub alias -s)" # activate hub helper script
+if exists brew; then
+  eval "$(hub alias -s)" # activate hub helper script
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

@@ -31,10 +31,11 @@ if exists brew; then
 fi
 
 if [[ "$unamestr" == 'Darwin' ]]; then
-  PS1="%F{blue}rufo-mba%f%(1v.%F{red}%1v%f.-)%# "
+  PS1_COLOR="blue"
 else
-  PS1="%F{red}rufo-z68%f%(1v.%F{red}%1v%f.-)%# "
+  PS1_COLOR="red"
 fi
+PS1="%F{$PS1_COLOR}%n@%m%f%(1v.%F{red}%1v%f.-)%# "
 
 # this lets you do things like mmv *.txt *.erb to rename all .txts to .erb
 autoload -U zmv

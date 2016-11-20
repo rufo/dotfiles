@@ -32,8 +32,6 @@ fi
 
 if [[ "$unamestr" == 'Darwin' ]]; then
   PS1="%F{blue}rufo-mba%f%(1v.%F{red}%1v%f.-)%# "
-  export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
-  export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 else
   PS1="%F{red}rufo-z68%f%(1v.%F{red}%1v%f.-)%# "
 fi

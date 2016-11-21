@@ -1,4 +1,4 @@
-exists() { type -t "$1" > /dev/null 2>&1; }
+exists() { type "$1" > /dev/null 2>&1; }
 
 export PATH="$HOME/.linuxbrew/bin:/usr/local/bin:/Users/rufo/.bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:/usr/local/man:$MANPATH"

@@ -96,11 +96,6 @@ alias be='bundle exec'
 
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 
-# autocorrection disablement
-alias vim='nocorrect vim'
-alias git='nocorrect git'
-alias sudo='nocorrect sudo'
-
 git(){ if [ $1 = git ]; then shift; fi; command git "$@"; }
 
 _rake_does_task_list_need_generating () {

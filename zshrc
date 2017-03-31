@@ -139,3 +139,6 @@ export PATH=/opt/chefdk/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if exists rbenv; then
+  eval "$(rbenv init -)"
+fi

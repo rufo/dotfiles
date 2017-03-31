@@ -139,7 +139,3 @@ export PATH=/opt/chefdk/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# PM setup
-export SIM_CHEF="/Users/rufo/work/pm_chef"
-export SIM_MGMT="/Users/rufo/work/mgmt"
-export SIM_LAND="/Users/rufo/work/landing"

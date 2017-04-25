@@ -46,6 +46,9 @@ precmd() {
 
   vcs_info
   [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
+
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
 }
 
 RPS1="%F{green}%~%f @ %F{yellow}%D{%H:%M}%f"

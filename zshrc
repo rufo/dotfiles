@@ -142,3 +142,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 if exists rbenv; then
   eval "$(rbenv init -)"
 fi
+
+if exists nodenv; then
+  eval "$(nodenv init -)"
+fi

@@ -143,3 +143,7 @@ export PM_CHEF="/Users/rufo/work/pm_chef"
 export PATH=/opt/chefdk/bin:$PATH
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# enables Erlang history
+export ERL_AFLAGS="-kernel shell_history enabled"
+

@@ -26,7 +26,10 @@ autoload -Uz vcs_info
 unamestr=`uname`
 
 if exists brew; then
-  . `brew --prefix`/etc/profile.d/z.sh
+  Z_PATH="`brew --prefix`/etc/profile.d/z.sh"
+  if [[ -e $Z_PATH ]]; then
+    . $Z_PATH
+  fi
 fi
 
 if [[ "$unamestr" == 'Darwin' ]]; then

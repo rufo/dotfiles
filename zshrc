@@ -89,7 +89,7 @@ alias flushdns='dscacheutil -flushcache'
 alias rdbd='rake db:migrate && RAILS_ENV=test rake db:migrate'
 alias findswaps="find . -name '*.swp'"
 alias recoverswaps="find . -name '*.swp' -exec $EDITOR -r -c DiffSaved {} \;"
-alias update-macvim="brew reinstall macvim --HEAD --override-system-vim"
+alias update-macvim="brew reinstall macvim --HEAD --with-override-system-vim"
 alias whatwasiworkingon="git status --porcelain | cut -c 4- | xargs ls -lct"
 alias whataremydogesworth="suchvalue DExEt8Y8m3aVYwLEdYdAtA2tP7mgbuzxKC"
 dash(){ command open dash://$1 }

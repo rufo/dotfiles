@@ -116,7 +116,7 @@ _rake () {
   if [ -f Rakefile ]; then
     if _rake_does_task_list_need_generating; then
       echo "\nGenerating .rake_tasks..." > /dev/stderr
-      rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+      bundle exec rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
     fi
     compadd `cat .rake_tasks`
   fi

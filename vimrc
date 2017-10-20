@@ -202,3 +202,17 @@ endif
 if has("termguicolors")
   set termguicolors
 end
+
+function! UpdatePowerSaving(timerId)
+  if executable('pmset')
+    call system("pmset -g batt | head -1 | grep 'Battery'")
+    if !v:shell_error
+      let g:ale_lint_delay=10000
+    else
+      let g:ale_lint_delay=200
+    endif
+  endif
+endfunction
+
+call UpdatePowerSaving(0)
+let powerTimer=timer_start(10000, "UpdatePowerSaving")

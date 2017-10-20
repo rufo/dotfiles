@@ -6,7 +6,6 @@ export INFOPATH="$HOME/.linuxbrew/share/info:/usr/local/share/info:$INFOPATH"
 export EDITOR="vim"
 export CLICOLOR=true
 export MENU_COMPLETE=false
-export CDPATH=.:~/Dropbox/Projects:~/Projects:~/Dropbox/sandbox
 export ARCHFLAGS="-arch x86_64"
 export NODE_PATH="/usr/local/lib/node_modules"
 export BUNDLE_EDITOR=mvim

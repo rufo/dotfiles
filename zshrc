@@ -138,9 +138,6 @@ HELPDIR=/usr/local/share/zsh/helpfiles
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-export PM_CHEF="/Users/rufo/work/pm_chef"
-export PATH=/opt/chefdk/bin:$PATH
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 if exists rbenv; then

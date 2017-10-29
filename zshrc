@@ -78,13 +78,12 @@ alias gcm="git commit -m"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias reload="source ~/.zshrc"
 alias edit="$EDITOR ~/.zshrc"
-alias twedit="/usr/local/bin/edit"
 alias cd..="cd .."
 alias cdp="cap deploy"
 alias cdpm="cap deploy:migrations"
 alias o="open"
-alias "git-undo-commit"="git reset --soft 'HEAD^'"
-alias olm='mvim db/migrate/`ls -t1 db/migrate | head -1`'
+alias git-undo-commit="git reset --soft 'HEAD^'"
+alias olm='$EDITOR db/migrate/`ls -t1 db/migrate | head -1`'
 alias flushdns='dscacheutil -flushcache'
 alias rdbd='rake db:migrate && RAILS_ENV=test rake db:migrate'
 alias findswaps="find . -name '*.swp'"

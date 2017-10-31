@@ -98,6 +98,7 @@ alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
 alias youtube-dl-mp4 'youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 alias be='bundle exec'
+alias get-sfmono='cp -R /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* ~/Library/Fonts'
 
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 

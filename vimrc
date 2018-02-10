@@ -62,7 +62,8 @@ Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
-
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+"
 " colorschemes
 Plug 'chriskempson/base16-vim'
 call plug#end()
@@ -119,8 +120,7 @@ nnoremap <leader>; :if &number <Bar>
 
 nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 
-nnoremap <leader>r :CommandTFlush
-nnoremap <leader>p :CommandT<CR>
+nnoremap <leader>p :Files<CR>
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -131,7 +131,7 @@ nmap <silent> <leader>g :TestVisit<CR>
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 set background=dark
-set guifont=SF\ Mono\ Regular:h12
+set guifont=SF\ Mono\ Regular:h13,Source\ Code\ Pro:h12
 set guioptions-=T
 colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red

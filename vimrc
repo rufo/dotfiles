@@ -52,7 +52,6 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/dbext.vim'
-Plug 'file:///Users/rufo/sandbox/psl.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
@@ -63,6 +62,9 @@ Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+" Plug 'mhinz/vim-grepper'
+Plug 'yssl/QFEnter'
+Plug 'tpope/vim-rhubarb'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'
@@ -216,3 +218,9 @@ endfunction
 
 call UpdatePowerSaving(0)
 let powerTimer=timer_start(10000, "UpdatePowerSaving")
+
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.open = ['o', '<CR>', '<2-LeftMouse>']
+let g:qfenter_keymap.vopen = ['<Leader><CR>']
+let g:qfenter_keymap.hopen = ['<Leader><Space>']
+let g:qfenter_keymap.topen = ['<Leader><Tab>']

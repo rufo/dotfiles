@@ -65,6 +65,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Plug 'mhinz/vim-grepper'
 Plug 'yssl/QFEnter'
 Plug 'tpope/vim-rhubarb'
+Plug 'itspriddle/vim-marked'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

@@ -133,8 +133,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 set background=dark
-set guifont=SF\ Mono\ Regular:h13,Source\ Code\ Pro:h12
-set guioptions-=T
 colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red
 au BufNewFile,BufRead *.nghaml set filetype=haml
@@ -147,6 +145,8 @@ let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "/Users/rufo/sandbox/vimclojure-nailgun-client/ng"
 
 if has("gui_running")
+  set guifont=SF\ Mono\ Regular:h12,Source\ Code\ Pro:h12
+  set guioptions-=T
   autocmd FileType ruby,eruby set noballooneval
   set lines=100 columns=300
 endif

@@ -201,3 +201,9 @@ test-truecolor() {
   }'
   echo "Colors should be smooth and not banded"
 }
+
+256-color-codes() {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}m${i} "
+  done
+}

@@ -1,8 +1,17 @@
 exists() { type "$1" > /dev/null 2>&1; }
 
-export PATH="$HOME/.linuxbrew/bin:/usr/local/bin:/Users/rufo/.bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:/usr/local/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:/usr/local/share/info:$INFOPATH"
+# set up homebrew wherever it may exist
+export PATH="/usr/local/bin:$PATH"
+if [[ -e "/home/linuxbrew/.linuxbrew" ]]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+elif [[ -e "$HOME/.linuxbrew" ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+fi
+if exists brew; then
+  export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+  export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+fi
+
 export EDITOR="vim"
 export CLICOLOR=true
 export MENU_COMPLETE=false

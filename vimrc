@@ -2,6 +2,8 @@
 
 set nocompatible
 
+let brew_prefix = systemlist("brew --prefix")[0]
+
 runtime macros/matchit.vim
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -61,7 +63,8 @@ Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+echom brew_prefix . '/opt/fzf'
+Plug brew_prefix . '/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Plug 'mhinz/vim-grepper'
 Plug 'yssl/QFEnter'
 Plug 'tpope/vim-rhubarb'

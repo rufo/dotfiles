@@ -124,7 +124,7 @@ _rake () {
 
 compdef _rake rake
 
-if exists brew; then
+if exists hub; then
   eval "$(hub alias -s)" # activate hub helper script
 fi
 

@@ -47,13 +47,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
 Plug 'gcmt/wildfire.vim'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-scripts/dbext.vim'
-Plug 'file:///Users/rufo/sandbox/psl.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'tpope/vim-commentary'
 Plug 'kana/vim-textobj-user'
@@ -62,7 +60,13 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
-
+Plug 'w0rp/ale'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+" Plug 'mhinz/vim-grepper'
+Plug 'yssl/QFEnter'
+Plug 'tpope/vim-rhubarb'
+Plug 'itspriddle/vim-marked'
+"
 " colorschemes
 Plug 'chriskempson/base16-vim'
 call plug#end()
@@ -119,8 +123,7 @@ nnoremap <leader>; :if &number <Bar>
 
 nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 
-nnoremap <leader>r :CommandTFlush
-nnoremap <leader>p :CommandT<CR>
+nnoremap <leader>p :Files<CR>
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -131,8 +134,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 set background=dark
-set guifont=Source\ Code\ Pro:h12
-set guioptions-=T
 colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red
 au BufNewFile,BufRead *.nghaml set filetype=haml
@@ -145,6 +146,8 @@ let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "/Users/rufo/sandbox/vimclojure-nailgun-client/ng"
 
 if has("gui_running")
+  set guifont=SF\ Mono\ Regular:h12,Source\ Code\ Pro:h12
+  set guioptions-=T
   autocmd FileType ruby,eruby set noballooneval
   set lines=100 columns=300
 endif
@@ -202,3 +205,23 @@ endif
 if has("termguicolors")
   set termguicolors
 end
+
+function! UpdatePowerSaving(timerId)
+  if executable('pmset')
+    call system("pmset -g batt | head -1 | grep 'Battery'")
+    if !v:shell_error
+      let g:ale_lint_delay=10000
+    else
+      let g:ale_lint_delay=200
+    endif
+  endif
+endfunction
+
+call UpdatePowerSaving(0)
+let powerTimer=timer_start(10000, "UpdatePowerSaving")
+
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.open = ['o', '<CR>', '<2-LeftMouse>']
+let g:qfenter_keymap.vopen = ['<Leader><CR>']
+let g:qfenter_keymap.hopen = ['<Leader><Space>']
+let g:qfenter_keymap.topen = ['<Leader><Tab>']

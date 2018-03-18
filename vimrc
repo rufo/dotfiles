@@ -2,7 +2,12 @@
 
 set nocompatible
 
-let brew_prefix = systemlist("brew --prefix")[0]
+
+if executable("brew")
+  let brew_prefix = systemlist("brew --prefix")[0]
+else
+  let brew_prefix = "/usr/local"
+end
 
 runtime macros/matchit.vim
 
@@ -63,7 +68,6 @@ Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
-echom brew_prefix . '/opt/fzf'
 Plug brew_prefix . '/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Plug 'mhinz/vim-grepper'
 Plug 'yssl/QFEnter'

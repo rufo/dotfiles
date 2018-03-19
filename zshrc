@@ -1,8 +1,17 @@
 exists() { type "$1" > /dev/null 2>&1; }
 
-export PATH="$HOME/.linuxbrew/bin:/usr/local/bin:/Users/rufo/.bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:/usr/local/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:/usr/local/share/info:$INFOPATH"
+# set up homebrew wherever it may exist
+export PATH="/usr/local/bin:$PATH"
+if [[ -e "/home/linuxbrew/.linuxbrew" ]]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+elif [[ -e "$HOME/.linuxbrew" ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+fi
+if exists brew; then
+  export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+  export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+fi
+
 export EDITOR="vim"
 export CLICOLOR=true
 export MENU_COMPLETE=false
@@ -124,7 +133,7 @@ _rake () {
 
 compdef _rake rake
 
-if exists brew; then
+if exists hub; then
   eval "$(hub alias -s)" # activate hub helper script
 fi
 
@@ -140,6 +149,9 @@ HELPDIR=/usr/local/share/zsh/helpfiles
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# enables Erlang history
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 if exists rbenv; then
   eval "$(rbenv init -)"
@@ -172,3 +184,26 @@ if exists fzf && exists rg; then
   # --color info:108,prompt:109,spinner:108,pointer:168,marker:168
   # '
 fi
+
+test-truecolor() {
+  awk 'BEGIN{
+      s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+      for (colnum = 0; colnum<77; colnum++) {
+          r = 255-(colnum*255/76);
+          g = (colnum*510/76);
+          b = (colnum*255/76);
+          if (g>255) g = 510-g;
+          printf "\033[48;2;%d;%d;%dm", r,g,b;
+          printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+          printf "%s\033[0m", substr(s,colnum+1,1);
+      }
+      printf "\n";
+  }'
+  echo "Colors should be smooth and not banded"
+}
+
+256-color-codes() {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}m${i} "
+  done
+}

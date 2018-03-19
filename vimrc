@@ -2,6 +2,13 @@
 
 set nocompatible
 
+
+if executable("brew")
+  let brew_prefix = systemlist("brew --prefix")[0]
+else
+  let brew_prefix = "/usr/local"
+end
+
 runtime macros/matchit.vim
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -62,7 +69,7 @@ Plug 'janko-m/vim-test'
 Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug brew_prefix . '/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Plug 'mhinz/vim-grepper'
 Plug 'yssl/QFEnter'
 Plug 'tpope/vim-rhubarb'
@@ -138,6 +145,16 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
+if !empty($DISABLE_TRUECOLOR) " say, old mosh
+  let base16colorspace=256
+elseif has("termguicolors")
+  set termguicolors
+  if &term =~# '^screen'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+end
+
 set background=dark
 colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red
@@ -207,9 +224,6 @@ elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-if has("termguicolors")
-  set termguicolors
-end
 
 function! UpdatePowerSaving(timerId)
   if executable('pmset')

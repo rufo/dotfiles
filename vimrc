@@ -16,7 +16,8 @@ else
   call plug#begin('~/.vim/bundle')
 end
 Plug 'scrooloose/nerdtree'
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
+Plug 'wincent/ferret'
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t && /usr/bin/ruby extconf.rb && make'
     \ }

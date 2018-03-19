@@ -125,6 +125,10 @@ nnoremap <leader>; :if &number <Bar>
 nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 
 nnoremap <leader>p :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>j :Lines<CR>
+cnoremap <C-r> :History:<CR>
+nnoremap <leader>/ :History/<CR>
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>

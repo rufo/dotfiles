@@ -140,6 +140,16 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
+if !empty($DISABLE_TRUECOLOR) " say, old mosh
+  let base16colorspace=256
+elseif has("termguicolors")
+  set termguicolors
+  if &term =~# '^screen'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
+end
+
 set background=dark
 colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red
@@ -209,13 +219,6 @@ elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-if has("termguicolors")
-  set termguicolors
-	if &term =~# '^screen'
-			let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-			let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	endif
-end
 
 function! UpdatePowerSaving(timerId)
   if executable('pmset')

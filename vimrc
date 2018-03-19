@@ -230,3 +230,9 @@ let g:qfenter_keymap.open = ['o', '<CR>', '<2-LeftMouse>']
 let g:qfenter_keymap.vopen = ['<Leader><CR>']
 let g:qfenter_keymap.hopen = ['<Leader><Space>']
 let g:qfenter_keymap.topen = ['<Leader><Tab>']
+
+function! SetupGithubGithub()
+  let g:ale_ruby_rubocop_executable='bin/rubocop'
+endfunction
+
+autocmd BufNewFile,BufRead ~/github/github/* call SetupGithubGithub()

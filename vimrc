@@ -23,7 +23,8 @@ else
   call plug#begin('~/.vim/bundle')
 end
 Plug 'scrooloose/nerdtree'
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
+Plug 'wincent/ferret'
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t && /usr/bin/ruby extconf.rb && make'
     \ }
@@ -131,6 +132,10 @@ nnoremap <leader>; :if &number <Bar>
 nnoremap <leader>o :put ='' <Bar>put! =''<cr>
 
 nnoremap <leader>p :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>j :Lines<CR>
+cnoremap <C-r> :History:<CR>
+nnoremap <leader>/ :History/<CR>
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
@@ -239,3 +244,9 @@ let g:qfenter_keymap.open = ['o', '<CR>', '<2-LeftMouse>']
 let g:qfenter_keymap.vopen = ['<Leader><CR>']
 let g:qfenter_keymap.hopen = ['<Leader><Space>']
 let g:qfenter_keymap.topen = ['<Leader><Tab>']
+
+function! SetupGithubGithub()
+  let g:ale_ruby_rubocop_executable='bin/rubocop'
+endfunction
+
+autocmd BufNewFile,BufRead ~/github/github/* call SetupGithubGithub()

@@ -74,6 +74,7 @@ Plug brew_prefix . '/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'yssl/QFEnter'
 Plug 'tpope/vim-rhubarb'
 Plug 'itspriddle/vim-marked'
+Plug 'christoomey/vim-tmux-navigator'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

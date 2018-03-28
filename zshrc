@@ -207,3 +207,7 @@ test-truecolor() {
     printf "\x1b[38;5;${i}m${i} "
   done
 }
+
+if exists brew && [ -e $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi

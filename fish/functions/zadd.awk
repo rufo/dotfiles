@@ -1,0 +1,1 @@
+/Users/rufo/.config/fisherman/z/functions/zadd.awk

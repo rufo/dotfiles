@@ -1,0 +1,1 @@
+/Users/rufo/.config/fisherman/nodenv/completions/nodenv.fish

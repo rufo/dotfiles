@@ -75,6 +75,8 @@ Plug 'yssl/QFEnter'
 Plug 'tpope/vim-rhubarb'
 Plug 'itspriddle/vim-marked'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tommcdo/vim-exchange'
+Plug 'dag/vim-fish'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

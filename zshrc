@@ -211,3 +211,5 @@ test-truecolor() {
 if exists brew && [ -e $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+
+export VAULT_URL="none"

@@ -77,6 +77,7 @@ Plug 'itspriddle/vim-marked'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'dag/vim-fish'
+Plug 'zerowidth/vim-copy-as-rtf'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

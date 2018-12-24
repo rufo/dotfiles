@@ -36,3 +36,4 @@ mas "1Password 7", id: 1333542190
 mas "Slack", id: 803453959
 mas "Deliveries", id: 924726344
 mas "Paprika Recipe Manager 3", id: 1303222628
+mas "Speedtest by Ookla", id: 1153157709

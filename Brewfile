@@ -37,3 +37,7 @@ mas "Slack", id: 803453959
 mas "Deliveries", id: 924726344
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Speedtest by Ookla", id: 1153157709
+
+mas "1Blocker", id: 1107421413
+mas "SmileAllDay", id: 1180442868
+mas "PIPifier", id: 1160374471

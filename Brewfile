@@ -5,6 +5,7 @@ cask_args appdir: "/Applications"
 brew "zsh"
 brew "macvim", override_system_vim: true
 brew "hub"
+brew "shellcheck"
 
 cask "arq"
 cask "iterm2"

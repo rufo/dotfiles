@@ -22,13 +22,15 @@ cask "istat-menus"
 cask "steam"
 cask "discord"
 cask "hammerspoon"
-cask "logitech-options"
-cask "kensington-trackball-works"
 cask "omnifocus"
 cask "google-chrome"
 cask "anylist"
 cask "bartender"
 cask "spotify"
+
+cask "caldigit-usb-c-dock-driver"
+cask "kensington-trackball-works"
+cask "logitech-options"
 
 mas "1Password 7", id: 1333542190
 mas "Slack", id: 803453959

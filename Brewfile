@@ -30,6 +30,7 @@ cask "bartender"
 cask "spotify"
 cask "drafts"
 cask "chatology"
+cask "moom"
 
 cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"

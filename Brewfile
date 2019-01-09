@@ -47,3 +47,6 @@ mas "Yoink - Improved Drag and Drop", id: 457622435
 mas "1Blocker", id: 1107421413
 mas "SmileAllDay", id: 1180442868
 mas "PIPifier", id: 1160374471
+
+# drivers that might not be needed but I wanted to save the name for
+# cask "silicon-labs-vcp-driver"

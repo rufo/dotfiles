@@ -33,6 +33,7 @@ cask "spotify"
 cask "drafts"
 cask "chatology"
 cask "moom"
+cask "visual-studio-code"
 
 cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"

@@ -10,6 +10,7 @@ fi
 if exists brew; then
   export MANPATH="$(brew --prefix)/share/man:$MANPATH"
   export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
 export EDITOR="vim"
@@ -107,6 +108,7 @@ alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
 alias youtube-dl-mp4 'youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 alias be='bundle exec'
 alias get-sfmono='cp -R /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* ~/Library/Fonts'
+alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
 
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 

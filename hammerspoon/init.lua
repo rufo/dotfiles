@@ -1,6 +1,14 @@
 dockMover = hs.screen.watcher.new(function()
-  local displays = hs.screen.allScreens()
-  if #displays > 1 then
+  local displays = hs.screen.screenPositions()
+  local dockOnBottom = false
+
+  for screen, position in pairs(displays) do
+    if position.x > 0 then
+      dockOnBottom = true
+    end
+  end
+
+  if dockOnBottom then
 	hs.alert.show("move dock on the bottom")
 	hs.osascript.applescript([[ tell application "System Events"
 			tell dock preferences

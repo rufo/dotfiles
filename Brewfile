@@ -7,6 +7,8 @@ brew "macvim", override_system_vim: true
 brew "hub"
 brew "shellcheck"
 brew "nodenv"
+brew "z"
+brew "fzf"
 
 cask "arq"
 cask "iterm2"

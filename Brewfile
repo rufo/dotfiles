@@ -1,4 +1,4 @@
-tap "homebrew/cask-drivers"
+
 
 cask_args appdir: "/Applications"
 
@@ -34,6 +34,8 @@ cask "drafts"
 cask "chatology"
 cask "moom"
 cask "visual-studio-code"
+cask "acorn"
+cask "dash"
 
 cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"
@@ -47,6 +49,7 @@ mas "Speedtest by Ookla", id: 1153157709
 mas "Bear", id: 1091189122
 mas "Yoink - Improved Drag and Drop", id: 457622435
 mas "DaisyDisk", id: 411643860
+mas "Day One", id: 1055511498
 
 mas "1Blocker", id: 1107421413
 mas "SmileAllDay", id: 1180442868

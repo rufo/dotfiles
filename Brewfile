@@ -6,6 +6,9 @@ brew "zsh"
 brew "macvim", override_system_vim: true
 brew "hub"
 brew "shellcheck"
+brew "nodenv"
+brew "z"
+brew "fzf"
 
 cask "arq"
 cask "iterm2"
@@ -29,6 +32,8 @@ cask "bartender"
 cask "spotify"
 cask "drafts"
 cask "chatology"
+cask "moom"
+cask "visual-studio-code"
 
 cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"
@@ -46,3 +51,6 @@ mas "DaisyDisk", id: 411643860
 mas "1Blocker", id: 1107421413
 mas "SmileAllDay", id: 1180442868
 mas "PIPifier", id: 1160374471
+
+# drivers that might not be needed but I wanted to save the name for
+# cask "silicon-labs-vcp-driver"

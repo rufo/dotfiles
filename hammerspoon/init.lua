@@ -1,6 +1,12 @@
+displays = nil
+
 dockMover = hs.screen.watcher.new(function()
-  local displays = hs.screen.screenPositions()
+  local newDisplays = hs.screen.screenPositions()
   local dockOnBottom = false
+  if displays == newDisplays then
+    return
+  end
+  displays = newDisplays
 
   for screen, position in pairs(displays) do
     if position.x > 0 then

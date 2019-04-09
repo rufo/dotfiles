@@ -9,7 +9,7 @@ dockMover = hs.screen.watcher.new(function()
   end
 
   if dockOnBottom then
-	hs.alert.show("move dock on the bottom")
+	hs.alert.show("move dock to bottom")
 	hs.osascript.applescript([[ tell application "System Events"
 			tell dock preferences
 				set properties to {screen edge: bottom, autohide: true}

@@ -9,6 +9,8 @@ brew "shellcheck"
 brew "nodenv"
 brew "z"
 brew "fzf"
+brew "rg"
+brew "switchaudio-osx"
 
 cask "arq"
 cask "iterm2"

@@ -40,6 +40,7 @@ cask "moom"
 cask "visual-studio-code"
 cask "acorn"
 cask "dash"
+cask "vlc"
 
 cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"

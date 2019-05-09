@@ -1,6 +1,7 @@
 
 
 cask_args appdir: "/Applications"
+tap "heroku/brew"
 
 brew "zsh"
 brew "macvim", override_system_vim: true
@@ -11,6 +12,7 @@ brew "z"
 brew "fzf"
 brew "rg"
 brew "switchaudio-osx"
+brew "heroku"
 
 cask "arq"
 cask "iterm2"

@@ -40,6 +40,8 @@ cask "visual-studio-code"
 cask "acorn"
 cask "dash"
 cask "vlc"
+cask "iina"
+cask "zerotier-one"
 
 cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"
@@ -54,6 +56,7 @@ mas "Bear", id: 1091189122
 mas "Yoink - Improved Drag and Drop", id: 457622435
 mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
+mas "Things 3", id: 904280696
 mas "Drafts", id: 1435957248
 
 mas "1Blocker", id: 1107421413

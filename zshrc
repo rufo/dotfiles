@@ -107,7 +107,6 @@ alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
 alias youtube-dl-mp4 'youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 alias be='bundle exec'
-alias get-sfmono='cp -R /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* ~/Library/Fonts'
 alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
 
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
@@ -138,6 +137,20 @@ compdef _rake rake
 if exists hub; then
   eval "$(hub alias -s)" # activate hub helper script
 fi
+
+get-sfmono() {
+  if [ -d /Applications/Utilities/Terminal.app ]; then
+    TERMINALDIR=/Applications/Utilities/Terminal.app
+  elif [ -d /System/Applications/Utilities/Terminal.app ]; then
+    TERMINALDIR=/System/Applications/Utilities/Terminal.app
+  else
+    echo "Couldn't find a Terminal.app, bailing"
+    return 1
+  fi
+
+  cp -R $TERMINALDIR/Contents/Resources/Fonts/* ~/Library/Fonts
+  echo "Copied SF Mono from $TERMINALDIR"
+}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

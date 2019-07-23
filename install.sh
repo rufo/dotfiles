@@ -3,8 +3,8 @@
 set -o xtrace
 set -e
 
-link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global )
-link_in_config=( fish hammerspoon nvim )
+link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global hammerspoon )
+link_in_config=( fish nvim )
 
 for i in "${link_in_homedir[@]}"
 do

@@ -10,6 +10,7 @@ fi
 if exists brew; then
   export MANPATH="$(brew --prefix)/share/man:$MANPATH"
   export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
 export EDITOR="vim"
@@ -97,7 +98,7 @@ alias flushdns='dscacheutil -flushcache'
 alias rdbd='rake db:migrate && RAILS_ENV=test rake db:migrate'
 alias findswaps="find . -name '*.swp'"
 alias recoverswaps="find . -name '*.swp' -exec $EDITOR -r -c DiffSaved {} \;"
-alias update-macvim="brew reinstall macvim --HEAD --with-override-system-vim"
+alias update-macvim="brew upgrade macvim"
 alias whatwasiworkingon="git status --porcelain | cut -c 4- | xargs ls -lct"
 alias whataremydogesworth="suchvalue DExEt8Y8m3aVYwLEdYdAtA2tP7mgbuzxKC"
 dash(){ command open dash://$1 }
@@ -108,6 +109,7 @@ alias youtube-dl-mp4 'youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[
 alias be='bundle exec'
 alias get-sfmono='cp -R /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* ~/Library/Fonts'
 alias setup-ssh='eval "$(ssh-agent)" && ssh-add'
+alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
 
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 
@@ -137,6 +139,20 @@ compdef _rake rake
 if exists hub; then
   eval "$(hub alias -s)" # activate hub helper script
 fi
+
+get-sfmono() {
+  if [ -d /Applications/Utilities/Terminal.app ]; then
+    TERMINALDIR=/Applications/Utilities/Terminal.app
+  elif [ -d /System/Applications/Utilities/Terminal.app ]; then
+    TERMINALDIR=/System/Applications/Utilities/Terminal.app
+  else
+    echo "Couldn't find a Terminal.app, bailing"
+    return 1
+  fi
+
+  cp -R $TERMINALDIR/Contents/Resources/Fonts/* ~/Library/Fonts
+  echo "Copied SF Mono from $TERMINALDIR"
+}
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"

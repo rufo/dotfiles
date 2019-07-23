@@ -77,6 +77,8 @@ Plug 'itspriddle/vim-marked'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'dag/vim-fish'
+Plug 'zerowidth/vim-copy-as-rtf'
+Plug 'bfontaine/Brewfile.vim'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'
@@ -171,7 +173,7 @@ let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "/Users/rufo/sandbox/vimclojure-nailgun-client/ng"
 
 if has("gui_running")
-  set guifont=SF\ Mono\ Regular:h12,Source\ Code\ Pro:h12
+  set guifont=SF\ Mono\ Medium:h13,Source\ Code\ Pro:h12
   set guioptions-=T
   autocmd FileType ruby,eruby set noballooneval
   set lines=100 columns=300

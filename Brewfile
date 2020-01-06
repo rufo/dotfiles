@@ -43,7 +43,7 @@ cask "vlc"
 cask "iina"
 cask "zerotier-one"
 
-cask "caldigit-usb-c-dock-driver"
+# cask "caldigit-usb-c-dock-driver"
 cask "kensington-trackball-works"
 cask "logitech-options"
 

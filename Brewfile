@@ -13,6 +13,7 @@ brew "fzf"
 brew "rg"
 brew "switchaudio-osx"
 brew "heroku"
+brew "youtube-dl"
 
 cask "arq"
 cask "iterm2"

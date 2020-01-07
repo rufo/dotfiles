@@ -1,0 +1,469 @@
+{
+  "entries": {
+    "tap": {
+      "heroku/brew": {
+        "revision": "3beb32c39ca5b2dc457f8024857224b8f635012d"
+      },
+      "homebrew/cask-drivers": {
+        "revision": "90986a32d7584c9bdf5d2bc7887ac396f0cc4aca"
+      }
+    },
+    "brew": {
+      "zsh": {
+        "version": "5.7.1",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-5.7.1.catalina.bottle.tar.gz",
+              "sha256": "a24afee5cc1af2b139b6afb8963992b3fb22a4b9fbfa02402ac17e6bfa66a27a"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-5.7.1.mojave.bottle.tar.gz",
+              "sha256": "793d87f67e64a5e01dfdea890af218e4779a2df514d395b956e464129af16fd7"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-5.7.1.high_sierra.bottle.tar.gz",
+              "sha256": "6656fe9aa5d5cbaff49bc9c1ccf17b7d96d21036ac44c9181bd35c57dc38b450"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-5.7.1.sierra.bottle.tar.gz",
+              "sha256": "008dfc844b88fcd61925233b08f0d78b2851bf2901320a5f6ee975da4b8604e3"
+            }
+          }
+        }
+      },
+      "macvim": {
+        "version": "8.1-161",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/macvim-8.1-161.catalina.bottle.tar.gz",
+              "sha256": "9da991b45f4ca6fc8bbf4c1e04f55b2341ffde0a8eeddf018e51ff574965f6a9"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/macvim-8.1-161.mojave.bottle.tar.gz",
+              "sha256": "8b49227432024454492a07e6259f683435f67430d2277f2581181d70bcb97922"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/macvim-8.1-161.high_sierra.bottle.tar.gz",
+              "sha256": "1cea9d8aaf17fbf16c3f7d9d62deff86ac66523cfe0c5d53f71d3b91043d2f15"
+            }
+          }
+        },
+        "options": {
+          "override_system_vim": true
+        }
+      },
+      "hub": {
+        "version": "2.13.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/hub-2.13.0.catalina.bottle.1.tar.gz",
+              "sha256": "ecb167b7862314de59c67deb9c8dcbcec17ff78cc949cd7ce8309efb9f269e1e"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/hub-2.13.0.mojave.bottle.1.tar.gz",
+              "sha256": "22e8f62a10d5b985760ca626506b32a31c5a8f298df40a0560e034c7193c5bca"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/hub-2.13.0.high_sierra.bottle.1.tar.gz",
+              "sha256": "b44b83e821252707efd46b4d1b2920b34a540977941061280a148cf90f4b8e1d"
+            }
+          }
+        }
+      },
+      "shellcheck": {
+        "version": "0.7.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/shellcheck-0.7.0.mojave.bottle.tar.gz",
+              "sha256": "be8e084d55379a4b5a8bfba78ad298f966f0888e6c3eb7e5202527d3938f3501"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/shellcheck-0.7.0.high_sierra.bottle.tar.gz",
+              "sha256": "a4e12db223139c82649fdc16a2d04184cbaf5fc413c1135b0a1100a16e33290b"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/shellcheck-0.7.0.sierra.bottle.tar.gz",
+              "sha256": "770a22a491ae6316f7b6e56d8039d30693d857336ccc608de865750798480899"
+            }
+          }
+        }
+      },
+      "nodenv": {
+        "version": "1.3.1",
+        "bottle": false
+      },
+      "z": {
+        "version": "1.9",
+        "bottle": false
+      },
+      "fzf": {
+        "version": "0.20.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/fzf-0.20.0.catalina.bottle.tar.gz",
+              "sha256": "0d51962d904b7cd680fd316cc4691b5a562ce1ae77d4dcbfd40006f91c0945d6"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/fzf-0.20.0.mojave.bottle.tar.gz",
+              "sha256": "c523ba3a6266bb58697e27f45adbf1a01d13560c22a0302dc946d3277da53274"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/fzf-0.20.0.high_sierra.bottle.tar.gz",
+              "sha256": "72b692bd10dcc27504657f6eaf40d60f60c290f2b13052d6e6ad08ecc65f9c48"
+            }
+          }
+        }
+      },
+      "rg": null,
+      "switchaudio-osx": {
+        "version": "1.0.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/switchaudio-osx-1.0.0.catalina.bottle.2.tar.gz",
+              "sha256": "4a1ad0824d878dcabb3d7ffe4ad911f850383dbf2db28100e58f28cbc96657b7"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/switchaudio-osx-1.0.0.mojave.bottle.2.tar.gz",
+              "sha256": "85d0fe91c72d1a61e331e475af4e6ded9d0ca3581612c1934835bc44653fe407"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/switchaudio-osx-1.0.0.high_sierra.bottle.2.tar.gz",
+              "sha256": "26af506ea42b83ae8ccde71ed8b7666ccf3e3a349b2dd8958af7025854ffefd3"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/switchaudio-osx-1.0.0.sierra.bottle.2.tar.gz",
+              "sha256": "89ed040cc50c7b7ad88a903da5351cfa0027a4daf22cf73f2713e0887847c5d1"
+            },
+            "el_capitan": {
+              "url": "https://homebrew.bintray.com/bottles/switchaudio-osx-1.0.0.el_capitan.bottle.2.tar.gz",
+              "sha256": "515b762164648d739ae36f8c5013d250d84af1264bf3ee366ed35adae2f44208"
+            }
+          }
+        }
+      },
+      "heroku": {
+        "version": "7.35.1",
+        "bottle": false
+      }
+    },
+    "cask": {
+      "arq": {
+        "version": "5.17.2",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "iterm2": {
+        "version": "3.3.7",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "firefox": {
+        "version": "71.0",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "bbedit": {
+        "version": "13.0.3",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "alfred": {
+        "version": "4.0.7_1131",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "dropbox": {
+        "version": "latest",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "transmit": {
+        "version": "5.6.1",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "soulver": {
+        "version": "3.1.3.2-59",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "devonthink": {
+        "version": "3.0.3",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "screens": {
+        "version": "4.7.2,25530",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "microsoft-office": {
+        "version": "16.32.19120802",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "istat-menus": {
+        "version": "6.40",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "steam": {
+        "version": "latest",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "discord": {
+        "version": "0.0.255",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "hammerspoon": {
+        "version": "0.9.77",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "omnifocus": {
+        "version": "3.4.5",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "google-chrome": {
+        "version": "79.0.3945.88",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "anylist": {
+        "version": "1.1",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "bartender": {
+        "version": "3.1.07",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "spotify": {
+        "version": "latest",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "chatology": {
+        "version": "1.2.4",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "moom": {
+        "version": "3.2.17",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.41.1",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "acorn": {
+        "version": "6.5.3",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "dash": {
+        "version": "5.0.3",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "vlc": {
+        "version": "3.0.8",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "iina": {
+        "version": "1.0.4",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "zerotier-one": {
+        "version": "1.4.6",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "kensington-trackball-works": {
+        "version": "1.5.0",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "logitech-options": {
+        "version": "8.02.86",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      }
+    },
+    "mas": {
+      "1Password 7": {
+        "id": "1333542190",
+        "version": "7.4.1"
+      },
+      "Slack": {
+        "id": "803453959",
+        "version": "4.2.0"
+      },
+      "Deliveries": {
+        "id": "924726344",
+        "version": "3.2.1"
+      },
+      "Paprika Recipe Manager 3": {
+        "id": "1303222628",
+        "version": "3.4.0"
+      },
+      "Speedtest by Ookla": null,
+      "Bear": {
+        "id": "1091189122",
+        "version": "1.7.7"
+      },
+      "Yoink - Improved Drag and Drop": null,
+      "DaisyDisk": {
+        "id": "411643860",
+        "version": "4.8"
+      },
+      "Day One": {
+        "id": "1055511498",
+        "version": "4.4"
+      },
+      "Things 3": null,
+      "Drafts": {
+        "id": "1435957248",
+        "version": "16.1"
+      },
+      "1Blocker": {
+        "id": "1107421413",
+        "version": "3.1"
+      },
+      "SmileAllDay": {
+        "id": "1180442868",
+        "version": "2.3.3"
+      },
+      "PIPifier": null,
+      "Fantastical 2": null
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.2.2-54-g8294060",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "09d3a318b397303337eb80005a094e5d0541242e",
+        "CLT": "11.3.0.0.1.1574140115",
+        "Xcode": "11.3",
+        "macOS": "10.15.2"
+      }
+    }
+  }
+}

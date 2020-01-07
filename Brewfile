@@ -2,6 +2,7 @@
 
 cask_args appdir: "/Applications"
 tap "heroku/brew"
+tap "homebrew/cask-drivers"
 
 brew "zsh"
 brew "macvim", override_system_vim: true
@@ -23,7 +24,7 @@ cask "alfred"
 cask "dropbox"
 cask "transmit"
 cask "soulver"
-cask "devonthink-pro-office"
+cask "devonthink"
 cask "screens"
 cask "microsoft-office"
 cask "istat-menus"
@@ -59,6 +60,7 @@ mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
 mas "Things 3", id: 904280696
 mas "Drafts", id: 1435957248
+mas "Fantastical 2", id: 975937182
 
 mas "1Blocker", id: 1107421413
 mas "SmileAllDay", id: 1180442868

@@ -2,6 +2,7 @@
 
 cask_args appdir: "/Applications"
 tap "heroku/brew"
+tap "homebrew/cask-drivers"
 
 brew "zsh"
 brew "macvim", override_system_vim: true

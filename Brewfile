@@ -59,6 +59,7 @@ mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
 mas "Things 3", id: 904280696
 mas "Drafts", id: 1435957248
+mas "Fantastical 2", id: 975937182
 
 mas "1Blocker", id: 1107421413
 mas "SmileAllDay", id: 1180442868

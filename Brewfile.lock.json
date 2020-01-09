@@ -5,7 +5,7 @@
         "revision": "3beb32c39ca5b2dc457f8024857224b8f635012d"
       },
       "homebrew/cask-drivers": {
-        "revision": "90986a32d7584c9bdf5d2bc7887ac396f0cc4aca"
+        "revision": "5b8ec1fad5e4fc1f873b6c8994749b9b99e4293f"
       }
     },
     "brew": {
@@ -162,6 +162,43 @@
       "heroku": {
         "version": "7.35.1",
         "bottle": false
+      },
+      "youtube-dl": {
+        "version": "2020.01.01",
+        "bottle": false
+      },
+      "zsh-syntax-highlighting": {
+        "version": "0.6.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-syntax-highlighting-0.6.0.catalina.bottle.tar.gz",
+              "sha256": "6057e59c2a7da41da0cb922181f49e0386edc2c78309abd725daca90b893772e"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-syntax-highlighting-0.6.0.mojave.bottle.tar.gz",
+              "sha256": "03b91cbda8cbfe4a089ded8cefa4f6e06ad0946851b8fdda7617ab76bb4f5e50"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-syntax-highlighting-0.6.0.high_sierra.bottle.tar.gz",
+              "sha256": "97dc3e73da8e3a8cb054a780a28cda23be2bbd33547daa606d71a3c7f1d2821f"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-syntax-highlighting-0.6.0.sierra.bottle.tar.gz",
+              "sha256": "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3"
+            },
+            "el_capitan": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-syntax-highlighting-0.6.0.el_capitan.bottle.tar.gz",
+              "sha256": "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3"
+            },
+            "yosemite": {
+              "url": "https://homebrew.bintray.com/bottles/zsh-syntax-highlighting-0.6.0.yosemite.bottle.tar.gz",
+              "sha256": "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -457,9 +494,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.2.2-54-g8294060",
+        "HOMEBREW_VERSION": "2.2.2-76-gbcd6a08",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "09d3a318b397303337eb80005a094e5d0541242e",
+        "Homebrew/homebrew-core": "45c306994e71c5e12f07d032f56d35323ed625d6",
         "CLT": "11.3.0.0.1.1574140115",
         "Xcode": "11.3",
         "macOS": "10.15.2"

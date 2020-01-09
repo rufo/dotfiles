@@ -15,6 +15,7 @@ brew "rg"
 brew "switchaudio-osx"
 brew "heroku"
 brew "youtube-dl"
+brew "zsh-syntax-highlighting"
 
 cask "arq"
 cask "iterm2"

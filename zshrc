@@ -229,3 +229,7 @@ if exists brew && [ -e $(brew --prefix)/share/zsh-autosuggestions/zsh-autosugges
 fi
 
 export VAULT_URL="none"
+
+if exists brew && [ -e $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

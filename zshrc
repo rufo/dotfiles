@@ -11,6 +11,7 @@ if exists brew; then
   export MANPATH="$(brew --prefix)/share/man:$MANPATH"
   export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  export PATH="$(brew --prefix)/sbin:$PATH"
 fi
 
 export EDITOR="vim"

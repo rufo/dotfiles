@@ -7,10 +7,16 @@ if [[ -e "/home/linuxbrew/.linuxbrew" ]]; then
 elif [[ -e "$HOME/.linuxbrew" ]]; then
   export PATH="$HOME/.linuxbrew/bin:$PATH"
 fi
+
 if exists brew; then
+  export BREW_PREFIX="$(brew --prefix)"
+fi
+
+if [ ! -z $BREW_PREFIX ]; then
   export MANPATH="$(brew --prefix)/share/man:$MANPATH"
   export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  export PATH="$(brew --prefix)/sbin:$PATH"
 fi
 
 export EDITOR="vim"
@@ -35,7 +41,7 @@ autoload -Uz vcs_info
 
 unamestr=`uname`
 
-if exists brew; then
+if [ ! -z $BREW_PREFIX ]; then
   Z_PATH="`brew --prefix`/etc/profile.d/z.sh"
   if [[ -e $Z_PATH ]]; then
     . $Z_PATH
@@ -224,12 +230,12 @@ test-truecolor() {
   done
 }
 
-if exists brew && [ -e $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+if [ ! -z $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 export VAULT_URL="none"
 
-if exists brew && [ -e $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+if [ ! -z $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

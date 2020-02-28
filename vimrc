@@ -164,6 +164,7 @@ set background=dark
 colorscheme base16-default-dark
 hi MatchParen ctermbg=red guibg=red
 au BufNewFile,BufRead *.nghaml set filetype=haml
+au BufRead script/* if getline(1) =~ 'safe-ruby' | setlocal ft=ruby | endif
 
 let g:fuzzy_ignore="vendor/**;*.png;*.jpg;*.pdf;*.xls;*.doc;*.docx;*.xlsx;coverage/**;public/pdf_previews;public/thumbnails"
 

@@ -1,2 +1,5 @@
 setup screensaver hot corner
+setup fonts
+setup iterm
+setup colorscheme
 

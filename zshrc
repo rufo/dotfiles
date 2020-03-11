@@ -12,7 +12,7 @@ if exists brew; then
   export BREW_PREFIX="$(brew --prefix)"
 fi
 
-if [ ! -z $BREW_PREFIX ]; then
+if [ -n $BREW_PREFIX ]; then
   export MANPATH="$BREW_PREFIX/share/man:$MANPATH"
   export INFOPATH="$BREW_PREFIX/share/info:$INFOPATH"
   FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
@@ -41,7 +41,7 @@ autoload -Uz vcs_info
 
 unamestr=`uname`
 
-if [ ! -z $BREW_PREFIX ]; then
+if [ -n $BREW_PREFIX ]; then
   Z_PATH="$BREW_PREFIX/etc/profile.d/z.sh"
   if [[ -e $Z_PATH ]]; then
     . $Z_PATH
@@ -230,12 +230,12 @@ test-truecolor() {
   done
 }
 
-if [ ! -z $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+if [ -n $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 export VAULT_URL="none"
 
-if [ ! -z $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+if [ -n $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

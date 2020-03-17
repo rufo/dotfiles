@@ -184,16 +184,9 @@ if exists nodenv; then
 fi
 
 # fzf via Homebrew
-if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
-fi
-
-# fzf via local installation
-if [ -e ~/.fzf ]; then
-  _append_to_path ~/.fzf/bin
-  source ~/.fzf/shell/key-bindings.zsh
-  source ~/.fzf/shell/completion.zsh
+if [ -n $BREW_PREFIX ] && [ -e $BREW_PREFIX/opt/fzf/shell/completion.zsh ]; then
+  source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
+  source $BREW_PREFIX/opt/fzf/shell/completion.zsh
 fi
 
 # fzf + ag configuration

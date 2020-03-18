@@ -21,7 +21,9 @@ else
   brew_prefix_e() { false }
 fi
 
-export EDITOR="vim"
+if exists vim; then
+  export EDITOR="vim"
+fi
 export CLICOLOR=true
 export MENU_COMPLETE=false
 export ARCHFLAGS="-arch x86_64"

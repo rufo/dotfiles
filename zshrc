@@ -15,6 +15,10 @@ if exists brew; then
   export INFOPATH="$BREW_PREFIX/share/info:$INFOPATH"
   FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
   export PATH="$BREW_PREFIX/sbin:$PATH"
+
+  brew_prefix_e() { test -e $BREW_PREFIX/$1 }
+else
+  brew_prefix_e() { false }
 fi
 
 export EDITOR="vim"
@@ -39,11 +43,8 @@ autoload -Uz vcs_info
 
 unamestr=`uname`
 
-if [ -n $BREW_PREFIX ]; then
-  Z_PATH="$BREW_PREFIX/etc/profile.d/z.sh"
-  if [[ -e $Z_PATH ]]; then
-    . $Z_PATH
-  fi
+if brew_prefix_e /etc/profile.d/z.sh; then
+  . $BREW_PREFIX/etc/profile.d/z.sh
 fi
 
 if [[ "$unamestr" == 'Darwin' ]]; then
@@ -182,7 +183,7 @@ if exists nodenv; then
 fi
 
 # fzf via Homebrew
-if [ -n $BREW_PREFIX ] && [ -e $BREW_PREFIX/opt/fzf/shell/completion.zsh ]; then
+if brew_prefix_e /opt/fzf/shell/completion.zsh && brew_prefix_e /opt/fzf/shell/key-bindings.zsh; then
   source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
   source $BREW_PREFIX/opt/fzf/shell/completion.zsh
 fi
@@ -221,12 +222,12 @@ test-truecolor() {
   done
 }
 
-if [ -n $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+if brew_prefix_e /share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
   source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 export VAULT_URL="none"
 
-if [ -n $BREW_PREFIX ] && [ -e $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+if brew_prefix_e /share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
   source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

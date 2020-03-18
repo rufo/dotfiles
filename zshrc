@@ -26,8 +26,6 @@ if exists vim; then
 fi
 export CLICOLOR=true
 export MENU_COMPLETE=false
-export ARCHFLAGS="-arch x86_64"
-export NODE_PATH="/usr/local/lib/node_modules"
 export BUNDLE_EDITOR=mvim
 
 bindkey -e
@@ -160,12 +158,8 @@ get-sfmono() {
   echo "Copied SF Mono from $TERMINALDIR"
 }
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 unalias run-help &> /dev/null
 autoload run-help
-HELPDIR=/usr/local/share/zsh/helpfiles
 
 # rvm-install added line:
 if [ -e $HOME/.rvm/bin ]; then

@@ -10,9 +10,7 @@ fi
 
 if exists brew; then
   export BREW_PREFIX="$(brew --prefix)"
-fi
 
-if [ -n $BREW_PREFIX ]; then
   export MANPATH="$BREW_PREFIX/share/man:$MANPATH"
   export INFOPATH="$BREW_PREFIX/share/info:$INFOPATH"
   FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH

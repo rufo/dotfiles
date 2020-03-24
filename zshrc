@@ -228,3 +228,14 @@ export VAULT_URL="none"
 if brew_prefix_e /share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
   source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+declare -A replacements
+replacements=( ls exa cat bat find fd )
+
+for command replacement in ${(kv)replacements}; do
+  if exists $replacement; then
+    alias $command=$replacement
+  else
+    echo "$replacement doesn't exist, using standard $command"
+  fi
+done

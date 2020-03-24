@@ -186,15 +186,16 @@ if brew_prefix_e /opt/fzf/shell/completion.zsh && brew_prefix_e /opt/fzf/shell/k
   source $BREW_PREFIX/opt/fzf/shell/completion.zsh
 fi
 
-# fzf + ag configuration
-if exists fzf && exists rg; then
-  export FZF_DEFAULT_COMMAND='rg --color never -g "" --files'
+# fzf configuration
+if exists fzf; then
+  if exists fd; then
+    export FZF_DEFAULT_COMMAND='fd --type file --color=always'
+  elif exists rg; then
+    export FZF_DEFAULT_COMMAND='rg --color always -g "" --files'
+  fi
+  export FZF_DEFAULT_OPTS="--ansi"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-  # export FZF_DEFAULT_OPTS='
-  # --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
-  # --color info:108,prompt:109,spinner:108,pointer:168,marker:168
-  # '
 fi
 
 test-truecolor() {

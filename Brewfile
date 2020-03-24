@@ -6,6 +6,7 @@ tap "homebrew/cask-drivers"
 
 brew "zsh"
 brew "macvim", override_system_vim: true
+brew "git"
 brew "hub"
 brew "shellcheck"
 brew "nodenv"

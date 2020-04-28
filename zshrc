@@ -1,5 +1,7 @@
 exists() { type "$1" > /dev/null 2>&1; }
 
+export PATH="$PATH:~/.dotfiles/bin"
+
 # set up homebrew wherever it may exist
 export PATH="/usr/local/bin:$PATH"
 if [[ -e "/home/linuxbrew/.linuxbrew" ]]; then

@@ -196,7 +196,7 @@ if exists fzf; then
     export FZF_DEFAULT_COMMAND='rg --color always -g "" --files'
   fi
 
-  if [ -v FZF_DEFAULT_COMMAND ]; then
+  if (( ${+FZF_DEFAULT_COMMAND} )); then
     export FZF_DEFAULT_OPTS="--ansi"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"

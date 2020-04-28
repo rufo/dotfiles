@@ -1,0 +1,12 @@
+#!/bin/bash
+
+homepage=$(brew info "$1" --json | jq -r '.[0].homepage')
+if [[ $homepage =~ github.com ]]; then
+  changelog="$homepage/blob/master/CHANGELOG.md"
+  if [[ $browser == 1 ]]; then
+    open "$changelog"
+  else
+    RAW_CHANGELOG="${changelog//blob/raw}"
+    curl -L "$RAW_CHANGELOG" | bat -l md
+  fi
+fi

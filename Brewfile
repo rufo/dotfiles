@@ -3,6 +3,7 @@
 cask_args appdir: "/Applications"
 tap "heroku/brew"
 tap "homebrew/cask-drivers"
+tap "github/gh"
 
 brew "zsh"
 brew "macvim", override_system_vim: true
@@ -20,6 +21,7 @@ brew "zsh-syntax-highlighting"
 brew "bat"
 brew "exa"
 brew "fd"
+brew "gh"
 
 cask "arq"
 cask "iterm2"

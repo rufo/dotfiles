@@ -10,6 +10,10 @@ elif [[ -e "$HOME/.linuxbrew" ]]; then
   export PATH="$HOME/.linuxbrew/bin:$PATH"
 fi
 
+if [[ -e "/snap/bin" ]]; then
+  export PATH="/snap/bin:$PATH"
+fi
+
 if exists brew; then
   export BREW_PREFIX="$(brew --prefix)"
 

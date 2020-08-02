@@ -4,6 +4,7 @@ cask_args appdir: "/Applications"
 tap "heroku/brew"
 tap "homebrew/cask-drivers"
 tap "github/gh"
+tap "dokku/repo"
 
 brew "zsh"
 brew "macvim", override_system_vim: true
@@ -22,6 +23,7 @@ brew "bat"
 brew "exa"
 brew "fd"
 brew "gh"
+brew "dokku"
 
 cask "arq"
 cask "iterm2"

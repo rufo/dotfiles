@@ -46,6 +46,8 @@ setopt histignorespace
 setopt sharehistory
 setopt histexpiredupsfirst
 
+export DOKKU_HOST=dokku.lan
+
 autoload -Uz vcs_info
 
 unamestr=`uname`

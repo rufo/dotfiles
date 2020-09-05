@@ -82,6 +82,7 @@ if executable('pbcopy') && executable('textutil') " ouputs an annoying message i
 endif
 Plug 'bfontaine/Brewfile.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'fatih/vim-go'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

@@ -80,6 +80,7 @@ Plug 'dag/vim-fish'
 Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'bfontaine/Brewfile.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'fatih/vim-go'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

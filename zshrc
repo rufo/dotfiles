@@ -170,11 +170,6 @@ get-sfmono() {
 unalias run-help &> /dev/null
 autoload run-help
 
-# rvm-install added line:
-if [ -e $HOME/.rvm/bin ]; then
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # enables Erlang history

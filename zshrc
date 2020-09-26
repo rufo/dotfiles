@@ -183,6 +183,10 @@ if exists nodenv; then
   eval "$(nodenv init -)"
 fi
 
+if brew_prefix_e /opt/asdf/asdf.sh; then
+  source $BREW_PREFIX/opt/asdf/asdf.sh
+fi
+
 # fzf via Homebrew
 if brew_prefix_e /opt/fzf/shell/completion.zsh && brew_prefix_e /opt/fzf/shell/key-bindings.zsh; then
   source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh

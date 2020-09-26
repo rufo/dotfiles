@@ -77,7 +77,9 @@ Plug 'itspriddle/vim-marked'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'dag/vim-fish'
-Plug 'zerowidth/vim-copy-as-rtf'
+if executable('pbcopy') && executable('textutil') " ouputs an annoying message if it's not there
+  Plug 'zerowidth/vim-copy-as-rtf'
+endif
 Plug 'bfontaine/Brewfile.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'

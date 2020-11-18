@@ -188,6 +188,10 @@ if exists nodenv; then
   eval "$(nodenv init -)"
 fi
 
+if exists pyenv; then
+  eval "$(pyenv init -)"
+fi
+
 # fzf via Homebrew
 if brew_prefix_e /opt/fzf/shell/completion.zsh && brew_prefix_e /opt/fzf/shell/key-bindings.zsh; then
   source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
@@ -252,3 +256,9 @@ for command replacement in ${(kv)replacements}; do
     echo "$replacement doesn't exist, using standard $command"
   fi
 done
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"

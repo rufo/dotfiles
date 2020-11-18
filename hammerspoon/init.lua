@@ -31,7 +31,7 @@ dockMover = hs.screen.watcher.new(function()
   end
 end)
 
-dockMover:start()
+--dockMover:start()
 
 function dump(o)
    if type(o) == 'table' then

@@ -119,7 +119,7 @@ dash(){ command open dash://$1 }
 alias fixynab="sed -i .bak 's/<renderMode>direct/<renderMode>cpu/' /Applications/YNAB\ 4.app/Contents/Resources/META-INF/AIR/application.xml"
 alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
-alias youtube-dl-mp4 'youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
+alias youtube-dl-mp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 alias be='bundle exec'
 alias setup-ssh='eval "$(ssh-agent)" && ssh-add'
 alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
@@ -170,11 +170,6 @@ get-sfmono() {
 unalias run-help &> /dev/null
 autoload run-help
 
-# rvm-install added line:
-if [ -e $HOME/.rvm/bin ]; then
-  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-fi
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # enables Erlang history
@@ -190,6 +185,10 @@ fi
 
 if exists pyenv; then
   eval "$(pyenv init -)"
+fi
+
+if brew_prefix_e /opt/asdf/asdf.sh; then
+  source $BREW_PREFIX/opt/asdf/asdf.sh
 fi
 
 # fzf via Homebrew

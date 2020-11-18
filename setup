@@ -3,7 +3,7 @@
 set -o xtrace
 set -e
 
-link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global hammerspoon )
+link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global hammerspoon asdfrc )
 link_in_config=( fish nvim )
 
 symlink_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"

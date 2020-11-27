@@ -183,6 +183,10 @@ if exists nodenv; then
   eval "$(nodenv init -)"
 fi
 
+if exists pyenv; then
+  eval "$(pyenv init -)"
+fi
+
 if brew_prefix_e /opt/asdf/asdf.sh; then
   source $BREW_PREFIX/opt/asdf/asdf.sh
 fi
@@ -251,3 +255,9 @@ for command replacement in ${(kv)replacements}; do
     echo "$replacement doesn't exist, using standard $command"
   fi
 done
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"

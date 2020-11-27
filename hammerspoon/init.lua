@@ -31,7 +31,7 @@ function dockMover()
   end
 
   local shouldStartSynergy = false
-  
+
   hs.timer.doAfter(1, function()
     synergyStarter(shouldStartSynergy)
   end)

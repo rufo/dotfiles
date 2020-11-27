@@ -242,7 +242,7 @@ if brew_prefix_e /share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; the
 fi
 
 declare -A replacements
-replacements=( ls exa cat bat find fd )
+replacements=( ls exa cat bat )
 
 for command replacement in ${(kv)replacements}; do
   if exists $replacement; then

@@ -1,6 +1,6 @@
 displays = nil
 
-dockMover = hs.screen.watcher.new(function()
+function dockMover()
   local newDisplays = hs.screen.screenPositions()
   local dockOnBottom = false
   if displays == newDisplays then
@@ -31,7 +31,9 @@ dockMover = hs.screen.watcher.new(function()
   end
 end)
 
-dockMover:start()
+
+dockMoverWatcher = hs.screen.watcher.new(dockMover)
+dockMoverWatcher:start()
 
 function dump(o)
    if type(o) == 'table' then

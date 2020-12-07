@@ -1,5 +1,11 @@
 displays = nil
 
+function tablelength(T)
+  local count = 0
+  for _ in pairs(T) do count = count + 1 end
+  return count
+end
+
 function dockMover()
   local newDisplays = hs.screen.screenPositions()
   local dockOnBottom = false
@@ -32,26 +38,28 @@ function dockMover()
 
   local shouldStartSynergy = false
 
-  hs.timer.doAfter(1, function()
-    synergyStarter(shouldStartSynergy)
-  end)
-
-  if #displays == 1 then
-    if string.find(displays[1].name, "LG HDR 4K") then
+  if tablelength(displays) == 1 then
+    print("one display found, continuing")
+    local display = hs.screen.primaryScreen()
+    if string.find(display:name(), "LG HDR 4K") then
+      print("found LG display, continuing")
       for interface, ip in pairs(hs.network.addresses()) do
         if string.find(ip, "192.168.212.") then
-          print("found ip")
-          hs.network.ping("192.168.212.117", 3, 0.2, 0.2, "any", function(obj, msg, sn, err)
-            print("pingCallback")
+          print("found LAN ip, pinging")
+          hs.network.ping("192.168.212.117", 3, 0.2, 0.2, "any", function(pingObj, msg, sn, err)
             if msg == "receivedPacket" then
+              print("got ping back")
               shouldStartSynergy = true
+              pingObj:cancel()
+            elseif msg == "didFinish" then
+              synergyStarter(shouldStartSynergy)
             end
-          end)
-          break
-        end
-      end
-    end
-  end
+          end) -- ping callback
+          break -- break lan IP check
+        end -- LAN ip check
+      end -- ip address lookup
+    end -- display name if
+  end -- display tablelength
 end
 
 function synergyStarter(shouldStartSynergy)

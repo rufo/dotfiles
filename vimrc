@@ -173,7 +173,7 @@ let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "/Users/rufo/sandbox/vimclojure-nailgun-client/ng"
 
 if has("gui_running")
-  set guifont=SF\ Mono\ Medium:h13,Source\ Code\ Pro:h12
+  set guifont=Iosevka\ Fixed:h15,SF\ Mono\ Medium:h13,Source\ Code\ Pro:h12
   set guioptions-=T
   autocmd FileType ruby,eruby set noballooneval
   set lines=100 columns=300

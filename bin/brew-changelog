@@ -1,6 +1,9 @@
 #!/bin/bash
 
-homepage=$(brew info "$1" --json | jq -r '.[0].homepage')
+formulae_json=$(brew info "$1" --json)
+homepage=$(echo "$formulae_json" | jq -r '.[0].homepage')
+version=$(echo "$formulae_json" | jq -r '.[0].versions.stable')
+echo $version
 if [[ $homepage =~ github.com ]]; then
   changelog_url="$homepage/blob/master/CHANGELOG.md"
   if [[ $BROWSER == 1 ]]; then

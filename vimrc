@@ -77,6 +77,7 @@ endif
 Plug 'bfontaine/Brewfile.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
+Plug 'vim-airline/vim-airline'
 "
 " colorschemes
 Plug 'chriskempson/base16-vim'

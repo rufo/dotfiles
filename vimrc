@@ -23,11 +23,7 @@ else
   call plug#begin('~/.vim/bundle')
 end
 Plug 'scrooloose/nerdtree'
-" Plug 'mileszs/ack.vim'
 Plug 'wincent/ferret'
-Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t && /usr/bin/ruby extconf.rb && make'
-    \ }
 Plug 'tpope/vim-cucumber'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
@@ -36,7 +32,6 @@ Plug 'tpope/vim-haml'
 Plug 'StanAngeloff/php.vim'
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'tpope/vim-rails'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'tpope/vim-repeat'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -70,7 +65,6 @@ Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
 Plug brew_prefix . '/opt/fzf' | Plug 'junegunn/fzf.vim'
-" Plug 'mhinz/vim-grepper'
 Plug 'yssl/QFEnter'
 Plug 'tpope/vim-rhubarb'
 Plug 'itspriddle/vim-marked'

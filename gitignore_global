@@ -18,3 +18,4 @@ xcuserdata/
 *.o
 *.pyc
 
+.Ulysses-*.plist

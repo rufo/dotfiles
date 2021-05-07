@@ -147,6 +147,8 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+let test#strategy = 'vimterminal'
+
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>
 
 if !empty($DISABLE_TRUECOLOR) " say, old mosh

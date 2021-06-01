@@ -3,29 +3,28 @@ exists() { type "$1" > /dev/null 2>&1; }
 export PATH="$PATH:~/.dotfiles/bin"
 
 # set up homebrew wherever it may exist
-export PATH="/usr/local/bin:$PATH"
-if [[ -e "/home/linuxbrew/.linuxbrew" ]]; then
-  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-elif [[ -e "$HOME/.linuxbrew" ]]; then
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
+
+possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew $HOME/.linuxbrew/bin/brew /opt/homebrew/bin/brew )
+for brewpath in $possible_brew_paths; do
+  if exists $brewpath; then
+    eval "$($brewpath shellenv)"
+    break
+  fi
+done
+
+if exists brew; then
+  brew_prefix_e() { test -e $HOMEBREW_PREFIX/$1 }
+else
+  echo "warning: homebrew not present."
+  brew_prefix_e() { false }
 fi
 
 if [[ -e "/snap/bin" ]]; then
   export PATH="/snap/bin:$PATH"
 fi
 
-if exists brew; then
-  export BREW_PREFIX="$(brew --prefix)"
-
-  export MANPATH="$BREW_PREFIX/share/man:$MANPATH"
-  export INFOPATH="$BREW_PREFIX/share/info:$INFOPATH"
-  FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
-  export PATH="$BREW_PREFIX/sbin:$PATH"
-
-  brew_prefix_e() { test -e $BREW_PREFIX/$1 }
-else
-  echo "warning: homebrew not present."
-  brew_prefix_e() { false }
+if brew_prefix_e $HOMEBREW_PREFIX/share/zsh/site-functions; then
+  FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
 fi
 
 if exists vim; then
@@ -53,7 +52,7 @@ autoload -Uz vcs_info
 unamestr=`uname`
 
 if brew_prefix_e /etc/profile.d/z.sh; then
-  . $BREW_PREFIX/etc/profile.d/z.sh
+  . $HOMEBREW_PREFIX/etc/profile.d/z.sh
 fi
 
 if [[ "$unamestr" == 'Darwin' ]]; then
@@ -188,13 +187,13 @@ if exists pyenv; then
 fi
 
 if brew_prefix_e /opt/asdf/asdf.sh; then
-  source $BREW_PREFIX/opt/asdf/asdf.sh
+  source $HOMEBREW_PREFIX/opt/asdf/asdf.sh
 fi
 
 # fzf via Homebrew
 if brew_prefix_e /opt/fzf/shell/completion.zsh && brew_prefix_e /opt/fzf/shell/key-bindings.zsh; then
-  source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
-  source $BREW_PREFIX/opt/fzf/shell/completion.zsh
+  source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
+  source $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
 fi
 
 # fzf configuration
@@ -236,13 +235,13 @@ test-truecolor() {
 }
 
 if brew_prefix_e /share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
-  source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 export VAULT_URL="none"
 
 if brew_prefix_e /share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
-  source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 declare -A replacements

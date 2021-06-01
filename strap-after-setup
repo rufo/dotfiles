@@ -11,7 +11,7 @@ function yes_or_no {
 }
 
 if yes_or_no "set up homebrew zsh?"; then
-	HOMEBREW_ZSH="/usr/local/bin/zsh"
+	HOMEBREW_ZSH="$HOMEBREW_PREFIX/bin/zsh"
 
 	if [ -f $HOMEBREW_ZSH ]; then
 		if grep -Fxq "$HOMEBREW_ZSH" /etc/shells; then
@@ -22,7 +22,7 @@ if yes_or_no "set up homebrew zsh?"; then
 		fi
 
 		echo "setting default shell to homebrew zsh"
-		chsh -s /usr/local/bin/zsh
+		chsh -s $HOMEBREW_ZSH
 	fi
 fi
 

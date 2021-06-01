@@ -35,7 +35,9 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'SirVer/ultisnips'
+if has('python3')
+  Plug 'SirVer/ultisnips'
+end
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'

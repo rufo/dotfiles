@@ -63,6 +63,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'elixir-lang/vim-elixir'
 Plug 'janko-m/vim-test'
+Plug 'bswinnerton/vim-test-github'
 Plug 'lambdatoast/elm.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'w0rp/ale'
@@ -149,6 +150,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
+let test#runners = {'Ruby': ['GitHub']}
 let test#strategy = 'vimterminal'
 
 nnoremap <leader>y :call system('nc localhost 8377', @0)<CR>

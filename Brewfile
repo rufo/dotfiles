@@ -42,6 +42,7 @@ cask "discord"
 cask "hammerspoon"
 cask "omnifocus"
 cask "google-chrome"
+cask "microsoft-edge"
 cask "anylist"
 cask "bartender"
 cask "spotify"
@@ -56,9 +57,15 @@ cask "zerotier-one"
 cask "betterzip"
 cask "steam"
 cask "omnioutliner"
+cask "obsidian"
+cask "synergy"
+cask "alacritty"
+cask "docker"
+cask "soundsource"
+cask "audio-hijack"
+# cask "setapp" # setapp doesn't seem to install correctly?
 
-# cask "caldigit-usb-c-dock-driver"
-cask "kensington-trackball-works"
+# cask "kensington-works" # trackball works doesn't seem to exist, might need to be updated?
 cask "logitech-options"
 
 mas "1Password 7", id: 1333542190
@@ -72,9 +79,9 @@ mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
 mas "Things 3", id: 904280696
 mas "Drafts", id: 1435957248
-mas "Fantastical 2", id: 975937182
+mas "Fantastical 3", id: 975937182
 
-mas "1Blocker", id: 1107421413
+mas "1Blocker", id: 1365531024
 mas "SmileAllDay", id: 1180442868
 mas "PIPifier", id: 1160374471
 

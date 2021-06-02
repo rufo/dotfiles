@@ -7,14 +7,11 @@ tap "github/gh"
 tap "dokku/repo"
 
 brew "zsh"
-brew "macvim", override_system_vim: true
 brew "git"
 brew "hub"
-brew "shellcheck"
 brew "z"
 brew "fzf"
 brew "rg"
-brew "switchaudio-osx"
 brew "heroku"
 brew "youtube-dl"
 brew "zsh-syntax-highlighting"
@@ -24,6 +21,21 @@ brew "fd"
 brew "gh"
 brew "dokku"
 brew "asdf"
+
+# Mac only formulae
+if OS.mac?
+  brew "macvim", override_system_vim: true
+  brew "switchaudio-osx"
+else
+  brew "vim" 
+end
+
+# ASi-unclean formulae
+if OS.mac? && Hardware::CPU.arm?
+  # doesn't compile for ASi yet
+  # but can be downloaded and run from https://github.com/koalaman/shellcheck/releases
+  brew "shellcheck"
+end
 
 cask "arq"
 cask "iterm2"

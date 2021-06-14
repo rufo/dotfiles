@@ -65,8 +65,15 @@ end
 function synergyStarter(shouldStartSynergy)
   if shouldStartSynergy then
     print("synergy should start")
+    local pid = hs.execute("pgrep synergyc")
+    if (pid == nil or pid == '') then
+      print(hs.execute("/Applications/Synergy.app/Contents/MacOS/synergyc --debug INFO --name Rufos-MBP.lan --enable-drag-drop --enable-crypto --tls-cert /Users/rufo/Library/Synergy/SSL/Synergy.pem --log /tmp/synergy.log 192.168.212.117:24800"))
+      print("synergy started")
+    end
   else
     print("synergy should end")
+    print(hs.execute("killall synergyc"))
+    print("synergy should be killed")
   end
 end
 

@@ -34,6 +34,10 @@ export CLICOLOR=true
 export MENU_COMPLETE=false
 export BUNDLE_EDITOR=mvim
 
+if exists bat; then
+  export PAGER="bat"
+fi
+
 bindkey -e
 
 HISTSIZE=1000

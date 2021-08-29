@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#:brew changelog <formula>
+#:
+#:Gets the changelog for a given formula.
+#:Only works if the homepage is a GitHub repo.
+#:Checks the CHANGELOG.md of the version's tag first,
+#:then tries to collect release notes from the repo's releases.
+
 formulae_json=$(brew info "$1" --json=v1)
 homepage=$(echo "$formulae_json" | jq -r '.[0].homepage')
 src_url=$(echo "$formulae_json" | jq -r '.[0].urls.stable.url')

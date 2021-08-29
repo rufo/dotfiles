@@ -1,20 +1,37 @@
 #!/bin/bash
 
-formulae_json=$(brew info "$1" --json)
+formulae_json=$(brew info "$1" --json=v1)
 homepage=$(echo "$formulae_json" | jq -r '.[0].homepage')
-version=$(echo "$formulae_json" | jq -r '.[0].versions.stable')
-echo $version
+src_url=$(echo "$formulae_json" | jq -r '.[0].urls.stable.url')
+version="v$(echo "$formulae_json" | jq -r '.[0].versions.stable')"
+
 if [[ $homepage =~ github.com ]]; then
-  changelog_url="$homepage/blob/master/CHANGELOG.md"
-  if [[ $BROWSER == 1 ]]; then
-    open "$changelog_url"
-  else
-    raw_changelog_url="${changelog_url//blob/raw}"
-    if changelog=$(curl --fail -L "$raw_changelog_url"); then
-      echo "$changelog" | bat -l md -
-    else
-      echo "Couldn't load $changelog_url :/"
-      echo "The homepage is $homepage if you want to try that."
-    fi
-  fi
+  IFS="/" read -a url -r <<< "$homepage"
+  nwo="${url[3]}/${url[4]}"
+elif [[ $src_url =~ github.com ]]; then
+  IFS="/" read -a url -r <<< "$src_url"
+  nwo="${url[3]}/${url[4]}"
 fi
+
+if [[ $nwo ]]; then
+  changelog_url="https://github.com/$nwo/raw/$version/CHANGELOG.md"
+  releases=$(gh api "repos/$nwo/releases" -t '{{range .}}{{"\n"}}# {{.name}}{{"\n\n"}}{{.body}}{{"\n---\n"}}{{end}}')
+else
+  echo "Couldn't find a GitHub repo to check for release notes :/"
+  echo "The homepage is $homepage if you'd like to give that a try."
+fi
+
+if [[ $releases ]]; then
+  echo "$releases" | bat --file-name "$1 - GitHub releases" -l md -
+  return
+fi
+
+changelog=$(curl -fLs "$changelog_url")
+
+if [[ $changelog ]]; then
+  echo "$changelog" | bat --file-name "$1 - CHANGELOG.md"
+  return
+fi
+
+echo "Couldn't find a changelog on GitHub in releases or a CHANGELOG.md :/"
+echo "The homepage is $homepage if you'd like to give that a try."

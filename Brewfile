@@ -37,6 +37,7 @@ if OS.mac? && Hardware::CPU.arm?
   brew "shellcheck"
 end
 
+cask "1password"
 cask "arq"
 cask "iterm2"
 cask "firefox"
@@ -75,13 +76,12 @@ cask "alacritty"
 cask "docker"
 cask "soundsource"
 cask "audio-hijack"
+cask "slack"
 # cask "setapp" # setapp doesn't seem to install correctly?
 
 # cask "kensington-works" # trackball works doesn't seem to exist, might need to be updated?
 cask "logitech-options"
 
-mas "1Password 7", id: 1333542190
-mas "Slack", id: 803453959
 mas "Deliveries", id: 924726344
 mas "Paprika Recipe Manager 3", id: 1303222628
 mas "Speedtest by Ookla", id: 1153157709

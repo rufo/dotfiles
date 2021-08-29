@@ -23,14 +23,14 @@ fi
 
 if [[ $releases ]]; then
   echo "$releases" | bat --file-name "$1 - GitHub releases" -l md -
-  return
+  exit
 fi
 
 changelog=$(curl -fLs "$changelog_url")
 
 if [[ $changelog ]]; then
   echo "$changelog" | bat --file-name "$1 - CHANGELOG.md"
-  return
+  exit
 fi
 
 echo "Couldn't find a changelog on GitHub in releases or a CHANGELOG.md :/"

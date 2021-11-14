@@ -39,7 +39,7 @@ function DockMover()
 
   local shouldStartSynergy = false
 
-if Tablelength(Displays) == 1 then
+  if Tablelength(Displays) == 1 then
     print("one display found, continuing")
     local display = hs.screen.primaryScreen()
     if string.find(display:name(), "LG HDR 4K") then
@@ -53,7 +53,7 @@ if Tablelength(Displays) == 1 then
               shouldStartSynergy = true
               pingObj:cancel()
             elseif msg == "didFinish" then
-            SynergyStarter(shouldStartSynergy)
+              SynergyStarter(shouldStartSynergy)
             end
           end) -- ping callback
           break -- break lan IP check
@@ -62,7 +62,7 @@ if Tablelength(Displays) == 1 then
     end -- display name if
   end -- display tablelength
 
-SynergyStarter(shouldStartSynergy)
+  SynergyStarter(shouldStartSynergy)
 end
 
 function SynergyStarter(shouldStartSynergy)
@@ -84,16 +84,16 @@ DockMoverWatcher = hs.screen.watcher.new(DockMover)
 DockMoverWatcher:start()
 
 function Dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
+  if type(o) == 'table' then
+    local s = '{ '
+    for k,v in pairs(o) do
+      if type(k) ~= 'number' then k = '"'..k..'"' end
       s = s .. '['..k..'] = ' .. Dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
+    end
+    return s .. '} '
+  else
+    return tostring(o)
+  end
 end
 
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon

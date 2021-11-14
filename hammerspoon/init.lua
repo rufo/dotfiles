@@ -1,4 +1,5 @@
 Displays = nil
+DockOnBottom = nil
 
 function Tablelength(T)
   local count = 0
@@ -9,6 +10,7 @@ end
 
 function DockMover()
   local newDisplays = hs.screen.screenPositions()
+  local newDockOnBottom = false
 
   if Displays == newDisplays then
     print("displays haven't actually changed, returning")
@@ -18,25 +20,28 @@ function DockMover()
 
   for screen, position in pairs(Displays) do
     if position.x > 0 then
-      dockOnBottom = true
+      newDockOnBottom = true
     end
   end
 
-  if dockOnBottom then
-    hs.alert.show("move dock to bottom")
-    hs.osascript.applescript([[ tell application "System Events"
-      tell dock preferences
-        set properties to {screen edge: bottom, autohide: true}
-      end tell
-    end tell ]])
-  else
-    hs.alert.show("move dock to right")
-    hs.osascript.applescript([[ tell application "System Events"
-      tell dock preferences
-        set properties to {screen edge: right, autohide: false}
-      end tell
-    end tell ]])
- end
+  if newDockOnBottom ~= DockOnBottom then
+    DockOnBottom = newDockOnBottom
+    if DockOnBottom then
+      hs.alert.show("move dock to bottom")
+      hs.osascript.applescript([[ tell application "System Events"
+        tell dock preferences
+          set properties to {screen edge: bottom, autohide: true}
+        end tell
+      end tell ]])
+    else
+      hs.alert.show("move dock to right")
+      hs.osascript.applescript([[ tell application "System Events"
+        tell dock preferences
+          set properties to {screen edge: right, autohide: false}
+        end tell
+      end tell ]])
+    end
+  end
 
   local shouldStartSynergy = false
 

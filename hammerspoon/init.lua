@@ -102,4 +102,6 @@ function Dump(o)
   end
 end
 
+DockMover()
+
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon

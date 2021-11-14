@@ -193,8 +193,8 @@ if exists pyenv; then
   eval "$(pyenv init -)"
 fi
 
-if brew_prefix_e /opt/asdf/asdf.sh; then
-  source $HOMEBREW_PREFIX/opt/asdf/asdf.sh
+if brew_prefix_e /opt/asdf/libexec/asdf.sh; then
+  source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 fi
 
 # fzf via Homebrew

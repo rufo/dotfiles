@@ -2,6 +2,7 @@ Displays = nil
 
 function Tablelength(T)
   local count = 0
+  assert(type(T) == "table", "argument was not a table")
   for _ in pairs(T) do count = count + 1 end
   return count
 end

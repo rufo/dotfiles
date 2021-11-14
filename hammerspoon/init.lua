@@ -1,12 +1,12 @@
-displays = nil
+Displays = nil
 
-function tablelength(T)
+function Tablelength(T)
   local count = 0
   for _ in pairs(T) do count = count + 1 end
   return count
 end
 
-function dockMover()
+function DockMover()
 --  local newDisplays = hs.screen.screenPositions()
 --  local dockOnBottom = false
 --  if displays == newDisplays then
@@ -38,7 +38,7 @@ function dockMover()
 
   local shouldStartSynergy = false
 
-  if tablelength(displays) == 1 then
+if Tablelength(Displays) == 1 then
     print("one display found, continuing")
     local display = hs.screen.primaryScreen()
     if string.find(display:name(), "LG HDR 4K") then
@@ -52,7 +52,7 @@ function dockMover()
               shouldStartSynergy = true
               pingObj:cancel()
             elseif msg == "didFinish" then
-              synergyStarter(shouldStartSynergy)
+            SynergyStarter(shouldStartSynergy)
             end
           end) -- ping callback
           break -- break lan IP check
@@ -60,9 +60,11 @@ function dockMover()
       end -- ip address lookup
     end -- display name if
   end -- display tablelength
+
+SynergyStarter(shouldStartSynergy)
 end
 
-function synergyStarter(shouldStartSynergy)
+function SynergyStarter(shouldStartSynergy)
   if shouldStartSynergy then
     print("synergy should start")
     local pid = hs.execute("pgrep synergyc")
@@ -77,15 +79,15 @@ function synergyStarter(shouldStartSynergy)
   end
 end
 
-dockMoverWatcher = hs.screen.watcher.new(dockMover)
-dockMoverWatcher:start()
+DockMoverWatcher = hs.screen.watcher.new(DockMover)
+DockMoverWatcher:start()
 
-function dump(o)
+function Dump(o)
    if type(o) == 'table' then
       local s = '{ '
       for k,v in pairs(o) do
          if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      s = s .. '['..k..'] = ' .. Dump(v) .. ','
       end
       return s .. '} '
    else

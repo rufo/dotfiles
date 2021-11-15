@@ -44,6 +44,7 @@ function DockMover()
   end
 
   local shouldStartSynergy = false
+  local waitForPing = false
 
   if Tablelength(Displays) == 1 then
     print("one display found, continuing")
@@ -53,6 +54,7 @@ function DockMover()
       for interface, ip in pairs(hs.network.addresses()) do
         if string.find(ip, "192.168.212.") then
           print("found LAN ip, pinging")
+          waitForPing = true
           hs.network.ping("192.168.212.117", 3, 0.2, 0.2, "any", function(pingObj, msg, sn, err)
             if msg == "receivedPacket" then
               print("got ping back")
@@ -68,7 +70,11 @@ function DockMover()
     end -- display name if
   end -- display tablelength
 
-  SynergyStarter(shouldStartSynergy)
+  if not waitForPing then
+    SynergyStarter(shouldStartSynergy)
+  else
+    print("waiting for ping")
+  end
 end
 
 function SynergyStarter(shouldStartSynergy)

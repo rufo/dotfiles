@@ -88,7 +88,7 @@ function SynergyStarter(shouldStartSynergy)
   else
     print("synergy should end")
     print(hs.execute("killall synergyc"))
-    print("synergy should be killed")
+    print("synergy should have been killed")
   end
 end
 

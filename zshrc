@@ -170,6 +170,10 @@ get-sfmono() {
   echo "Copied SF Mono from $TERMINALDIR"
 }
 
+whatport() {
+  lsof -i :$1
+}
+
 unalias run-help &> /dev/null
 autoload run-help
 

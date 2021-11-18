@@ -241,6 +241,10 @@ test-truecolor() {
   done
 }
 
+safari-url() {
+  osascript -e 'tell application "Safari" to get URL of current tab of front window'
+}
+
 if brew_prefix_e /share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
   source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi

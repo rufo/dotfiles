@@ -127,6 +127,10 @@ alias be='bundle exec'
 alias setup-ssh='eval "$(ssh-agent)" && ssh-add'
 alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
 
+if ! (( $+commands[tailscale] )); then
+  alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+fi
+
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 
 git(){ if [ $1 = git ]; then shift; fi; command git "$@"; }

@@ -212,7 +212,7 @@ fi
 if brew_prefix_e /opt/fzf/shell/completion.zsh && brew_prefix_e /opt/fzf/shell/key-bindings.zsh; then
   source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
   source $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh
-elif -e /usr/share/doc/fzf/examples/key-bindings.zsh && /usr/share/doc/fzf/examples/completion.zsh; then
+elif [ -e /usr/share/doc/fzf/examples/key-bindings.zsh ] && [ -e /usr/share/doc/fzf/examples/completion.zsh ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
   source /usr/share/doc/fzf/examples/completion.zsh
 fi

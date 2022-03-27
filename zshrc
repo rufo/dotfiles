@@ -34,6 +34,9 @@ export CLICOLOR=true
 export MENU_COMPLETE=false
 export BUNDLE_EDITOR=mvim
 
+if exists batcat; then
+  alias bat="batcat"
+fi
 if exists bat; then
   export PAGER="bat"
 fi

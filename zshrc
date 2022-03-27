@@ -184,7 +184,7 @@ whatport() {
 unalias run-help &> /dev/null
 autoload run-help
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+source "${HOME}/.iterm2_shell_integration.zsh"
 
 # enables Erlang history
 export ERL_AFLAGS="-kernel shell_history enabled"

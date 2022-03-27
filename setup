@@ -21,9 +21,11 @@ done
 
 git config --global core.excludesfile ~/.gitignore_global 
 
+echo "Installing vim plugins"
+vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
+
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   chsh -s /usr/bin/zsh
-  vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
   apt install -y exa
 fi

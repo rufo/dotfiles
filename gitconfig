@@ -1,0 +1,22 @@
+[user]
+	name = Rufo Sanchez
+	email = rufo@rufosanchez.com
+[init]
+	defaultBranch = main
+[github]
+	user = rufo
+[push]
+	default = simple
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+[core]
+	excludesfile = ~/.gitignore_global
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[pull]
+	ff = only
+[commit]
+	verbose = true

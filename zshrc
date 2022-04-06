@@ -38,7 +38,7 @@ if exists batcat; then
   alias bat="batcat"
 fi
 if exists bat; then
-  export PAGER="bat"
+  export PAGER="bat -p"
 fi
 
 bindkey -e

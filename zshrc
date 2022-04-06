@@ -39,6 +39,7 @@ if exists batcat; then
 fi
 if exists bat; then
   export PAGER="bat -p"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
 bindkey -e

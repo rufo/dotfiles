@@ -26,6 +26,6 @@ vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
 
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
-  chsh -s /usr/bin/zsh
-  apt install -y exa
+  sudo chsh -s /usr/bin/zsh
+  sudo apt install -y exa
 fi

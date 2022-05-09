@@ -1,6 +1,6 @@
 [user]
 	name = Rufo Sanchez
-	email = rufo@rufosanchez.com
+	email = rufo@github.com
 [init]
 	defaultBranch = main
 [github]
@@ -10,7 +10,7 @@
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/rufo/.gitignore_global
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

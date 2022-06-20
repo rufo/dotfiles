@@ -27,5 +27,5 @@ vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   sudo chsh -s /bin/zsh "$(whoami)"
-  sudo apt install -y exa fdfind
+  sudo apt install -y exa fd-find
 fi

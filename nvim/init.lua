@@ -179,3 +179,6 @@ require("indent_blankline").setup {
   show_current_context = true,
   show_current_context_start = true,
 }
+
+-- so far this hasn't worked via the lua api and I have no idea why :shrug:
+vim.cmd [[vnoremap <leader>c :OSCYank<CR>]]

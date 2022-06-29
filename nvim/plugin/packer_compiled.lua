@@ -162,6 +162,11 @@ _G.packer_plugins = {
     path = "/Users/rufo/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-endwise"] = {
+    loaded = true,
+    path = "/Users/rufo/.local/share/nvim/site/pack/packer/start/nvim-treesitter-endwise",
+    url = "https://github.com/RRethy/nvim-treesitter-endwise"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/rufo/.local/share/nvim/site/pack/packer/start/packer.nvim",

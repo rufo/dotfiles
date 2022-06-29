@@ -65,6 +65,8 @@ return require('packer').startup(function()
 
   use "RRethy/nvim-treesitter-endwise"
 
+  use "lukas-reineke/indent-blankline.nvim"
+
   if packer_bootstrap then
     require('packer').sync()
   end

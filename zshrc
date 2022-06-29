@@ -135,6 +135,10 @@ if ! (( $+commands[tailscale] )); then
   alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 fi
 
+if exists fdfind; then
+  alias fd="fdfind"
+fi
+
 reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
 
 git(){ if [ $1 = git ]; then shift; fi; command git "$@"; }

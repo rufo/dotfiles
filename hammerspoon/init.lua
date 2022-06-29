@@ -24,24 +24,24 @@ function DockMover()
     end
   end
 
-  if newDockOnBottom ~= DockOnBottom then
-    DockOnBottom = newDockOnBottom
-    if DockOnBottom then
-      hs.alert.show("move dock to bottom")
-      hs.osascript.applescript([[ tell application "System Events"
-        tell dock preferences
-          set properties to {screen edge: bottom, autohide: true}
-        end tell
-      end tell ]])
-    else
-      hs.alert.show("move dock to right")
-      hs.osascript.applescript([[ tell application "System Events"
-        tell dock preferences
-          set properties to {screen edge: right, autohide: false}
-        end tell
-      end tell ]])
-    end
-  end
+--  if newDockOnBottom ~= DockOnBottom then
+--    DockOnBottom = newDockOnBottom
+--    if DockOnBottom then
+--      hs.alert.show("move dock to bottom")
+--      hs.osascript.applescript([[ tell application "System Events"
+--        tell dock preferences
+--          set properties to {screen edge: bottom, autohide: true}
+--        end tell
+--      end tell ]])
+--    else
+--      hs.alert.show("move dock to right")
+--      hs.osascript.applescript([[ tell application "System Events"
+--        tell dock preferences
+--          set properties to {screen edge: right, autohide: false}
+--        end tell
+--      end tell ]])
+--    end
+--  end
 
   local shouldStartSynergy = false
   local waitForPing = false
@@ -55,7 +55,7 @@ function DockMover()
         if string.find(ip, "192.168.212.") then
           print("found LAN ip, pinging")
           waitForPing = true
-          hs.network.ping("192.168.212.117", 3, 0.2, 0.2, "any", function(pingObj, msg, sn, err)
+          hs.network.ping("192.168.212.117", 10, 1, 0.5, "any", function(pingObj, msg, sn, err)
             if msg == "receivedPacket" then
               print("got ping back")
               shouldStartSynergy = true
@@ -111,3 +111,4 @@ end
 DockMover()
 
 hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
+hs.allowAppleScript(true)

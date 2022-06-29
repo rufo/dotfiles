@@ -24,6 +24,12 @@ git config --global core.excludesfile ~/.gitignore_global
 echo "Installing vim plugins"
 vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
 
+if ! [[ -e ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+	echo "Installing packer.nvim"
+	git clone https://github.com/wbthomason/packer.nvim\
+		  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   chsh -s /usr/bin/zsh

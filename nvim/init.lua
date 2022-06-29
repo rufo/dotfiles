@@ -105,7 +105,7 @@ require'nvim-treesitter.configs'.setup {
 
 require("nvim-lsp-installer").setup {}
 
-vim.o.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 
 local cmp = require'cmp'
 

@@ -34,4 +34,5 @@ if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   sudo chsh -s /bin/zsh "$(whoami)"
   sudo apt install -y exa fd-find fzf
+  ln -nsf "$symlink_dir" "$HOME/.dotfiles"
 fi

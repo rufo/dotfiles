@@ -29,4 +29,5 @@ if [ "$CODESPACES" = true ]; then
   sudo chsh -s /bin/zsh "$(whoami)"
   sudo apt install -y exa fd-find
   ln -nsf "$symlink_dir" "$HOME/.dotfiles"
+  gh api "/user/codespaces/$CODESPACE_NAME" -q .display_name > "$HOME/.friendly_name"
 fi

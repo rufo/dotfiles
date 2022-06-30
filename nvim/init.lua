@@ -77,7 +77,11 @@ vim.api.nvim_set_keymap('n', '<leader>b',
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "ruby", "lua", "json", "dockerfile", "javascript", "typescript", "bash", "comment", "css", "go", "html", "python", "regex", "scss", "toml", "vim", "yaml", "tsx", "vue", "make", "c" },
+  ensure_installed = {
+    "ruby", "lua", "json", "dockerfile", "javascript", "typescript", "bash",
+    "comment", "css", "go", "html", "python", "regex", "scss", "toml", "vim",
+    "yaml", "tsx", "vue", "make", "c",
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

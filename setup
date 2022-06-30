@@ -33,5 +33,5 @@ fi
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   sudo chsh -s /bin/zsh "$(whoami)"
-  sudo apt install -y exa fd-find
+  sudo apt install -y exa fd-find fzf
 fi

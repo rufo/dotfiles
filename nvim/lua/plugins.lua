@@ -37,6 +37,7 @@ return require('packer').startup(function()
 		  require('Comment').setup()
 	  end
   }
+  use { 'junegunn/fzf', run = './install --bin', }
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     -- requires = { 'kyazdani42/nvim-web-devicons' }

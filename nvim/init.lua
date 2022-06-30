@@ -1,4 +1,4 @@
-if not vim.env.USE_NEW_NVIM_CONFIG then
+if vim.env.USE_CLASSIC_VIMRC then
   vim.opt.runtimepath:prepend { "~/.vim" }
   vim.opt.runtimepath:append { "~/.vim/after" }
   vim.o.packpath = vim.o.runtimepath

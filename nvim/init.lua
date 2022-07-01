@@ -33,6 +33,8 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+
+vim.opt.scrolloff = 5
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.colorcolumn = "80"
@@ -40,7 +42,13 @@ vim.opt.cursorline = true
 vim.cmd "colorscheme kanagawa"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.inccommand = "nosplit"
+vim.opt.showmatch = true
+
+vim.opt.undofile = true
 
 require("nvim-tree").setup({
 	renderer = {

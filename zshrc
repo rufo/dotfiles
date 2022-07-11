@@ -23,7 +23,7 @@ if [[ -e "/snap/bin" ]]; then
   export PATH="/snap/bin:$PATH"
 fi
 
-if brew_prefix_e $HOMEBREW_PREFIX/share/zsh/site-functions; then
+if brew_prefix_e /share/zsh/site-functions; then
   FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
 fi
 

@@ -18,6 +18,8 @@ vim.cmd [[ cnoreabbrev Qa qa ]]
 vim.cmd [[ cnoreabbrev Qa! qa! ]]
 vim.cmd [[ cnoreabbrev Q! q! ]]
 
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true })
 

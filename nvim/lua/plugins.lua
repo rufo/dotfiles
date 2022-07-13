@@ -11,7 +11,7 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'RRethy/nvim-base16'

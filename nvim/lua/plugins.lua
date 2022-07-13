@@ -80,6 +80,17 @@ return require('packer').startup(function(use)
 
   use "github/copilot.vim"
 
+  use({
+    "gbprod/yanky.nvim",
+    config = function()
+      require("yanky").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end
+  })
+
   if packer_bootstrap then
     require('packer').sync()
   end

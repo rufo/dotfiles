@@ -26,6 +26,9 @@ vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>[', ':NvimTreeToggle<CR>', { noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>]', ':NvimTreeFindFileToggle<CR>', { noremap = true})
 
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)", {})
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)", {})
+
 vim.opt.mouse = "a"
 
 vim.opt.number = true

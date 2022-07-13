@@ -131,6 +131,16 @@ lsp.preset('recommended')
 lsp.nvim_workspace()
 lsp.setup()
 
+lsp.configure('yamlls', {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+      }
+    }
+  }
+})
+
 local cmp = require'cmp'
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {

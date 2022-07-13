@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-rails'
 
   use { 'kyazdani42/nvim-tree.lua',
-    -- requires = { 'kyazdani42/nvim-web-devicons', },
+    requires = { 'kyazdani42/nvim-web-devicons', },
   }
   use { 'numToStr/Comment.nvim',
 	  config = function()
@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
   use { 'junegunn/fzf', run = './install --bin', }
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
-    -- requires = { 'kyazdani42/nvim-web-devicons' }
+    requires = { 'kyazdani42/nvim-web-devicons' }
   }
   use { 'lewis6991/gitsigns.nvim',
     config = function()

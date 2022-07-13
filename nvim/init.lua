@@ -56,24 +56,24 @@ vim.opt.showmatch = true
 vim.opt.undofile = true
 
 require("nvim-tree").setup({
-	renderer = {
-		icons = {
-			show = {
-				file = false,
-				folder_arrow = false,
-			},
-			glyphs = {
-				symlink = "↪︎",
-				folder = {
-					default = "▶︎",
-					open = "▼",
-					empty = "▷",
-					symlink = "↪︎▶︎",
-					symlink_open = "↪︎▼",
-				},
-			},
-		},
-	},
+	-- renderer = {
+	-- 	icons = {
+	-- 		show = {
+	-- 			file = false,
+	-- 			folder_arrow = false,
+	-- 		},
+	-- 		glyphs = {
+	-- 			symlink = "↪︎",
+	-- 			folder = {
+	-- 				default = "▶︎",
+	-- 				open = "▼",
+	-- 				empty = "▷",
+	-- 				symlink = "↪︎▶︎",
+	-- 				symlink_open = "↪︎▼",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
   actions = {
     open_file = {
       quit_on_open = true,

@@ -177,3 +177,9 @@ require("indent_blankline").setup {
 vim.cmd [[vnoremap <leader>c :OSCYank<CR>]]
 
 require('feline').setup()
+
+-- remove trailing whitespace
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})

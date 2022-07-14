@@ -7,9 +7,7 @@ if vim.env.USE_CLASSIC_VIMRC then
   return
 end
 
-print("using neovim config")
-
-require('plugins')
+require('bootstrap').setup()
 
 vim.cmd [[ cnoreabbrev W w ]]
 vim.cmd [[ cnoreabbrev Wq wq ]]
@@ -183,3 +181,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+require('Comment').setup()
+require('gitsigns').setup()
+require('nvim-autopairs').setup {}
+require('yanky').setup({})
+

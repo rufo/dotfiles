@@ -91,6 +91,8 @@ return require('packer').startup(function(use)
     end
   })
 
+  use 'feline-nvim/feline.nvim'
+
   if packer_bootstrap then
     require('packer').sync()
   end

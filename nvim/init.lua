@@ -175,3 +175,5 @@ require("indent_blankline").setup {
 
 -- so far this hasn't worked via the lua api and I have no idea why :shrug:
 vim.cmd [[vnoremap <leader>c :OSCYank<CR>]]
+
+require('feline').setup()

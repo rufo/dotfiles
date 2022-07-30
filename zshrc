@@ -1,6 +1,6 @@
 exists() { type "$1" > /dev/null 2>&1; }
 
-export PATH="$PATH:~/.dotfiles/bin"
+export PATH="$PATH:$HOME/.dotfiles/bin"
 
 # set up homebrew wherever it may exist
 

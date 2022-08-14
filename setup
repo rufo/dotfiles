@@ -27,6 +27,8 @@ vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
 if command -v nvim || echo FALSE; then
   echo "Installing nvim plugins"
   nvim --headless -u NONE -c 'lua require("bootstrap").bootstrap_paq()'
+  echo "Installing Treesitter prasers"
+  nvim --headless '+TSUpdateSync' +qa
 fi
 
 if [ "$CODESPACES" = true ]; then

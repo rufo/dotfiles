@@ -18,7 +18,8 @@ local PKGS = {
   'windwp/nvim-autopairs';
   'VonHeikemen/lsp-zero.nvim';
   'neovim/nvim-lspconfig';
-  'williamboman/nvim-lsp-installer';
+  'williamboman/mason.nvim';
+  'williamboman/mason-lspconfig.nvim';
 
   -- Autocompletion
   'hrsh7th/nvim-cmp';

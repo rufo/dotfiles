@@ -124,6 +124,9 @@ require'nvim-treesitter.configs'.setup {
 
 vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.nvim_workspace()

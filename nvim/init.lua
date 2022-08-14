@@ -42,7 +42,7 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
-vim.cmd "colorscheme kanagawa"
+pcall(vim.cmd, "colorscheme kanagawa")
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 

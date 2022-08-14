@@ -19,10 +19,15 @@ do
 	ln -nsf "$symlink_dir/$i" "$HOME/.config/$i"
 done
 
-git config --global core.excludesfile ~/.gitignore_global 
+git config --global core.excludesfile ~/.gitignore_global
 
 echo "Installing vim plugins"
 vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
+
+if command -v nvim || echo FALSE; then
+  echo "Installing nvim plugins"
+  nvim --headless -u NONE -c 'lua require("bootstrap").bootstrap_paq()'
+fi
 
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"

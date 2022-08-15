@@ -26,6 +26,7 @@ vim.api.nvim_set_keymap('n', '<leader>]', ':NvimTreeFindFileToggle<CR>', { norem
 
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)", {})
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)", {})
+vim.keymap.del("n", "Y") -- too used to the old behavior /shrug
 
 vim.opt.mouse = "a"
 

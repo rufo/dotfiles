@@ -16,13 +16,13 @@ vim.cmd [[ cnoreabbrev Qa qa ]]
 vim.cmd [[ cnoreabbrev Qa! qa! ]]
 vim.cmd [[ cnoreabbrev Q! q! ]]
 
-vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true })
-vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
-vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true })
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true })
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('i', 'jk', '<ESC>')
+vim.keymap.set('i', 'jj', '<ESC>')
 
-vim.api.nvim_set_keymap('n', '<leader>[', ':NvimTreeToggle<CR>', { noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>]', ':NvimTreeFindFileToggle<CR>', { noremap = true})
+vim.keymap.set('n', '<leader>[', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>]', ':NvimTreeFindFileToggle<CR>')
 
 vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)", {})
 vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)", {})
@@ -80,12 +80,8 @@ require("nvim-tree").setup({
   },
 })
 
-vim.api.nvim_set_keymap('n', '<leader>p',
-    "<cmd>lua require('fzf-lua').files()<CR>",
-    { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>b',
-    "<cmd>lua require('fzf-lua').buffers()<CR>",
-    { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+vim.keymap.set('n', '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
@@ -175,8 +171,7 @@ require("indent_blankline").setup {
   show_current_context_start = true,
 }
 
--- so far this hasn't worked via the lua api and I have no idea why :shrug:
-vim.cmd [[vnoremap <leader>c :OSCYank<CR>]]
+vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
 
 require('feline').setup()
 

@@ -24,8 +24,12 @@ vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', '<leader>[', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>]', ':NvimTreeFindFileToggle<CR>')
 
-vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)", {})
-vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)", {})
+vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleForward)", {})
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleBackward)", {})
 vim.keymap.del("n", "Y") -- too used to the old behavior /shrug
 
 vim.opt.mouse = "a"

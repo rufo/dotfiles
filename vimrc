@@ -172,7 +172,14 @@ elseif has("termguicolors")
 end
 
 set background=dark
-colorscheme base16-default-dark
+try
+  colorscheme base16-default-dark
+catch /^Vim\%((\a\+)\)\=:E185/
+  try
+    colorscheme peachpuff
+  catch
+  endtry
+endtry
 hi MatchParen ctermbg=red guibg=red
 au BufNewFile,BufRead *.nghaml set filetype=haml
 au BufRead script/* if getline(1) =~ 'safe-ruby' | setlocal ft=ruby | endif

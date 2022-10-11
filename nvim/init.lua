@@ -177,6 +177,15 @@ require("indent_blankline").setup {
 
 vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
 
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  pattern = { "*" },
+  callback = function()
+    if( vim.v.event.operator == 'y' and vim.v.event.regname == '') then
+      vim.cmd('OSCYank')
+    end
+  end
+})
+
 require('feline').setup()
 
 -- remove trailing whitespace

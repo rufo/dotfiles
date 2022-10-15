@@ -27,8 +27,10 @@ if brew_prefix_e /share/zsh/site-functions; then
   FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
 fi
 
-if exists vim; then
-  export EDITOR="vim"
+if exists nvim; then
+  export EDITOR="nvim"
+elif exists vim; then
+  export EDITOR="nvim"
 fi
 export CLICOLOR=true
 export MENU_COMPLETE=false

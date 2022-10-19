@@ -6,6 +6,9 @@ set -e
 link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global hammerspoon asdfrc iterm2 iterm2_shell_integration.zsh gitconfig )
 link_in_config=( fish nvim alacritty )
 
+possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew $HOME/.linuxbrew/bin/brew /opt/homebrew/bin/brew )
+exists() { type "$1" > /dev/null 2>&1; }
+
 symlink_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 for i in "${link_in_homedir[@]}"
@@ -21,15 +24,28 @@ done
 
 git config --global core.excludesfile ~/.gitignore_global
 
+possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew $HOME/.linuxbrew/bin/brew /opt/homebrew/bin/brew )
+for brewpath in $possible_brew_paths; do
+  if exists $brewpath; then
+    eval "$($brewpath shellenv)"
+    break
+  fi
+done
 
-echo "Installing vim plugins"
-vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
+if exists vim; then
+  echo "Installing vim plugins"
+  vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
+else
+  echo "No vim found, skipping"
+fi
 
-if command -v nvim; then
+if exists nvim; then
   echo "Installing nvim plugins"
   nvim --headless -u NONE -c 'lua require("bootstrap").bootstrap_paq()'
   echo "Installing Treesitter prasers"
   nvim --headless '+TSUpdateSync' +qa
+else
+  echo "No nvim found, skipping"
 fi
 
 if [ "$CODESPACES" = true ]; then

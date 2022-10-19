@@ -137,7 +137,7 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>[ :NERDTreeToggle<CR>
 nnoremap <leader>] :NERDTreeFind<CR>
 nnoremap <leader>; :if &number <Bar>
-  \set relativenumber<Bar> 
+  \set relativenumber<Bar>
     \else <Bar>
   \set number <Bar>
     \endif<cr>

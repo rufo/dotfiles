@@ -21,10 +21,11 @@ done
 
 git config --global core.excludesfile ~/.gitignore_global
 
+
 echo "Installing vim plugins"
 vim -es -u "$HOME/.vimrc" -i NONE -c "PlugInstall" -c "qa"
 
-if command -v nvim || echo FALSE; then
+if command -v nvim; then
   echo "Installing nvim plugins"
   nvim --headless -u NONE -c 'lua require("bootstrap").bootstrap_paq()'
   echo "Installing Treesitter prasers"

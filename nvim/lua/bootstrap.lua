@@ -1,5 +1,6 @@
 local PKGS = {
   'savq/paq-nvim';
+  'nvim-lua/plenary.nvim';
   'rebelot/kanagawa.nvim';
   {'nvim-treesitter/nvim-treesitter', run=function ()
     vim.cmd('TSUpdate')
@@ -17,6 +18,7 @@ local PKGS = {
   'lewis6991/gitsigns.nvim';
   'windwp/nvim-autopairs';
   'VonHeikemen/lsp-zero.nvim';
+  'jose-elias-alvarez/null-ls.nvim';
   'neovim/nvim-lspconfig';
   'williamboman/mason.nvim';
   'williamboman/mason-lspconfig.nvim';

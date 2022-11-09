@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep -r /workspaces/github -e asdfasduiuooiu &

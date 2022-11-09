@@ -70,7 +70,13 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 else
   PS1_COLOR="red"
 fi
-PS1="%F{$PS1_COLOR}%n@%m%f%(1v.%F{red}%1v%f.-)%# "
+if [[ "$CODESPACES" == "true" ]]; then
+  PS1_COLOR="green"
+  PS1_HOSTNAME="  $(cat $HOME/.friendly_name)"
+else
+  PS1_HOSTNAME="%n@%m"
+fi
+PS1="%F{$PS1_COLOR}$PS1_HOSTNAME%f%(1v.%F{red}%1v%f.-)%# "
 
 # this lets you do things like mmv *.txt *.erb to rename all .txts to .erb
 autoload -U zmv

@@ -9,8 +9,6 @@
 	default = simple
 [credential "https://github.com"]
 	helper = !gh auth git-credential
-[core]
-	excludesfile = /Users/rufo/.gitignore_global
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

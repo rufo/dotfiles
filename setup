@@ -6,7 +6,7 @@ set -e
 link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global hammerspoon asdfrc iterm2 iterm2_shell_integration.zsh gitconfig )
 link_in_config=( fish nvim alacritty git )
 
-possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew $HOME/.linuxbrew/bin/brew /opt/homebrew/bin/brew )
+possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew "$HOME/.linuxbrew/bin/brew" /opt/homebrew/bin/brew )
 exists() { type "$1" > /dev/null 2>&1; }
 
 symlink_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -22,9 +22,8 @@ do
 	ln -nsf "$symlink_dir/$i" "$HOME/.config/$i"
 done
 
-possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew $HOME/.linuxbrew/bin/brew /opt/homebrew/bin/brew )
-for brewpath in $possible_brew_paths; do
-  if exists $brewpath; then
+for brewpath in "${possible_brew_paths[@]}"; do
+  if exists "$brewpath"; then
     eval "$($brewpath shellenv)"
     break
   fi

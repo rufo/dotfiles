@@ -1,6 +1,12 @@
 [user]
 	name = Rufo Sanchez
-	email = rufo@github.com
+	email = rufo@rufosanchez.com
+[includeIf "gitdir:~/github/"]
+  path = ~/.dotfiles/gitconfig-github
+[includeIf "hasconfig:remote.*.url:git@github.com:github/**"]
+  path = ~/.dotfiles/gitconfig-github
+[includeIf "hasconfig:remote.*.url:https://github.com/github/**"]
+  path = ~/.dotfiles/gitconfig-github
 [init]
 	defaultBranch = main
 [github]

@@ -28,9 +28,9 @@ if brew_prefix_e /share/zsh/site-functions; then
 fi
 
 if exists nvim; then
-  export EDITOR="nvim"
+  export EDITOR=$(which nvim)
 elif exists vim; then
-  export EDITOR="nvim"
+  export EDITOR=$(which vim)
 fi
 export CLICOLOR=true
 export MENU_COMPLETE=false

@@ -46,7 +46,7 @@ fi
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   sudo chsh -s /bin/zsh "$(whoami)"
-  sudo apt install -y exa fd-find
+  sudo apt install -y exa fd-find fzf shellcheck
   if [[ "$symlink_dir" != "$HOME/.dotfiles" ]]; then
     ln -nsf "$symlink_dir" "$HOME/.dotfiles"
   else

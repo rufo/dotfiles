@@ -68,7 +68,11 @@ local PKGS = {
   'lukas-reineke/indent-blankline.nvim';
   'ojroques/vim-oscyank';
 
-  'github/copilot.vim';
+  {'zbirenbaum/copilot.lua',
+    event = "VeryLazy",
+    lazy = true,
+    config = true,
+  };
 
   'gbprod/yanky.nvim';
 

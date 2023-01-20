@@ -30,7 +30,7 @@ local PKGS = {
     end
   };
   {'nvim-treesitter/nvim-treesitter', build=function ()
-    vim.cmd('TSUpdateSync')
+    vim.cmd(':TSUpdate')
   end};
   'wincent/ferret';
   'tpope/vim-repeat';
@@ -163,7 +163,7 @@ require'nvim-treesitter.configs'.setup {
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  sync_install = #vim.api.nvim_list_uis() == 0,
 
   -- List of parsers to ignore installing (for "all")
   -- ignore_install = { "javascript" },

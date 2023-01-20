@@ -53,4 +53,8 @@ if [ "$CODESPACES" = true ]; then
     echo "skipping dotfiles symlink, would create a loop"
   fi
   gh api "/user/codespaces/$CODESPACE_NAME" -q .display_name > "$HOME/.friendly_name"
+  if [[ -d  "/workspaces/github/bin" ]]; then
+    # shellcheck disable=SC2016
+    echo 'export PATH="/workspaces/github/bin:$PATH"' > "$HOME/.zshenv"
+  fi
 fi

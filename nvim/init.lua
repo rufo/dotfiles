@@ -30,7 +30,7 @@ local PKGS = {
     end
   };
   {'nvim-treesitter/nvim-treesitter', build=function ()
-    vim.cmd('TSUpdate')
+    vim.cmd('TSUpdateSync')
   end};
   'wincent/ferret';
   'tpope/vim-repeat';

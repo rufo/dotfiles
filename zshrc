@@ -2,6 +2,10 @@ exists() { type "$1" > /dev/null 2>&1; }
 
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
+export LANG="en_US.UTF-8"
+export LC_ALL="$LANG"
+export LC_CTYPE="$LANG"
+
 # set up homebrew wherever it may exist
 
 possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew $HOME/.linuxbrew/bin/brew /opt/homebrew/bin/brew )

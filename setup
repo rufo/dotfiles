@@ -38,9 +38,7 @@ fi
 
 if exists nvim; then
   echo "Installing nvim plugins"
-  nvim --headless -u NONE -c 'lua require("bootstrap").bootstrap_paq()'
-  echo "Installing Treesitter prasers"
-  nvim --headless '+TSUpdateSync' +qa
+  nvim --headless "+Lazy! sync" +qa
 else
   echo "No nvim found, skipping"
 fi

@@ -38,7 +38,7 @@ fi
 
 if exists nvim; then
   echo "Installing nvim plugins"
-  nvim --headless "+Lazy! sync" +qa
+  nvim --headless "+Lazy! restore" +qa
 else
   echo "No nvim found, skipping"
 fi

@@ -234,7 +234,17 @@ local PKGS = {
       'hrsh7th/cmp-cmdline',
     },
     config = function()
-      local cmp = require'cmp'
+      local cmp = require('cmp')
+      cmp.setup {
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end
+        },
+        sources = {
+          { name = "luasnip" }
+        }
+      }
       -- Set configuration for specific filetype.
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({

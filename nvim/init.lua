@@ -107,21 +107,32 @@ local PKGS = {
   {'tpope/vim-rails',
     event = "VeryLazy",
   };
-  {'kyazdani42/nvim-tree.lua',
+  {'nvim-neo-tree/neo-tree.nvim',
     opts = {
-      actions = {
-        open_file = {
-          quit_on_open = true,
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function(file_path)
+            require("neo-tree").close_all()
+          end
         }
       },
+      window = {
+        mappings = {
+          ["o"] = "open"
+        }
+      }
     },
+    branch = "v2.x",
     dependencies = {
-      "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
     },
     keys = {
-      { "<leader>[", ":NvimTreeToggle<CR>", desc = "NvimTree" },
-      { "<leader>]", ":NvimTreeFindFileToggle<CR>", desc = "Find file in NvimTree" },
+      { "<leader>[", ":Neotree toggle=true<CR>", desc = "Neotree filesystem toggle" },
+      { "<leader>]", ":Neotree filesystem reveal<CR>", desc = "Find file in NvimTree" },
     },
+    event = "BufEnter"
   };
   {'numToStr/Comment.nvim',
     config = true,

@@ -114,9 +114,9 @@ local PKGS = {
           quit_on_open = true,
         }
       },
-      dependencies = {
-        "kyazdani42/nvim-web-devicons",
-      },
+    },
+    dependencies = {
+      "kyazdani42/nvim-web-devicons",
     },
     keys = {
       { "<leader>[", ":NvimTreeToggle<CR>", desc = "NvimTree" },

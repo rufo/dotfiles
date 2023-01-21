@@ -21,7 +21,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local PKGS = {
-  'nvim-lua/plenary.nvim';
+  {'nvim-lua/plenary.nvim',
+    lazy = true,
+  };
   {'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
@@ -29,54 +31,281 @@ local PKGS = {
       vim.cmd([[colorscheme kanagawa]])
     end
   };
-  {'nvim-treesitter/nvim-treesitter', build=function ()
-    vim.cmd(':TSUpdate')
-  end};
-  'wincent/ferret';
-  'tpope/vim-repeat';
-  'tpope/vim-surround';
-  'tpope/vim-fugitive';
-  'tpope/vim-rails';
-  'kyazdani42/nvim-web-devicons';
-  'kyazdani42/nvim-tree.lua';
-  'numToStr/Comment.nvim';
-  {'junegunn/fzf', build='./install --bin'};
-  'ibhagwan/fzf-lua';
-  'lewis6991/gitsigns.nvim';
-  'windwp/nvim-autopairs';
-  'VonHeikemen/lsp-zero.nvim';
-  'jose-elias-alvarez/null-ls.nvim';
-  'neovim/nvim-lspconfig';
-  'williamboman/mason.nvim';
-  'williamboman/mason-lspconfig.nvim';
+  {'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    event = "BufReadPost",
+    opts = {
+      ensure_installed = {
+        "ruby",
+        "lua",
+        "json",
+        "dockerfile",
+        "javascript",
+        "typescript",
+        "bash",
+        "comment",
+        "css",
+        "go",
+        "html",
+        "python",
+        "regex",
+        "scss",
+        "toml",
+        "vim",
+        "yaml",
+        "tsx",
+        "vue",
+        "make",
+        "c",
+        "markdown",
+        "markdown_inline",
+        "help",
+      },
+      -- Install parsers synchronously when headless
+      sync_install = #vim.api.nvim_list_uis() == 0,
+
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+
+      indent = {
+        enable = true,
+      },
+
+      endwise = {
+        enable = true,
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+    dependencies = {'RRethy/nvim-treesitter-endwise',},
+  };
+  {'wincent/ferret',
+    cmd = {
+      "Ack",
+      "Lack",
+      "Back",
+      "Black",
+      "Quack",
+      "Acks",
+      "Lacks",
+      "Qargs",
+      "Largs",
+    }
+  };
+  {'tpope/vim-repeat',
+    event = "VeryLazy",
+  };
+  {'tpope/vim-surround',
+    event = "VeryLazy",
+  };
+  {'tpope/vim-fugitive',
+    event = "VeryLazy",
+  };
+  {'tpope/vim-rails',
+    event = "VeryLazy",
+  };
+  {'kyazdani42/nvim-tree.lua',
+    opts = {
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        }
+      },
+      dependencies = {
+        "kyazdani42/nvim-web-devicons",
+      },
+    },
+    keys = {
+      { "<leader>[", ":NvimTreeToggle<CR>", desc = "NvimTree" },
+      { "<leader>]", ":NvimTreeFindFileToggle<CR>", desc = "Find file in NvimTree" },
+    },
+  };
+  {'numToStr/Comment.nvim',
+    config = true,
+    event = "VeryLazy",
+  };
+  {'junegunn/fzf',
+    build = './install --bin',
+    lazy = true,
+  };
+  {'ibhagwan/fzf-lua',
+    dependencies = {
+      "junegunn/fzf",
+    },
+    keys = {
+      { "<leader>p", "<cmd>lua require('fzf-lua').files()<CR>", desc = "FZF Files" },
+      { "<leader>b", "<cmd>lua require('fzf-lua').buffers()<CR>", desc = "FZF Buffers" },
+    }
+  };
+  {'lewis6991/gitsigns.nvim',
+    config = true,
+    event = "BufReadPre",
+  };
+  {'windwp/nvim-autopairs',
+    config = true,
+    event = "VeryLazy"
+  };
+  {'VonHeikemen/lsp-zero.nvim',
+    config = function()
+      require('mason').setup()
+      require('mason-lspconfig').setup()
+      local lsp = require('lsp-zero')
+      lsp.preset('recommended')
+      lsp.nvim_workspace()
+      lsp.setup()
+
+      lsp.configure('yamlls', {
+        settings = {
+          yaml = {
+            schemas = {
+              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+            }
+          }
+        }
+      })
+    end,
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'L3MON4D3/LuaSnip'
+    },
+    event = "BufReadPre"
+  };
+  {'jose-elias-alvarez/null-ls.nvim',
+    event = "BufReadPre",
+    config = function()
+      local null_ls = require("null-ls")
+
+      null_ls.setup({
+          sources = {
+              null_ls.builtins.code_actions.shellcheck,
+              null_ls.builtins.diagnostics.shellcheck,
+              null_ls.builtins.formatting.erb_lint,
+              null_ls.builtins.diagnostics.rubocop,
+              null_ls.builtins.formatting.rubocop,
+              null_ls.builtins.formatting.stylua,
+              null_ls.builtins.code_actions.eslint,
+              null_ls.builtins.diagnostics.eslint,
+              null_ls.builtins.formatting.eslint,
+              null_ls.builtins.completion.spell,
+          },
+      })
+    end,
+    dependencies = {
+      'williamboman/mason.nvim',
+    },
+  };
+  {'williamboman/mason.nvim',
+    cmd = "Mason",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shellcheck",
+        "shfmt",
+      }
+    },
+    config = function(_, opts)
+      require("mason").setup(opts)
+      local mr = require("mason-registry")
+      for _, tool in ipairs(opts.ensure_installed) do
+        local p = mr.get_package(tool)
+        if not p:is_installed() then
+          p:install()
+        end
+      end
+    end,
+    lazy = true,
+  };
 
   -- Autocompletion
-  'hrsh7th/nvim-cmp';
-  'hrsh7th/cmp-buffer';
-  'hrsh7th/cmp-path';
-  'saadparwaiz1/cmp_luasnip';
-  'hrsh7th/cmp-nvim-lsp';
-  'hrsh7th/cmp-nvim-lua';
-  'hrsh7th/cmp-cmdline';
+  {'hrsh7th/nvim-cmp',
+    event = {
+      "InsertEnter",
+      "CmdlineEnter",
+    },
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-cmdline',
+    },
+    config = function()
+      local cmp = require'cmp'
+      -- Set configuration for specific filetype.
+      cmp.setup.filetype('gitcommit', {
+        sources = cmp.config.sources({
+          { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+        }, {
+          { name = 'buffer' },
+        })
+      })
+
+      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
+      })
+    end
+  };
 
   -- Snippets
-  'L3MON4D3/LuaSnip';
-  'rafamadriz/friendly-snippets';
+  {'L3MON4D3/LuaSnip',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+    },
+    lazy = true,
+  };
 
-  'RRethy/nvim-treesitter-endwise';
+  {'RRethy/nvim-treesitter-endwise',
+    lazy = true,
+  };
 
-  'lukas-reineke/indent-blankline.nvim';
-  'ojroques/vim-oscyank';
+  {'lukas-reineke/indent-blankline.nvim',
+    opts = {
+      show_current_context = true,
+      show_current_context_start = true,
+    },
+    event = "BufReadPre",
+  };
+
+  {'ojroques/vim-oscyank',
+    cmd = "OSCYank",
+  };
 
   {'zbirenbaum/copilot.lua',
     event = "VeryLazy",
-    lazy = true,
     config = true,
   };
 
-  'gbprod/yanky.nvim';
+  {'gbprod/yanky.nvim',
+    config = true,
+    event = "VeryLazy",
+  };
 
-  'feline-nvim/feline.nvim';
+  {'feline-nvim/feline.nvim',
+    config = true,
+  };
 }
 
 require('lazy').setup(PKGS)
@@ -92,9 +321,6 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('i', 'jk', '<ESC>')
 vim.keymap.set('i', 'jj', '<ESC>')
-
-vim.keymap.set('n', '<leader>[', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>]', ':NvimTreeFindFileToggle<CR>')
 
 vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
 vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
@@ -129,122 +355,7 @@ vim.opt.showmatch = true
 
 vim.opt.undofile = true
 
-require("nvim-tree").setup({
-	-- renderer = {
-	-- 	icons = {
-	-- 		show = {
-	-- 			file = false,
-	-- 			folder_arrow = false,
-	-- 		},
-	-- 		glyphs = {
-	-- 			symlink = "↪︎",
-	-- 			folder = {
-	-- 				default = "▶︎",
-	-- 				open = "▼",
-	-- 				empty = "▷",
-	-- 				symlink = "↪︎▶︎",
-	-- 				symlink_open = "↪︎▼",
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    },
-  },
-})
-
-vim.keymap.set('n', '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-vim.keymap.set('n', '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
-
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = {
-    "ruby", "lua", "json", "dockerfile", "javascript", "typescript", "bash",
-    "comment", "css", "go", "html", "python", "regex", "scss", "toml", "vim",
-    "yaml", "tsx", "vue", "make", "c",
-  },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = #vim.api.nvim_list_uis() == 0,
-
-  -- List of parsers to ignore installing (for "all")
-  -- ignore_install = { "javascript" },
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    -- disable = { "c", "rust" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-
-  endwise = {
-    enable = true
-  }
-}
-
 vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
-
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
-
-lsp.configure('yamlls', {
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
-      }
-    }
-  }
-})
-
-local cmp = require'cmp'
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-require("indent_blankline").setup {
-  show_current_context = true,
-  show_current_context_start = true,
-}
 
 vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
 
@@ -257,32 +368,8 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   end
 })
 
-require('feline').setup()
-
 -- remove trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
-})
-
-require('Comment').setup()
-require('gitsigns').setup()
-require('nvim-autopairs').setup {}
-require('yanky').setup({})
-
-local null_ls = require("null-ls")
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.code_actions.shellcheck,
-        null_ls.builtins.diagnostics.shellcheck,
-        null_ls.builtins.formatting.erb_lint,
-        null_ls.builtins.diagnostics.rubocop,
-        null_ls.builtins.formatting.rubocop,
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.formatting.eslint,
-        null_ls.builtins.completion.spell,
-    },
 })

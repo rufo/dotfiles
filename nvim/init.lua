@@ -219,7 +219,6 @@ local PKGS = {
         end
       end
     end,
-    lazy = true,
   };
 
   -- Autocompletion

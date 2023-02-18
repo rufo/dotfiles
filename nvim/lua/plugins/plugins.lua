@@ -47,12 +47,7 @@ return {
       "Largs",
     }
   };
-  {'tpope/vim-repeat',
-    event = "VeryLazy",
-  };
-  {'tpope/vim-surround',
-    event = "VeryLazy",
-  };
+
   {'tpope/vim-rails',
     event = "VeryLazy",
   };
@@ -83,10 +78,6 @@ return {
     },
     event = "BufEnter"
   };
-  {'numToStr/Comment.nvim',
-    config = true,
-    event = "VeryLazy",
-  };
   {'junegunn/fzf',
     build = './install --bin',
     lazy = true,
@@ -99,18 +90,6 @@ return {
       { "<leader>p", "<cmd>lua require('fzf-lua').files()<CR>", desc = "FZF Files" },
       { "<leader>b", "<cmd>lua require('fzf-lua').buffers()<CR>", desc = "FZF Buffers" },
     }
-  };
-  {'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup()
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-      )
-    end,
-    event = "InsertEnter",
   };
   {'VonHeikemen/lsp-zero.nvim',
     config = function()
@@ -261,13 +240,6 @@ return {
       end,
     },
     lazy = true,
-  };
-  {'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      show_current_context = true,
-      show_current_context_start = true,
-    },
-    event = "BufReadPre",
   };
 
   {'ojroques/vim-oscyank',

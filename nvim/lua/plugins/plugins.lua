@@ -376,6 +376,7 @@ return {
     end,
     event = "VeryLazy",
   };
+  {'bfontaine/Brewfile.vim'},
   {'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,

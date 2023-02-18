@@ -53,9 +53,6 @@ return {
   {'tpope/vim-surround',
     event = "VeryLazy",
   };
-  {'tpope/vim-fugitive',
-    event = "VeryLazy",
-  };
   {'tpope/vim-rails',
     event = "VeryLazy",
   };
@@ -102,10 +99,6 @@ return {
       { "<leader>p", "<cmd>lua require('fzf-lua').files()<CR>", desc = "FZF Files" },
       { "<leader>b", "<cmd>lua require('fzf-lua').buffers()<CR>", desc = "FZF Buffers" },
     }
-  };
-  {'lewis6991/gitsigns.nvim',
-    config = true,
-    event = "BufReadPre",
   };
   {'windwp/nvim-autopairs',
     config = function()

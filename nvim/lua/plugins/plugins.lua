@@ -215,19 +215,13 @@ return {
     lazy = true,
   };
 
-  {'ojroques/vim-oscyank',
-    cmd = "OSCYank",
-  };
 
   {'zbirenbaum/copilot.lua',
     event = "VeryLazy",
     config = true,
   };
 
-  {'gbprod/yanky.nvim',
-    config = true,
-    event = "VeryLazy",
-  };
+
 
   {'bfontaine/Brewfile.vim'},
 }

@@ -1,7 +1,4 @@
 return {
-  {'nvim-lua/plenary.nvim',
-    lazy = true,
-  },
   { "dstein64/vim-startuptime",
     cmd = "StartupTime",
     config = function()
@@ -223,6 +220,7 @@ return {
     end,
     dependencies = {
       'williamboman/mason.nvim',
+      'nvim-lua/plenary.nvim',
     },
   };
   {'williamboman/mason.nvim',

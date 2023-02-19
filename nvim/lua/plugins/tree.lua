@@ -1,29 +1,30 @@
 return {
-  {'nvim-neo-tree/neo-tree.nvim',
+  {
+    'nvim-neo-tree/neo-tree.nvim',
     opts = {
       event_handlers = {
         {
-          event = "file_opened",
+          event = 'file_opened',
           handler = function(file_path)
-            require("neo-tree").close_all()
-          end
-        }
+            require('neo-tree').close_all()
+          end,
+        },
       },
       window = {
         mappings = {
-          ["o"] = "open"
-        }
-      }
+          ['o'] = 'open',
+        },
+      },
     },
-    branch = "v2.x",
+    branch = 'v2.x',
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
     },
     keys = {
-      { "<leader>[", ":Neotree toggle=true<CR>", desc = "Neotree filesystem toggle" },
-      { "<leader>]", ":Neotree filesystem reveal<CR>", desc = "Find file in NvimTree" },
+      { '<leader>[', ':Neotree toggle=true<CR>', desc = 'Neotree filesystem toggle' },
+      { '<leader>]', ':Neotree filesystem reveal<CR>', desc = 'Find file in NvimTree' },
     },
-    event = "BufEnter"
-  };
+    event = 'BufEnter',
+  },
 }

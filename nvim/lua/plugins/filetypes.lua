@@ -1,6 +1,4 @@
 return {
-  {'bfontaine/Brewfile.vim'},
-  {'tpope/vim-rails',
-    event = "VeryLazy",
-  };
+  { 'bfontaine/Brewfile.vim' },
+  { 'tpope/vim-rails', event = 'VeryLazy' },
 }

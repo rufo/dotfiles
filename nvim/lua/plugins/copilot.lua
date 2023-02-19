@@ -1,6 +1,3 @@
 return {
-  {'zbirenbaum/copilot.lua',
-    event = "VeryLazy",
-    config = true,
-  };
+  { 'zbirenbaum/copilot.lua', event = 'VeryLazy', config = true },
 }

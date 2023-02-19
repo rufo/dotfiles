@@ -1,5 +1,6 @@
 return {
-  {'VonHeikemen/lsp-zero.nvim',
+  {
+    'VonHeikemen/lsp-zero.nvim',
     config = function()
       require('mason').setup()
       require('mason-lspconfig').setup()
@@ -12,10 +13,10 @@ return {
         settings = {
           yaml = {
             schemas = {
-              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
-            }
-          }
-        }
+              ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = 'docker-compose.yml',
+            },
+          },
+        },
       })
     end,
     dependencies = {
@@ -23,14 +24,15 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip'
+      'L3MON4D3/LuaSnip',
     },
-    event = "BufReadPre"
-  };
-  {'jose-elias-alvarez/null-ls.nvim',
-    event = "BufReadPre",
+    event = 'BufReadPre',
+  },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    event = 'BufReadPre',
     config = function()
-      local null_ls = require("null-ls")
+      local null_ls = require('null-ls')
 
       null_ls.setup({
         sources = {
@@ -51,5 +53,5 @@ return {
       'williamboman/mason.nvim',
       'nvim-lua/plenary.nvim',
     },
-  };
+  },
 }

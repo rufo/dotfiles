@@ -1,9 +1,9 @@
-  -- Autocompletion
-  return {
-  {'hrsh7th/nvim-cmp',
+return {
+  {
+    'hrsh7th/nvim-cmp',
     event = {
-      "InsertEnter",
-      "CmdlineEnter",
+      'InsertEnter',
+      'CmdlineEnter',
     },
     dependencies = {
       'hrsh7th/cmp-buffer',
@@ -13,55 +13,57 @@
     },
     config = function()
       local cmp = require('cmp')
-      cmp.setup {
+      cmp.setup({
         snippet = {
           expand = function(args)
             require('luasnip').lsp_expand(args.body)
-          end
+          end,
         },
         sources = {
-          { name = "luasnip" }
-        }
-      }
+          { name = 'luasnip' },
+        },
+      })
       -- Set configuration for specific filetype.
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
           { name = 'buffer' },
-        })
+        }),
       })
 
       -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline('/', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer' }
-        }
+          { name = 'buffer' },
+        },
       })
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = 'path' }
+          { name = 'path' },
         }, {
-            { name = 'cmdline',
-              option = {
-                ignore_cmds = { 'Man', '!' }
-              }
-            }
-          })
+          {
+            name = 'cmdline',
+            option = {
+              ignore_cmds = { 'Man', '!' },
+            },
+          },
+        }),
       })
-    end
-  };
+    end,
+  },
 
-  {'hrsh7th/cmp-nvim-lua',
-    ft = "lua",
+  {
+    'hrsh7th/cmp-nvim-lua',
+    ft = 'lua',
     config = function()
-      require('cmp').setup {
+      require('cmp').setup({
         sources = {
-          { name = "nvim_lua" }
-        }
-      }
-    end
+          { name = 'nvim_lua' },
+        },
+      })
+    end,
   },
 }

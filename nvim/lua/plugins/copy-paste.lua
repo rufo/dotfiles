@@ -1,9 +1,4 @@
 return {
-  {'gbprod/yanky.nvim',
-    config = true,
-    event = "VeryLazy",
-  };
-  {'ojroques/vim-oscyank',
-  cmd = "OSCYank",
-};
+  { 'gbprod/yanky.nvim', config = true, event = 'VeryLazy' },
+  { 'ojroques/vim-oscyank', cmd = 'OSCYank' },
 }

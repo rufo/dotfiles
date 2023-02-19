@@ -35,9 +35,6 @@ return {
     opts = { separator = " ", highlight = true, depth_limit = 5 },
   },
 
-  {'tpope/vim-rails',
-    event = "VeryLazy",
-  };
 
   -- Snippets
 
@@ -49,5 +46,4 @@ return {
 
 
 
-  {'bfontaine/Brewfile.vim'},
 }

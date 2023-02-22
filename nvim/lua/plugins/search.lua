@@ -13,15 +13,21 @@ return {
       'Largs',
     },
   },
-  { 'junegunn/fzf', build = './install --bin', lazy = true },
   {
-    'ibhagwan/fzf-lua',
-    dependencies = {
-      'junegunn/fzf',
-    },
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
     keys = {
-      { '<leader>p', "<cmd>lua require('fzf-lua').files()<CR>", desc = 'FZF Files' },
-      { '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>", desc = 'FZF Buffers' },
+      { "<leader>p", "<cmd>Telescope find_files<CR>", desc = "FZF Files" },
+      { "<leader>b", "<cmd>Telescope buffers<CR>", desc = "FZF Buffers" },
     },
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+    },
+    config = function()
+      require('telescope').setup()
+      require('telescope').load_extension('fzf')
+    end,
   },
 }

@@ -19,12 +19,8 @@ return {
 
       local navic = require('nvim-navic')
       table.insert(components.active[1], {
-        provider = function()
-          return navic.get_location()
-        end,
-        enabled = function()
-          return navic.is_available()
-        end,
+        provider = navic.get_location,
+        enabled = navic.is_available,
         left_sep = {
           '  ',
           {

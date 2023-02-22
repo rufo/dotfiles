@@ -64,7 +64,9 @@ autoload -Uz vcs_info
 
 unamestr=`uname`
 
-if brew_prefix_e /etc/profile.d/z.sh; then
+if exists zoxide; then
+  eval "$(zoxide init zsh)"
+elif brew_prefix_e /etc/profile.d/z.sh; then
   . $HOMEBREW_PREFIX/etc/profile.d/z.sh
 fi
 

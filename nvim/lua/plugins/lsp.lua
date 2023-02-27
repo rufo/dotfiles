@@ -54,4 +54,15 @@ return {
       'nvim-lua/plenary.nvim',
     },
   },
+  {
+    'folke/trouble.nvim',
+    config = true,
+    cmd = {
+      'Trouble',
+      'TroubleToggle',
+    },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  }
 }

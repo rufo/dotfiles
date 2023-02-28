@@ -33,7 +33,25 @@ return {
           ' ',
         },
       })
-      require('feline').setup({ components = components })
+
+      local force_inactive = {
+        filetypes = {
+          '^NvimTree$',
+          '^packer$',
+          '^startify$',
+          '^fugitive$',
+          '^fugitiveblame$',
+          '^qf$',
+          '^help$',
+          '^neo%-tree$',
+        },
+        buftypes = {
+          '^terminal$'
+        },
+        bufnames = {}
+      }
+
+      require('feline').setup({ components = components, force_inactive = force_inactive })
     end,
     event = 'VeryLazy',
   },

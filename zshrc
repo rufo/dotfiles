@@ -318,3 +318,7 @@ ports() {
         ) | sed -E 's/ ([^ ]+):/ \1 /' | sort -k8,8 -k5,5 -k1,1 -k10,10n
     ) | awk '{ printf "%-16s %-6s %-9s %-5s %-7s %s:%s\n",$1,$2,$3,$5,$8,$9,$10 }'
 }
+
+if exists github-copilot-cli; then
+  eval "$(github-copilot-cli alias -- "$0")"
+fi

@@ -7,6 +7,11 @@
 #:Checks for notes from GitHub releases first,
 #:then tries to pull the CHANGELOG.md from the version's tag.
 
+if [ -z "$1" ]; then
+  echo "Missing a formula name"
+  exit 1
+fi
+
 formulae_json=$(brew info "$1" --json=v1)
 homepage=$(echo "$formulae_json" | jq -r '.[0].homepage')
 src_url=$(echo "$formulae_json" | jq -r '.[0].urls.stable.url')

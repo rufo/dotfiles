@@ -38,12 +38,6 @@ else
   brew 'vim'
 end
 
-# ASi-unclean formulae
-if OS.mac? && Hardware::CPU.arm?
-  # doesn't compile for ASi yet
-  # but can be downloaded and run from https://github.com/koalaman/shellcheck/releases
-  brew "shellcheck"
-end
 
 cask "1password"
 cask "arq"

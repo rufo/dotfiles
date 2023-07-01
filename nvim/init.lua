@@ -34,6 +34,10 @@ vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('i', 'jk', '<ESC>')
 vim.keymap.set('i', 'jj', '<ESC>')
 
+-- F5 escape code is ^[[15~
+vim.keymap.set('n', '<F5>', ':w<CR>')
+vim.keymap.set('i', '<F5>', '<ESC>:w<CR>')
+
 vim.keymap.set({ 'n', 'x' }, 'p', '<Plug>(YankyPutAfter)')
 vim.keymap.set({ 'n', 'x' }, 'P', '<Plug>(YankyPutBefore)')
 vim.keymap.set({ 'n', 'x' }, 'gp', '<Plug>(YankyGPutAfter)')

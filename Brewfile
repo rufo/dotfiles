@@ -30,10 +30,12 @@ brew 'zsh'
 
 # Mac only formulae
 if OS.mac?
-  brew "macvim", override_system_vim: true
-  brew "switchaudio-osx"
+  brew 'macvim'
+  brew 'mas'
+  brew 'switchaudio-osx'
+  brew 'robotsandpencils/made/xcodes'
 else
-  brew "vim" 
+  brew 'vim'
 end
 
 # ASi-unclean formulae

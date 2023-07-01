@@ -156,6 +156,13 @@ cask 'parallels'
 
 # Work Mac
 cask 'docker'
+
+# Rogue Amoeba
+cask 'audio-hijack'
+cask 'loopback'
+cask 'soundsource'
+cask 'fission'
+cask 'farrago'
 # drivers that might not be needed but I wanted to save the name for
 # cask "silicon-labs-vcp-driver"
 

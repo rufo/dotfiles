@@ -163,5 +163,15 @@ cask 'raspberry-pi-imager'
 cask 'sdformatter'
 cask 'ultimaker-cura'
 
+# Home Mac
+brew 'rom-tools'
+cask 'adobe-creative-cloud'
+cask 'discord'
+cask 'multipatch'
+cask 'oscar'
+cask 'parallels'
+
+# Work Mac
+cask 'docker'
 # drivers that might not be needed but I wanted to save the name for
 # cask "silicon-labs-vcp-driver"

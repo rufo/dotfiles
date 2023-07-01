@@ -157,6 +157,8 @@ cask 'parallels'
 # Work Mac
 cask 'docker'
 
+# Wine-ing around
+cask 'gcenx/wine/unofficial-wineskin'
 # Rogue Amoeba
 cask 'audio-hijack'
 cask 'loopback'

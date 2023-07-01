@@ -116,23 +116,6 @@ cask 'qlvideo'
 cask 'suspicious-package'
 cask 'syntax-highlight'
 
-# cask "kensington-works" # trackball works doesn't seem to exist, might need to be updated?
-cask "logitech-options"
-
-mas "Deliveries", id: 924726344
-mas "Paprika Recipe Manager 3", id: 1303222628
-mas "Speedtest by Ookla", id: 1153157709
-mas "Bear", id: 1091189122
-mas "Yoink - Improved Drag and Drop", id: 457622435
-mas "DaisyDisk", id: 411643860
-mas "Day One", id: 1055511498
-mas "Things 3", id: 904280696
-mas "Drafts", id: 1435957248
-mas "Fantastical 3", id: 975937182
-
-mas "1Blocker", id: 1365531024
-mas "SmileAllDay", id: 1180442868
-mas "PIPifier", id: 1160374471
 # Maker Utilities
 brew 'dfu-programmer'
 brew 'dfu-util'
@@ -175,3 +158,44 @@ cask 'parallels'
 cask 'docker'
 # drivers that might not be needed but I wanted to save the name for
 # cask "silicon-labs-vcp-driver"
+
+# Mac App Store
+mas 'Actions', id: 1586435171
+mas 'Affinity Designer 2', id: 1616831348
+mas 'Affinity Photo 2', id: 1616822987
+mas 'Affinity Publisher 2', id: 1606941598
+mas 'Balance Lock', id: 1019371109
+mas 'Broadcasts', id: 1469995354
+mas 'Brother P-touch Editor', id: 1453365242
+mas 'DaisyDisk', id: 411643860
+mas 'Day One', id: 1055511498
+mas 'Deliveries', id: 924726344
+mas 'Disk Speed Test', id: 1289583905
+mas 'Drafts', id: 1435957248
+mas 'Front and Center', id: 1493996622
+mas 'Home Assistant', id: 1099568401
+mas 'Paprika Recipe Manager 3', id: 1303222628
+mas 'Parcel', id: 639968404
+mas 'Pixelmator Pro', id: 1289583905
+mas 'Speedtest by Ookla', id: 1153157709
+mas 'SwitchGlass', id: 1498546559
+mas 'Tailscale', id: 1475387142
+mas 'TestFlight', id: 899247664
+mas 'Things 3', id: 904280696
+mas 'Vinegar', id: 1591303229
+mas 'xScope', id: 889428659
+
+mas 'iMovie', id: 408981434
+mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+
+mas '1Blocker', id: 1365531024
+mas 'PiPifier', id: 1160374471
+mas 'Noir', id: 1592917505
+mas 'Tampermonkey', id: 1482490089
+mas 'Tabs to Links', id: 1019371109
+mas '1Password for Safari', id: 1569813296
+mas 'Shazam', id: 897118787
+mas 'StopTheMadness', id: 1376402589
+mas 'Hush', id: 1544743900

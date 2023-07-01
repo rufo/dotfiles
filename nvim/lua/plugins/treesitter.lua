@@ -28,7 +28,7 @@ return {
         'c',
         'markdown',
         'markdown_inline',
-        'help',
+        'vimdoc',
       },
       -- Install parsers synchronously when headless
       sync_install = #vim.api.nvim_list_uis() == 0,

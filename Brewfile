@@ -109,6 +109,12 @@ cask 'yubico-yubikey-manager'
 cask 'zsa-wally'
 cask 'zoom'
 
+# Quick Look Plugins
+cask 'apparency'
+cask 'qlmarkdown'
+cask 'qlvideo'
+cask 'suspicious-package'
+cask 'syntax-highlight'
 
 # cask "kensington-works" # trackball works doesn't seem to exist, might need to be updated?
 cask "logitech-options"

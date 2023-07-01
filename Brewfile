@@ -184,6 +184,17 @@ cask 'farrago'
 # drivers that might not be needed but I wanted to save the name for
 # cask "silicon-labs-vcp-driver"
 
+# Fonts
+tap 'homebrew/cask-fonts'
+cask 'font-blex-mono-nerd-font'
+cask 'font-cousine-nerd-font'
+cask 'font-jetbrains-mono-nerd-font'
+cask 'font-meslo-lg-nerd-font'
+cask 'font-sf-compact'
+cask 'font-sf-mono'
+cask 'epk/epk/font-sf-mono-nerd-font'
+cask 'font-sf-pro'
+
 # Mac App Store
 mas 'Actions', id: 1586435171
 mas 'Affinity Designer 2', id: 1616831348

@@ -159,6 +159,22 @@ cask 'docker'
 
 # Wine-ing around
 cask 'gcenx/wine/unofficial-wineskin'
+
+# SetApp Apps
+# cask "airbuddy"
+# cask "bartender"
+# cask "base"
+# cask "betterzip"
+# cask "dash"
+# cask "devutils"
+# cask "due"
+# cask "istat-menus"
+# cask "marked"
+# cask "rapidapi" # aka Paw
+# cask "screens"
+# cask "soulver"
+# cask "yoink"
+
 # Rogue Amoeba
 cask 'audio-hijack'
 cask 'loopback'

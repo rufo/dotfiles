@@ -1,26 +1,32 @@
+# frozen_string_literal: true
 
+cask_args appdir: '/Applications'
 
-cask_args appdir: "/Applications"
-tap "heroku/brew"
-tap "homebrew/cask-drivers"
-tap "github/gh"
-tap "dokku/repo"
-
-brew "zsh"
-brew "git"
-brew "hub"
-brew "z"
-brew "fzf"
-brew "rg"
-brew "heroku"
-brew "youtube-dl"
-brew "zsh-syntax-highlighting"
-brew "bat"
-brew "exa"
-brew "fd"
-brew "gh"
-brew "dokku"
-brew "asdf"
+brew 'asdf'
+brew 'bat'
+brew 'dokku/repo/dokku'
+brew 'exa'
+brew 'fd'
+brew 'ffmpeg'
+brew 'fzf'
+brew 'gh'
+brew 'git-lfs'
+brew 'git'
+brew 'imagemagick'
+brew 'iperf'
+brew 'iperf3'
+brew 'jq'
+brew 'mosh'
+brew 'pigz'
+brew 'ripgrep'
+brew 'shellcheck'
+brew 'tmux'
+brew 'wakeonlan'
+brew 'xz'
+brew 'yt-dlp/taps/yt-dlp'
+brew 'z'
+brew 'zsh-syntax-highlighting'
+brew 'zsh'
 
 # Mac only formulae
 if OS.mac?

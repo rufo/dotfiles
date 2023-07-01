@@ -133,6 +133,35 @@ mas "Fantastical 3", id: 975937182
 mas "1Blocker", id: 1365531024
 mas "SmileAllDay", id: 1180442868
 mas "PIPifier", id: 1160374471
+# Maker Utilities
+brew 'dfu-programmer'
+brew 'dfu-util'
+brew 'dosfstools'
+brew 'hfsutils'
+brew 'stlink'
+brew 'teensy_loader_cli'
+brew 'gromgit/fuse/ext4fuse-mac'
+brew 'openscad/tap/lib3mf'
+brew 'osx-cross/arm/arm-gcc-bin@8'
+brew 'osx-cross/avr/avr-binutils'
+brew 'osx-cross/var/avr-gcc@8'
+brew 'qmk/qmk/mdloader'
+brew 'qmk/qmk/qmk'
+cask 'homebrew/cask-drivers/3dconnexion'
+cask 'android-platform-tools'
+cask 'arduino'
+cask 'autodesk-fusion360'
+cask 'balenaetcher'
+cask 'freecad'
+cask 'kicad'
+cask 'macfuse'
+cask 'meshlab'
+cask 'mu-editor'
+cask 'openscad'
+cask 'prusaslicer'
+cask 'raspberry-pi-imager'
+cask 'sdformatter'
+cask 'ultimaker-cura'
 
 # drivers that might not be needed but I wanted to save the name for
 # cask "silicon-labs-vcp-driver"

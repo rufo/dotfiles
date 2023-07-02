@@ -38,14 +38,6 @@ vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', '<F5>', ':w<CR>')
 vim.keymap.set('i', '<F5>', '<ESC>:w<CR>')
 
-vim.keymap.set({ 'n', 'x' }, 'p', '<Plug>(YankyPutAfter)')
-vim.keymap.set({ 'n', 'x' }, 'P', '<Plug>(YankyPutBefore)')
-vim.keymap.set({ 'n', 'x' }, 'gp', '<Plug>(YankyGPutAfter)')
-vim.keymap.set({ 'n', 'x' }, 'gP', '<Plug>(YankyGPutBefore)')
-vim.keymap.set('n', '<c-p>', '<Plug>(YankyCycleForward)', {})
-vim.keymap.set('n', '<c-n>', '<Plug>(YankyCycleBackward)', {})
-vim.keymap.del('n', 'Y') -- too used to the old behavior /shrug
-
 vim.opt.mouse = 'a'
 
 vim.opt.number = true
@@ -72,8 +64,6 @@ vim.opt.showmatch = true
 vim.opt.undofile = true
 
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
-
-vim.keymap.set('v', '<leader>c', ':OSCYank<CR>')
 
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
   pattern = { '*' },

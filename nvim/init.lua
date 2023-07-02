@@ -65,14 +65,16 @@ vim.opt.undofile = true
 
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 
-vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
-  pattern = { '*' },
-  callback = function()
-    if vim.v.event.operator == 'y' and vim.v.event.regname == '' then
-      vim.cmd('OSCYank')
-    end
-  end,
-})
+function SetupAutoCopy()
+  vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
+    pattern = { '*' },
+    callback = function()
+      if vim.v.event.operator == 'y' and vim.v.event.regname == '' then
+        require('osc52').copy_register('')
+      end
+    end,
+  })
+end
 
 -- remove trailing whitespace
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {

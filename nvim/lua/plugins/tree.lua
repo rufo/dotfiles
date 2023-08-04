@@ -6,7 +6,7 @@ return {
         {
           event = 'file_opened',
           handler = function(file_path)
-            require('neo-tree').close_all()
+            require("neo-tree.command").execute({ action = "close" })
           end,
         },
       },
@@ -16,8 +16,9 @@ return {
         },
       },
     },
-    branch = 'v2.x',
+    branch = 'v3.x',
     dependencies = {
+      'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
@@ -25,6 +26,6 @@ return {
       { '<leader>[', ':Neotree toggle=true<CR>', desc = 'Neotree filesystem toggle' },
       { '<leader>]', ':Neotree filesystem reveal<CR>', desc = 'Find file in NvimTree' },
     },
-    event = 'BufEnter',
+    lazy = false,
   },
 }

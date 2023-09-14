@@ -5,7 +5,7 @@ cask_args appdir: '/Applications'
 brew 'asdf'
 brew 'bat'
 brew 'dokku/repo/dokku'
-brew 'exa'
+brew 'eza'
 brew 'fd'
 brew 'ffmpeg'
 brew 'fzf'
@@ -181,6 +181,15 @@ cask 'loopback'
 cask 'soundsource'
 cask 'fission'
 cask 'farrago'
+
+tap 'homebrew/cask-drivers'
+# driver situation is odd for now, not sure which drivers are up-to-date for Apple Silicon
+# cask "kensington-works" # trackball works doesn't seem to exist, might need to be updated?
+# cask "logitech-options"
+# cask "kensingtonworks"
+# cask "8bitdo-ultimate-software"
+# cask "betterdisplay"
+# cask "imazing"
 # drivers that might not be needed but I wanted to save the name for
 # cask "silicon-labs-vcp-driver"
 

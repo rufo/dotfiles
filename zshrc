@@ -295,6 +295,10 @@ fi
 declare -A replacements
 replacements=( ls exa cat bat )
 
+if exists eza; then
+  replacements[ls]=eza
+fi
+
 for command replacement in ${(kv)replacements}; do
   if exists $replacement; then
     alias $command=$replacement
@@ -322,3 +326,6 @@ ports() {
 if exists github-copilot-cli; then
   eval "$(github-copilot-cli alias -- "$0")"
 fi
+
+# Created by `pipx` on 2023-06-09 18:30:59
+export PATH="$PATH:/Users/rufo/.local/bin"

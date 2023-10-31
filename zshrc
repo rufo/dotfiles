@@ -229,6 +229,8 @@ fi
 
 if brew_prefix_e /opt/asdf/libexec/asdf.sh; then
   source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+elif [ -e /opt/asdf-vm/asdf.sh ]; then
+  . /opt/asdf-vm/asdf.sh
 fi
 
 # fzf via Homebrew

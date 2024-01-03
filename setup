@@ -46,13 +46,13 @@ fi
 if [ "$CODESPACES" = true ]; then
 	echo "Running codespaces setup"
   sudo chsh -s /bin/zsh "$(whoami)"
+  gh api "/user/codespaces/$CODESPACE_NAME" -q .display_name > "$HOME/.friendly_name"
   sudo apt install -y fd-find fzf shellcheck
   if [[ "$symlink_dir" != "$HOME/.dotfiles" ]]; then
     ln -nsf "$symlink_dir" "$HOME/.dotfiles"
   else
     echo "skipping dotfiles symlink, would create a loop"
   fi
-  gh api "/user/codespaces/$CODESPACE_NAME" -q .display_name > "$HOME/.friendly_name"
   if [[ -d  "/workspaces/github/bin" ]]; then
     # shellcheck disable=SC2016
     echo 'export PATH="/workspaces/github/bin:$PATH"' > "$HOME/.zshenv"

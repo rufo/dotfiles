@@ -11,7 +11,8 @@ return {
       'hrsh7th/cmp-path',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-cmdline',
-      'zbirenbaum/copilot-cmp'
+      'zbirenbaum/copilot-cmp',
+      'petertriho/cmp-git',
     },
     config = function()
       local lsp_zero = require('lsp-zero')
@@ -60,6 +61,7 @@ return {
       -- Set configuration for specific filetype.
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
+          { name = 'git' },
           { name = 'buffer' },
         }),
       })
@@ -97,4 +99,12 @@ return {
       })
     end,
   },
+  {
+    'petertriho/cmp-git',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    lazy = true,
+    config = true,
+  }
 }

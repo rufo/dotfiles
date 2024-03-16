@@ -13,6 +13,7 @@ return {
       'hrsh7th/cmp-cmdline',
       'zbirenbaum/copilot-cmp',
       'petertriho/cmp-git',
+      'onsails/lspkind.nvim',
     },
     config = function()
       local lsp_zero = require('lsp-zero')
@@ -21,8 +22,24 @@ return {
       local cmp = require('cmp')
       local cmp_action = lsp_zero.cmp_action()
 
+      local lspkind = require('lspkind')
+      lspkind.init({
+        symbol_map = {
+          Copilot = "",
+        }
+      })
+
+      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg = "#6CC644"})
+
       cmp.setup({
-        formatting = lsp_zero.cmp_format({details = true}),
+        formatting = {
+          format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+            ellipsis_char = '...',
+            show_labelDetails = true,
+          }),
+        },
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({select = false}),
           ['<Tab>'] = cmp_action.luasnip_supertab(),

@@ -29,22 +29,17 @@ return {
     event = 'BufReadPre',
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     event = 'BufReadPre',
     config = function()
       local null_ls = require('null-ls')
 
       null_ls.setup({
         sources = {
-          null_ls.builtins.code_actions.shellcheck,
-          null_ls.builtins.diagnostics.shellcheck,
           null_ls.builtins.formatting.erb_lint,
           null_ls.builtins.diagnostics.rubocop,
           null_ls.builtins.formatting.rubocop,
           null_ls.builtins.formatting.stylua,
-          null_ls.builtins.code_actions.eslint,
-          null_ls.builtins.diagnostics.eslint,
-          null_ls.builtins.formatting.eslint,
           null_ls.builtins.completion.spell,
         },
       })

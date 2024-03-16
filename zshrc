@@ -334,3 +334,5 @@ fi
 
 # Created by `pipx` on 2023-06-09 18:30:59
 export PATH="$PATH:/Users/rufo/.local/bin"
+
+export GOPATH="$GOPATH:$HOME/.local/share/go"

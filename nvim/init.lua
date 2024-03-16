@@ -38,6 +38,9 @@ vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', '<F5>', ':w<CR>')
 vim.keymap.set('i', '<F5>', '<ESC>:w<CR>')
 
+-- get the old behavior of Y back that my mind is too warped not to use
+vim.keymap.del('n', 'Y')
+
 vim.opt.mouse = 'a'
 
 vim.opt.number = true

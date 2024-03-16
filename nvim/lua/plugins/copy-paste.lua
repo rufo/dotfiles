@@ -20,7 +20,8 @@ return {
         function()
           require('osc52').copy_operator()
           require('notify')('Copied to clipboard', vim.log.levels.INFO)
-        end
+        end,
+        desc = "Copy via osc52"
       },
       { '<leader>cc', '<leader>c_', remap = true },
       {
@@ -28,7 +29,8 @@ return {
           require('osc52').copy_visual()
           require('notify')('Copied to clipboard', vim.log.levels.INFO)
         end,
-        mode = {'v'}
+        mode = {'v'},
+        desc = "Copy via osc52"
       },
     },
   },

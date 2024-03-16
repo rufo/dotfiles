@@ -22,6 +22,12 @@ return {
 
       cmp.setup({
         formatting = lsp_zero.cmp_format({details = true}),
+        mapping = cmp.mapping.preset.insert({
+          ['<CR>'] = cmp.mapping.confirm({select = false}),
+          ['<Tab>'] = cmp_action.luasnip_supertab(),
+          ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+
+        }),
         snippet = {
           expand = function(args)
             require('luasnip').lsp_expand(args.body)

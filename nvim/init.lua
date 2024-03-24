@@ -68,6 +68,8 @@ vim.opt.undofile = true
 
 vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 
+vim.opt.guifont = "BerkeleyMono Nerd Font:h10"
+
 function SetupAutoCopy()
   vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     pattern = { '*' },

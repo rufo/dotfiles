@@ -336,3 +336,5 @@ fi
 export PATH="$PATH:/Users/rufo/.local/bin"
 
 export GOPATH="$GOPATH:$HOME/.local/share/go"
+
+eval "$(gh copilot alias -- zsh)" || true

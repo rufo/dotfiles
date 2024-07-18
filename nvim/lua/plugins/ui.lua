@@ -34,5 +34,12 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     }
+  },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "~v2",
+    opts = {
+      open_mapping = [[<C-t>]]
+    }
   }
 }

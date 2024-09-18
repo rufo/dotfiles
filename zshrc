@@ -19,7 +19,7 @@ done
 if exists brew; then
   brew_prefix_e() { test -e $HOMEBREW_PREFIX/$1 }
 else
-  echo "warning: homebrew not present."
+  # echo "warning: homebrew not present."
   brew_prefix_e() { false }
 fi
 

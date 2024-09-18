@@ -44,7 +44,8 @@ if exists batcat; then
 fi
 if exists bat; then
   export PAGER="bat -p"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANPAGER="sh -c 'col -bx | bat --theme=default -l man -p'"
+  export MANROFFOPT="-c"
   export BAT_THEME="OneHalfDark"
   alias bathelp='bat --plain --language=help'
   help() {

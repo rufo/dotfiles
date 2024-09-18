@@ -338,4 +338,6 @@ export PATH="$PATH:/Users/rufo/.local/bin"
 
 export GOPATH="$GOPATH:$HOME/.local/share/go"
 
-eval "$(gh copilot alias -- zsh)" || true
+if [[ -e "$HOME/.local/share/gh/extensions/gh-copilot" ]]; then
+  eval "$(gh copilot alias -- zsh)" || true
+fi

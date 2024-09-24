@@ -56,5 +56,16 @@ if [ "$CODESPACES" = true ]; then
     # shellcheck disable=SC2016
     echo 'export PATH="/workspaces/github/bin:$PATH"' > "$HOME/.zshenv"
   fi
-  sudo apt install -y fd-find fzf shellcheck
+  wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+  sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+  sudo apt update
+  sudo apt install -y eza fd-find fzf shellcheck
+  bat_deb_url=$(curl -s https://api.github.com/repos/sharkdp/bat/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep amd64.deb | grep -v musl)
+  curl -LO "$bat_deb_url"
+  dpkg -i bat_*.deb
+  git_delta_deb_url=#(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep amd64.deb | grep -v musl)
+  curl -LO "$git_delta_deb_url"
+  dpkg -i git-delta_*.deb
+  curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 fi

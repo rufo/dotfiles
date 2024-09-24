@@ -4,7 +4,7 @@ set -o xtrace
 set -e
 
 link_in_homedir=( vimrc zshrc hyper.js tmux.conf gitignore_global hammerspoon asdfrc iterm2 iterm2_shell_integration.zsh gitconfig wezterm.lua )
-link_in_config=( fish nvim alacritty git )
+link_in_config=( fish nvim alacritty git atuin )
 
 possible_brew_paths=( /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew "$HOME/.linuxbrew/bin/brew" /opt/homebrew/bin/brew )
 exists() { type "$1" > /dev/null 2>&1; }

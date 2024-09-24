@@ -341,3 +341,21 @@ export GOPATH="$GOPATH:$HOME/.local/share/go"
 if [[ -e "$HOME/.local/share/gh/extensions/gh-copilot" ]]; then
   eval "$(gh copilot alias -- zsh)" || true
 fi
+
+if [ $(ps ax | grep "[s]sh-agent" | wc -l) -eq 0 ] ; then
+    eval $(ssh-agent -s) > /dev/null
+    if [ "$(ssh-add -l)" = "The agent has no identities." ] ; then
+       if [[ "$unamestr" == 'Darwin' ]]; then
+         ssh-add --apple-load-keychain > /dev/null 2>&1
+       fi
+        # Auto-add ssh keys to your ssh agent
+        # Example:
+        # ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
+    fi
+fi
+
+if exists atuin; then
+  eval "$(atuin init zsh)"
+else
+  echo "note: atuin not found"
+fi

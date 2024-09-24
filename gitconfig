@@ -24,3 +24,5 @@
 	ff = only
 [commit]
 	verbose = true
+[maintenance]
+	repo = /Users/rufo/github/github

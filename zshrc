@@ -41,13 +41,16 @@ export MENU_COMPLETE=false
 
 if exists batcat; then
   alias bat="batcat"
+  BATCMD="batcat"
 fi
 if exists bat; then
-  export PAGER="bat -p"
-  export MANPAGER="sh -c 'col -bx | bat --theme=default -l man -p'"
+  : "${BATCMD:=bat}"
+  export PAGER="$BATCMD -p"
+  export BAT_PAGER="less"
+  export MANPAGER="sh -c 'col -bx | $BATCMD --theme=default -l man -p'"
   export MANROFFOPT="-c"
   export BAT_THEME="OneHalfDark"
-  alias bathelp='bat --plain --language=help'
+  alias bathelp='$BATCMD --plain --language=help'
   help() {
     "$@" --help 2>&1 | bathelp
   }

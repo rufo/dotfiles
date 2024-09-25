@@ -47,9 +47,9 @@ if exists bat; then
   : "${BATCMD:=bat}"
   export PAGER="$BATCMD -p"
   export BAT_PAGER="less"
-  export MANPAGER="sh -c 'col -bx | $BATCMD --theme=default -l man -p'"
+  export MANPAGER="sh -c 'col -bx | $BATCMD -l man -p'"
   export MANROFFOPT="-c"
-  export BAT_THEME="OneHalfDark"
+  export BAT_THEME="Monokai Extended"
   alias bathelp='$BATCMD --plain --language=help'
   help() {
     "$@" --help 2>&1 | bathelp

@@ -1,1 +1,0 @@
-/Users/rufo/.config/fisherman/z/conf.d/z.fish

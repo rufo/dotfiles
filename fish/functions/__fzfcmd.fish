@@ -1,1 +1,0 @@
-/Users/rufo/.config/fisherman/fzf/functions/__fzfcmd.fish

@@ -1,1 +1,0 @@
-/Users/rufo/.config/fisherman/rbenv/completions/rbenv.fish

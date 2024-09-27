@@ -1,0 +1,9 @@
+bin
+script
+Brewfile*
+*.itermcolors
+gitconfig-github
+setup*
+strap-after-setup
+synergy-personal.conf
+todo.txt

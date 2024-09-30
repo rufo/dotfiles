@@ -1,6 +1,7 @@
 bin
 script
 Brewfile*
+Dockerfile
 *.itermcolors
 gitconfig-github
 setup*

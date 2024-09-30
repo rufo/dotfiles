@@ -359,6 +359,8 @@ fi
 
 if exists atuin; then
   eval "$(atuin init zsh)"
+elif [[ -e "$HOME/.atuin/bin/env" ]]; then
+   . "$HOME/.atuin/bin/env"
 else
   echo "note: atuin not found"
 fi

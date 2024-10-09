@@ -10,8 +10,8 @@ case "$ARCH" in
     x86_64)
         CHEZMOI_ARCH="amd64"
         ;;
-    aarch64)
-        CHEZMOI_ARCH="aarch64"
+    aarch64 | arm64)
+        CHEZMOI_ARCH="arm64"
         ;;
     armv7l)
         CHEZMOI_ARCH="armhfp"

@@ -1,3 +1,5 @@
+# From https://github.com/neovim/neovim/issues/15143#issuecomment-2326468274
+FROM glcr.b-data.ch/neovim/nvsi:latest AS nvsi
 FROM ubuntu
 
 RUN apt-get update \
@@ -11,9 +13,7 @@ RUN apt-get update \
 	zsh \
   build-essential
 
-RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz \
-	&& tar -C /opt -xzf nvim-linux64.tar.gz \
-  && ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
+COPY --from=nvsi /usr/local /usr/local
 
 ARG USER=rufo
 RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \

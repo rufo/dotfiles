@@ -21,7 +21,8 @@ RUN useradd --groups sudo --no-create-home --shell /bin/bash ${USER} \
 	&& chmod 0440 /etc/sudoers.d/${USER}
 USER ${USER}
 WORKDIR /home/${USER}
-RUN mkdir -p /home/${USER}/.local/share
+RUN sudo mkdir -p /home/${USER}/.local/share \
+  && sudo chown -R ${USER}:${USER} /home/${USER}/.local
 
 ARG CHEZMOI_VERSION=2.52.2
 ARG CHEZMOI_ARCH

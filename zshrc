@@ -235,6 +235,12 @@ if brew_prefix_e /opt/asdf/libexec/asdf.sh; then
   source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 elif [ -e /opt/asdf-vm/asdf.sh ]; then
   . /opt/asdf-vm/asdf.sh
+elif [ -e $HOME/.asdf/asdf.sh ]; then
+  . $HOME/.asdf/asdf.sh
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+  # initialise completions with ZSH's compinit
+  autoload -Uz compinit && compinit
 fi
 
 # fzf via Homebrew

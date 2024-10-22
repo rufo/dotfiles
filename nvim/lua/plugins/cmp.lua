@@ -16,11 +16,10 @@ return {
       'onsails/lspkind.nvim',
     },
     config = function()
-      local lsp_zero = require('lsp-zero')
-      lsp_zero.extend_cmp()
-
       local cmp = require('cmp')
-      local cmp_action = lsp_zero.cmp_action()
+      local cmp_action = require('lsp-zero').cmp_action()
+
+      require('luasnip.loaders.from_vscode').lazy_load()
 
       local lspkind = require('lspkind')
       lspkind.init({
@@ -32,6 +31,13 @@ return {
       vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg = "#6CC644"})
 
       cmp.setup({
+        preselect = 'item',
+        completion = {
+          completeopt = 'menu,menuone,noinsert',
+        },
+        window = {
+          documentation = cmp.config.window.bordered(),
+        },
         formatting = {
           format = lspkind.cmp_format({
             mode = 'symbol_text',
@@ -43,8 +49,10 @@ return {
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({select = false}),
           ['<Tab>'] = cmp_action.luasnip_supertab(),
+          ['<C-e>'] = cmp_action.toggle_completion(),
           ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         }),
         snippet = {
           expand = function(args)
@@ -52,6 +60,8 @@ return {
           end,
         },
         sources = cmp.config.sources({
+          { name = 'path' },
+          { name = 'buffer' },
           { name = 'copilot' },
           { name = 'nvim_lsp'},
           { name = 'luasnip' },

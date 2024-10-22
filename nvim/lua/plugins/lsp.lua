@@ -1,12 +1,8 @@
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    branch = 'v4.x',
     lazy = true,
-    init = function()
-      vim.g.lsp_zero_extend_cmp = 0
-      vim.g.lsp_zero_extend_lspconfig = 0
-    end,
     config = false,
     dependencies = {
       'neovim/nvim-lspconfig',
@@ -15,7 +11,6 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
     },
-    event = 'BufReadPre',
   },
   {
     'nvimtools/none-ls.nvim',
@@ -25,10 +20,6 @@ return {
 
       null_ls.setup({
         sources = {
-          null_ls.builtins.formatting.erb_lint,
-          null_ls.builtins.diagnostics.rubocop,
-          null_ls.builtins.formatting.rubocop,
-          null_ls.builtins.formatting.stylua,
           null_ls.builtins.completion.spell,
         },
       })
@@ -60,33 +51,60 @@ return {
     config = function()
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require('lsp-zero')
-      lsp_zero.extend_lspconfig()
 
-      --- if you want to know more about lsp-zero and mason.nvim
-      --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-      lsp_zero.on_attach(function(client, bufnr)
+      local lsp_attach = function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
         lsp_zero.default_keymaps({buffer = bufnr})
-      end)
+      end
 
-      lsp_zero.set_sign_icons({
-        error = '✘',
-        warn = '▲',
-        hint = '⚑',
-        info = ''
+      lsp_zero.extend_lspconfig({
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        lsp_attach = lsp_attach,
+        float_border = 'rounded',
+        sign_text = {
+          error = '✘',
+          warn = '▲',
+          hint = '⚑',
+          info = ''
+        },
       })
 
+      vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+
+      vim.diagnostic.config({
+        virtual_text = false,
+        severity_sort = true,
+        float = {
+          style = 'minimal',
+          border = 'rounded',
+          source = true,
+          header = '',
+          prefix = '',
+        },
+      })
+      require('lspconfig').ruby_lsp.setup({
+        cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+        mason = false,
+      });
+
       require('mason-lspconfig').setup({
-        ensure_installed = {},
+        ensure_installed = {"lua_ls", "bashls", "yamlls", "jsonls"},
         handlers = {
-          lsp_zero.default_setup,
-          lua_ls = function()
-            -- (Optional) Configure lua language server for neovim
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+          -- this first function is the "default handler"
+          -- it applies to every language server without a "custom handler"
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
           end,
-          yamlls = function()
+
+          ["lua_ls"] = function()
+            require('lspconfig').lua_ls.setup({
+              on_init = function(client)
+                require('lsp-zero').nvim_lua_settings(client, {})
+              end
+            })
+          end,
+          ["yamlls"] = function()
             require('lspconfig').yamlls.setup({
               settings = {
                 yaml = {

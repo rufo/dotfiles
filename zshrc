@@ -338,10 +338,6 @@ ports() {
     ) | awk '{ printf "%-16s %-6s %-9s %-5s %-7s %s:%s\n",$1,$2,$3,$5,$8,$9,$10 }'
 }
 
-if exists github-copilot-cli; then
-  eval "$(github-copilot-cli alias -- "$0")"
-fi
-
 # Created by `pipx` on 2023-06-09 18:30:59
 export PATH="$PATH:/Users/rufo/.local/bin"
 

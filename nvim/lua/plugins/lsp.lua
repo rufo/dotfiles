@@ -84,9 +84,11 @@ return {
         },
       })
       require('lspconfig').ruby_lsp.setup({
-        cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
         mason = false,
-      });
+      })
+      require'lspconfig'.sorbet.setup{
+        mason = false,
+      }
 
       require('mason-lspconfig').setup({
         ensure_installed = {"lua_ls", "bashls", "yamlls", "jsonls"},

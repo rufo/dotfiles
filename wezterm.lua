@@ -127,6 +127,32 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   end
 end)
 
+wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
+  local zoomed = ''
+  if tab.active_pane.is_zoomed then
+    zoomed = '[Z] '
+  end
+
+  local index = ''
+  if #tabs > 1 then
+    index = string.format('[%d/%d] ', tab.tab_index + 1, #tabs)
+  end
+
+  local current_tab_title = tab_title(tab)
+  local other_tabs = ""
+
+  for _, iTab in ipairs(tabs) do
+    local iTab_title = tab_title(iTab)
+    if iTab_title == current_tab_title then
+      iTab_title = "."
+    end
+    other_tabs = other_tabs .. ", " .. iTab_title
+  end
+  other_tabs = string.sub(other_tabs, 3)
+
+  return zoomed .. index .. tab_title(tab) .. " [" .. other_tabs .. "]"
+end)
+
 config.quote_dropped_files = "SpacesOnly"
 
 config.ssh_domains = {

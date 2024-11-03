@@ -12,6 +12,13 @@ local function reverse(list)
   return rev
 end
 
+-- Equivalent to POSIX basename(3)
+-- Given "/foo/bar" returns "bar"
+-- Given "c:\\foo\\bar" returns "bar"
+local function basename(s)
+  return string.gsub(s, '(.*[/\\])(.*)', '%2')
+end
+
 -- Function to apply fade effect to tab titles
 local function text_gradient(from_color, to_color, length)
   length = length or 4
@@ -35,7 +42,12 @@ local function tab_title(tab_info)
   end
   -- Otherwise, use the title from the active pane
   -- in that tab
-  return tab_info.active_pane.title
+  local process_name = basename(tab_info.active_pane.foreground_process_name)
+  if process_name == "zsh" then
+    return tab_info.active_pane.title
+  else
+    return process_name
+  end
 end
 
 -- In newer versions of wezterm, use the config_builder which will

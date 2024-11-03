@@ -59,6 +59,7 @@ config.font = wezterm.font 'BerkeleyMono Nerd Font'
 config.font_size = 10
 
 config.use_fancy_tab_bar = false
+config.tab_max_width = 26
 
 config.window_frame = {
   font = wezterm.font { family = 'Noto Sans', weight = "Bold" },

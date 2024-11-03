@@ -5,7 +5,7 @@ local wezterm = require 'wezterm'
 local config = {}
 
 local function reverse(list)
-  rev = {}
+  local rev = {}
   for i=#list, 1, -1 do
     rev[#rev+1] = list[i]
   end
@@ -27,7 +27,7 @@ local function text_gradient(from_color, to_color, length)
   return faded_text
 end
 
-function tab_title(tab_info)
+local function tab_title(tab_info)
   local title = tab_info.tab_title
   -- if the tab title is explicitly set, take that
   if title and #title > 0 then
@@ -48,7 +48,6 @@ end
 -- config.freetype_load_target = "VerticalLcd"
 
 config.window_frame = {
-  active_titlebar_bg = "#ff0000",
   active_titlebar_bg = "#00ff00",
 }
 

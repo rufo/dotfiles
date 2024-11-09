@@ -59,70 +59,81 @@ end
 -- config.dpi = 201
 -- config.freetype_load_target = "VerticalLcd"
 
-config.window_frame = {
-  active_titlebar_bg = "#00ff00",
-}
 
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Tokyo Night'
 config.font = wezterm.font 'BerkeleyMono Nerd Font'
-config.font_size = 10
 
-config.use_fancy_tab_bar = false
-config.tab_max_width = 26
+local retroStyle = false
 
-config.window_frame = {
-  font = wezterm.font { family = 'Noto Sans', weight = "Bold" },
-  font_size = 12.0,
-}
-config.enable_scroll_bar = true
-config.min_scroll_bar_height = "0.5cell"
-config.colors = {
-  scrollbar_thumb = "#fff"
-}
--- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+if retroStyle then
+  config.font_size = 10
+  config.use_fancy_tab_bar = false
+  config.tab_max_width = 26
+
+  config.window_frame = {
+    font = wezterm.font { family = 'Noto Sans', weight = "Bold" },
+    font_size = 12.0,
+  }
+  config.enable_scroll_bar = true
+  config.min_scroll_bar_height = "0.5cell"
+  config.colors = {
+    scrollbar_thumb = "#fff"
+  }
+  config.window_frame = {
+    active_titlebar_bg = "#00ff00",
+  }
+else
+  config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   -- Get the tab title and apply the fade effect
   local title = tab_title(tab)
-  local fgColor
-  local bgColor
-  local textColor
-  local length = 4
+  if retroStyle then
+    local fgColor
+    local bgColor
+    local textColor
+    local length = 4
 
-  if tab.is_active then
-    fgColor = config.resolved_palette.tab_bar.active_tab.fg_color
-    textColor = config.resolved_palette.tab_bar.active_tab.bg_color
-    bgColor = config.resolved_palette.tab_bar.background
+    if tab.is_active then
+      fgColor = config.resolved_palette.tab_bar.active_tab.fg_color
+      textColor = config.resolved_palette.tab_bar.active_tab.bg_color
+      bgColor = config.resolved_palette.tab_bar.background
+    else
+      fgColor = config.resolved_palette.tab_bar.inactive_tab.fg_color
+      textColor = config.resolved_palette.tab_bar.inactive_tab.bg_color
+      bgColor = config.resolved_palette.tab_bar.background
+    end
+
+    if hover then
+      fgColor = wezterm.color.parse(fgColor)
+      fgColor = fgColor:lighten(0.2)
+    end
+
+    local full_tab_width = (length * 2 + #title)
+
+    -- wezterm.log_info(title, max_width, full_tab_width)
+    if max_width >= full_tab_width then
+      return {
+        {Text = text_gradient(bgColor, fgColor, length)},
+        {Background = {Color = fgColor}},
+        {Foreground = {Color = textColor}},
+        {Text = title},
+        {Text = text_gradient(fgColor, bgColor, length)},
+      }
+    else
+      return {
+        {Background = {Color = fgColor}},
+        {Foreground = {Color = textColor}},
+        {Text = " " .. title .. " "},
+      }
+    end
   else
-    fgColor = config.resolved_palette.tab_bar.inactive_tab.fg_color
-    textColor = config.resolved_palette.tab_bar.inactive_tab.bg_color
-    bgColor = config.resolved_palette.tab_bar.background
-  end
-
-  if hover then
-    fgColor = wezterm.color.parse(fgColor)
-    fgColor = fgColor:lighten(0.2)
-  end
-
-  local full_tab_width = (length * 2 + #title)
-
-  -- wezterm.log_info(title, max_width, full_tab_width)
-  if max_width >= full_tab_width then
     return {
-      {Text = text_gradient(bgColor, fgColor, length)},
-      {Background = {Color = fgColor}},
-      {Foreground = {Color = textColor}},
       {Text = title},
-      {Text = text_gradient(fgColor, bgColor, length)},
-    }
-  else
-    return {
-      {Background = {Color = fgColor}},
-      {Foreground = {Color = textColor}},
-      {Text = " " .. title .. " "},
     }
   end
 end)

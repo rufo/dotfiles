@@ -67,6 +67,9 @@ config.color_scheme = 'Tokyo Night'
 config.font = wezterm.font 'BerkeleyMono Nerd Font'
 
 local retroStyle = false
+if string.find(wezterm.target_triple, "linux") then
+  retroStyle = true
+end
 
 if retroStyle then
   config.font_size = 10

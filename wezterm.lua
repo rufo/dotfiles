@@ -172,7 +172,7 @@ config.quote_dropped_files = "SpacesOnly"
 config.ssh_domains = {
   {
     name = 'butts',
-    remote_address = 'butts.lan',
+    remote_address = 'butts',
     username = 'rufo',
     remote_wezterm_path = '/home/linuxbrew/.linuxbrew/bin/wezterm',
   },

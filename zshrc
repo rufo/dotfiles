@@ -152,6 +152,7 @@ alias youtube-dl-mp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[
 alias be='bundle exec'
 alias setup-ssh='eval "$(ssh-agent)" && ssh-add'
 alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
+alias ssh-pw="ssh -o PubKeyAuthentication=no"
 
 if ! (( $+commands[tailscale] )); then
   alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"

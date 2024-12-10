@@ -11,9 +11,9 @@ return {
       'hrsh7th/cmp-path',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-cmdline',
-      'zbirenbaum/copilot-cmp',
       'petertriho/cmp-git',
       'onsails/lspkind.nvim',
+      'milanglacier/minuet-ai.nvim',
     },
     config = function()
       local cmp = require('cmp')
@@ -23,12 +23,12 @@ return {
 
       local lspkind = require('lspkind')
       lspkind.init({
-        symbol_map = {
-          Copilot = "",
-        }
+        -- symbol_map = {
+        --   Copilot = "",
+        -- }
       })
 
-      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg = "#6CC644"})
+      -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg = "#6CC644"})
 
       local has_words_before = function()
         if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
@@ -74,14 +74,15 @@ return {
         sources = cmp.config.sources({
           { name = 'path' },
           { name = 'buffer' },
-          { name = 'copilot' },
+          { name = 'minuet' },
           { name = 'nvim_lsp'},
+          { name = 'nvim_lua'},
           { name = 'luasnip' },
         }),
         sorting = {
           priority_weight = 2,
           comparators = {
-            require("copilot_cmp.comparators").prioritize,
+            -- require("copilot_cmp.comparators").prioritize,
 
             -- Below is the default comparitor list and order for nvim-cmp
             cmp.config.compare.offset,
@@ -130,13 +131,6 @@ return {
   {
     'hrsh7th/cmp-nvim-lua',
     ft = 'lua',
-    config = function()
-      require('cmp').setup({
-        sources = {
-          { name = 'nvim_lua' },
-        },
-      })
-    end,
   },
   {
     'petertriho/cmp-git',

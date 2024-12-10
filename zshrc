@@ -344,10 +344,6 @@ export PATH="$PATH:/Users/rufo/.local/bin"
 
 export GOPATH="$GOPATH:$HOME/.local/share/go"
 
-if [[ -e "$HOME/.local/share/gh/extensions/gh-copilot" ]]; then
-  eval "$(gh copilot alias -- zsh)" || true
-fi
-
 if [ $(ps ax | grep "[s]sh-agent" | wc -l) -eq 0 ] ; then
     eval $(ssh-agent -s) > /dev/null
     if [ "$(ssh-add -l)" = "The agent has no identities." ] ; then

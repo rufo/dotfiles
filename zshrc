@@ -1,6 +1,6 @@
 exists() { type "$1" > /dev/null 2>&1; }
 
-export PATH="$PATH:$HOME/.dotfiles/bin"
+export PATH="$HOME/.local/bin:$PATH:$HOME/.dotfiles/bin"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="$LANG"

@@ -1,0 +1,6 @@
+{{- $brewPath := findExecutable "brew" (list "/opt/homebrew/bin" "/home/linuxbrew/.linuxbrew/bin/" "/usr/local/bin/") -}}
+
+[data]
+{{- if $brewPath }}
+brewPath = {{ $brewPath }}
+{{- end}}

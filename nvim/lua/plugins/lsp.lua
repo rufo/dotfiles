@@ -89,7 +89,9 @@ return {
       require'lspconfig'.sorbet.setup{
         mason = false,
       }
-
+      require'lspconfig'.ansiblels.setup{
+        mason = false,
+      }
       require('mason-lspconfig').setup({
         ensure_installed = {"lua_ls", "bashls", "yamlls", "jsonls"},
         handlers = {

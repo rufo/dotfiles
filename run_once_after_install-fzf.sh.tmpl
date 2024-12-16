@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Installing fzf..."
+{{ if eq .chezmoi.os "darwin" -}}
+brew install fzf
+{{ else if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+sudo pacman -Sy --noconfirm --needed fzf
+{{ else -}}
+mkdir -p $HOME/.local/bin
+curl -L {{ gitHubLatestReleaseAssetURL "junegunn/fzf" (printf "fzf-*-%s_%s.tar.gz" .chezmoi.os .chezmoi.arch) }} | tar -xz -C ~/.local/bin
+{{- end -}}
+{{- end -}}

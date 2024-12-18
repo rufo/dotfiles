@@ -1,4 +1,8 @@
-{{- $brewPath := findExecutable "brew" (list "/opt/homebrew/bin" "/home/linuxbrew/.linuxbrew/bin/" "/usr/local/bin/") -}}
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age1qsf00af2hm3y6dkvxvftajk93aw4n3u5n8vj3wn9psag3p8nhs7qkkztes"
+{{ $brewPath := findExecutable "brew" (list "/opt/homebrew/bin" "/home/linuxbrew/.linuxbrew/bin/" "/usr/local/bin/") -}}
 
 [data]
 {{- if $brewPath }}

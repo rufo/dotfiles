@@ -232,7 +232,9 @@ if exists pyenv; then
   eval "$(pyenv init -)"
 fi
 
-if brew_prefix_e /opt/asdf/libexec/asdf.sh; then
+if exists mise; then
+  eval "$(mise activate zsh)"
+elif brew_prefix_e /opt/asdf/libexec/asdf.sh; then
   source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 elif [ -e /opt/asdf-vm/asdf.sh ]; then
   . /opt/asdf-vm/asdf.sh

@@ -92,6 +92,12 @@ return {
       require'lspconfig'.ansiblels.setup{
         mason = false,
       }
+      require'lspconfig'.terraformls.setup{
+        mason = false,
+      }
+      require'lspconfig'.tflint.setup{
+        mason = false,
+      }
       require('mason-lspconfig').setup({
         ensure_installed = {"lua_ls", "bashls", "yamlls", "jsonls"},
         handlers = {

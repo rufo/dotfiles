@@ -89,5 +89,22 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   command = [[%s/\s\+$//e]],
 })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client == nil then return end
+    if client.name == "terraformls" then
+      vim.api.nvim_create_autocmd({"BufWritePre"}, {
+        buffer = args.buf,
+        callback = function()
+          print("called back")
+          vim.lsp.buf.format({bufnr = args.buf, id = client.id})
+        end,
+      })
+    end
+  end,
+})
+
+
 require('lazy').setup('plugins', {
 })

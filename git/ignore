@@ -19,3 +19,5 @@ xcuserdata/
 *.pyc
 
 .Ulysses-*.plist
+
+.vscode/settings.json

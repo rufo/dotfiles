@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing fd..."
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if .brewPath -}}
 brew install fd
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.idLike "arch" -}}

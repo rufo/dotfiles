@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing bat..."
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if .brewPath -}}
 brew install bat
 {{ else if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.idLike "arch" -}}

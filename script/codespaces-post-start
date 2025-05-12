@@ -1,3 +1,0 @@
-#!/bin/bash
-
-nohup grep -r /workspaces/github -e asdfasduiuooiu &> ~/.warming_up &

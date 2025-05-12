@@ -4,7 +4,6 @@ Brewfile*
 Dockerfile
 *.itermcolors
 gitconfig-github
-strap-after-setup
 synergy-personal.conf
 todo.txt
 key.txt.age

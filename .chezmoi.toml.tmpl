@@ -7,4 +7,6 @@ encryption = "age"
 [data]
 {{- if $brewPath }}
 brewPath = {{ $brewPath | quote }}
+{{- else }}
+brewPath = false
 {{- end}}

@@ -4,8 +4,8 @@ Brewfile*
 Dockerfile
 *.itermcolors
 gitconfig-github
-setup*
 strap-after-setup
 synergy-personal.conf
 todo.txt
 key.txt.age
+install.sh

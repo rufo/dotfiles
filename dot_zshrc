@@ -112,9 +112,6 @@ autoload -U compinit
 compinit
 setopt nocorrectall
 
-alias m="mvim"
-alias m.="mvim ."
-alias nt="new-terminal-tab"
 alias sc="script/console"
 alias sg="script/generate"
 alias trt="touch tmp/restart.txt"
@@ -129,8 +126,6 @@ alias ga="git add"
 alias gcam="git commit -a -m"
 alias gcm="git commit -m"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias reload="source ~/.zshrc"
-alias edit="$EDITOR ~/.zshrc"
 alias cd..="cd .."
 alias cdp="cap deploy"
 alias cdpm="cap deploy:migrations"
@@ -141,11 +136,7 @@ alias flushdns='dscacheutil -flushcache'
 alias rdbd='rake db:migrate && RAILS_ENV=test rake db:migrate'
 alias findswaps="find . -name '*.swp'"
 alias recoverswaps="find . -name '*.swp' -exec $EDITOR -r -c DiffSaved {} \;"
-alias update-macvim="brew upgrade macvim"
 alias whatwasiworkingon="git status --porcelain | cut -c 4- | xargs ls -lct"
-alias whataremydogesworth="suchvalue DExEt8Y8m3aVYwLEdYdAtA2tP7mgbuzxKC"
-dash(){ command open dash://$1 }
-alias fixynab="sed -i .bak 's/<renderMode>direct/<renderMode>cpu/' /Applications/YNAB\ 4.app/Contents/Resources/META-INF/AIR/application.xml"
 alias migrate="rake db:migrate db:rollback && rake db:migrate"
 alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
 alias youtube-dl-mp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'

@@ -1,0 +1,10 @@
+#!/bin/bash
+{{ if .brewPath -}}
+brew install mise
+{{ else if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+sudo pacman -Sy --noconfirm --needed mise
+{{ else -}}
+curl https://mise.run | sh
+{{ end }}
+{{ end }}

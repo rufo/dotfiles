@@ -2,7 +2,6 @@
 
 cask_args appdir: '/Applications'
 
-brew 'asdf'
 brew 'bat'
 brew 'dokku/repo/dokku'
 brew 'eza'

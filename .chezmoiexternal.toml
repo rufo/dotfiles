@@ -1,5 +1,0 @@
-[".asdf"]
-  type = "archive"
-  url = "{{ (gitHubLatestRelease  "asdf-vm/asdf").TarballURL }}"
-  stripComponents = 1
-  refreshPeriod = "168h"

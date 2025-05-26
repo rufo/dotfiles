@@ -1,0 +1,8 @@
+[tools]
+python = "3.12"
+uv = "latest"
+ruby = "latest"
+node = "22"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]

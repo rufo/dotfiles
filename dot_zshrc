@@ -248,23 +248,23 @@ source "${HOME}/.iterm2_shell_integration.zsh"
 # enables Erlang history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-if exists rbenv; then
-  eval "$(rbenv init -)"
-fi
-
-if exists nodenv; then
-  eval "$(nodenv init -)"
-fi
-
-if exists pyenv; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
-
 if exists mise; then
   eval "$(mise activate zsh)"
+elif; then
+  if exists rbenv; then
+    eval "$(rbenv init -)"
+  fi
+
+  if exists nodenv; then
+    eval "$(nodenv init -)"
+  fi
+
+  if exists pyenv; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+  fi
 fi
 
 # fzf via Homebrew

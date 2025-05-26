@@ -39,23 +39,6 @@ fi
 export CLICOLOR=true
 export MENU_COMPLETE=false
 
-if exists batcat; then
-  alias bat="batcat"
-  BATCMD="batcat"
-fi
-if exists bat; then
-  : "${BATCMD:=bat}"
-  export PAGER="$BATCMD -p"
-  export BAT_PAGER="less"
-  export MANPAGER="sh -c 'col -bx | $BATCMD -l man -p'"
-  export MANROFFOPT="-c"
-  export BAT_THEME="Monokai Extended"
-  alias bathelp='$BATCMD --plain --language=help'
-  help() {
-    "$@" --help 2>&1 | bathelp
-  }
-fi
-
 bindkey -e
 
 HISTSIZE=1000
@@ -112,9 +95,18 @@ autoload -U compinit
 compinit
 setopt nocorrectall
 
+# Ruby/Rails aliases
+alias be='bundle exec'
 alias sc="script/console"
 alias sg="script/generate"
 alias trt="touch tmp/restart.txt"
+alias cdp="cap deploy"
+alias cdpm="cap deploy:migrations"
+alias olm='$EDITOR db/migrate/`ls -t1 db/migrate | head -1`'
+alias rdbd='rake db:migrate && RAILS_ENV=test rake db:migrate'
+alias migrate="rake db:migrate db:rollback && rake db:migrate"
+
+# Git alises
 alias gcd='cd $(git rev-parse --show-cdup).'
 alias gs="git status"
 alias grh="git reset HEAD"
@@ -126,36 +118,102 @@ alias ga="git add"
 alias gcam="git commit -a -m"
 alias gcm="git commit -m"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias cd..="cd .."
-alias cdp="cap deploy"
-alias cdpm="cap deploy:migrations"
-alias o="open"
 alias git-undo-commit="git reset --soft 'HEAD^'"
-alias olm='$EDITOR db/migrate/`ls -t1 db/migrate | head -1`'
-alias flushdns='dscacheutil -flushcache'
-alias rdbd='rake db:migrate && RAILS_ENV=test rake db:migrate'
-alias findswaps="find . -name '*.swp'"
-alias recoverswaps="find . -name '*.swp' -exec $EDITOR -r -c DiffSaved {} \;"
 alias whatwasiworkingon="git status --porcelain | cut -c 4- | xargs ls -lct"
-alias migrate="rake db:migrate db:rollback && rake db:migrate"
+
+# turns "git git ..." into "git ..." for those ditzy days when I type git,
+# switch away or think for a sec, switch back to the terminal and type "git" again
+git(){ if [ $1 = git ]; then shift; fi; command git "$@"; }
+
+# macOS aliases
+alias o="open"
+alias flushdns='dscacheutil -flushcache'
 alias resetfmtrial="rm ~/Library/Application\ Support/L84577891*"
-alias youtube-dl-mp4='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
-alias be='bundle exec'
-alias setup-ssh='eval "$(ssh-agent)" && ssh-add'
 alias fix-homebrew-ffi='echo "note, this wipes your PKG_CONFIG_PATH + LDFLAGS env vars"; export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"; export LDFLAGS="-L/usr/local/opt/libffi/lib"'
-alias ssh-pw="ssh -o PubKeyAuthentication=no"
+alias cd..="cd .."
+
+dash(){ command open dash://$1 }
 
 if ! (( $+commands[tailscale] )); then
   alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 fi
 
+safari-url() {
+  osascript -e 'tell application "Safari" to get URL of current tab of front window'
+}
+
+get-sfmono() {
+  if [ -d /Applications/Utilities/Terminal.app ]; then
+    TERMINALDIR=/Applications/Utilities/Terminal.app
+  elif [ -d /System/Applications/Utilities/Terminal.app ]; then
+    TERMINALDIR=/System/Applications/Utilities/Terminal.app
+  else
+    echo "Couldn't find a Terminal.app, bailing"
+    return 1
+  fi
+
+  cp -R $TERMINALDIR/Contents/Resources/Fonts/* ~/Library/Fonts
+  echo "Copied SF Mono from $TERMINALDIR"
+}
+
+# general aliases
+alias findswaps="find . -name '*.swp'"
+alias recoverswaps="find . -name '*.swp' -exec $EDITOR -r -c DiffSaved {} \;"
+
+alias setup-ssh-agent='eval "$(ssh-agent)" && ssh-add'
+alias ssh-pw="ssh -o PubKeyAuthentication=no"
+alias yt-dlp-mp4='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
+
+reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
+
+whatport() {
+  lsof -i :$1
+}
+
 if exists fdfind; then
   alias fd="fdfind"
 fi
 
-reverselookupdns(){ command dig $1 +short | xargs -J % dig -x % +short }
+if exists batcat; then
+  alias bat="batcat"
+  BATCMD="batcat"
+fi
 
-git(){ if [ $1 = git ]; then shift; fi; command git "$@"; }
+if exists bat; then
+  : "${BATCMD:=bat}"
+  export PAGER="$BATCMD -p"
+  export BAT_PAGER="less"
+  export MANPAGER="sh -c 'col -bx | $BATCMD -l man -p'"
+  export MANROFFOPT="-c"
+  export BAT_THEME="Monokai Extended"
+  alias bathelp='$BATCMD --plain --language=help'
+  help() {
+    "$@" --help 2>&1 | bathelp
+  }
+fi
+
+test-truecolor() {
+  awk 'BEGIN{
+      s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+      for (colnum = 0; colnum<77; colnum++) {
+          r = 255-(colnum*255/76);
+          g = (colnum*510/76);
+          b = (colnum*255/76);
+          if (g>255) g = 510-g;
+          printf "\033[48;2;%d;%d;%dm", r,g,b;
+          printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+          printf "%s\033[0m", substr(s,colnum+1,1);
+      }
+      printf "\n";
+  }'
+  echo "Colors should be smooth and not banded"
+}
+
+256-color-codes() {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}m${i} "
+  done
+}
 
 _rake_does_task_list_need_generating () {
   if [ ! -f .rake_tasks ]; then return 0;
@@ -181,24 +239,6 @@ compdef _rake rake
 if exists hub; then
   eval "$(hub alias -s)" # activate hub helper script
 fi
-
-get-sfmono() {
-  if [ -d /Applications/Utilities/Terminal.app ]; then
-    TERMINALDIR=/Applications/Utilities/Terminal.app
-  elif [ -d /System/Applications/Utilities/Terminal.app ]; then
-    TERMINALDIR=/System/Applications/Utilities/Terminal.app
-  else
-    echo "Couldn't find a Terminal.app, bailing"
-    return 1
-  fi
-
-  cp -R $TERMINALDIR/Contents/Resources/Fonts/* ~/Library/Fonts
-  echo "Copied SF Mono from $TERMINALDIR"
-}
-
-whatport() {
-  lsof -i :$1
-}
 
 unalias run-help &> /dev/null
 autoload run-help
@@ -263,33 +303,6 @@ if exists fzf; then
     export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   fi
 fi
-
-test-truecolor() {
-  awk 'BEGIN{
-      s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
-      for (colnum = 0; colnum<77; colnum++) {
-          r = 255-(colnum*255/76);
-          g = (colnum*510/76);
-          b = (colnum*255/76);
-          if (g>255) g = 510-g;
-          printf "\033[48;2;%d;%d;%dm", r,g,b;
-          printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
-          printf "%s\033[0m", substr(s,colnum+1,1);
-      }
-      printf "\n";
-  }'
-  echo "Colors should be smooth and not banded"
-}
-
-256-color-codes() {
-  for i in {0..255} ; do
-    printf "\x1b[38;5;${i}m${i} "
-  done
-}
-
-safari-url() {
-  osascript -e 'tell application "Safari" to get URL of current tab of front window'
-}
 
 if brew_prefix_e /share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
   source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh

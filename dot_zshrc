@@ -39,6 +39,13 @@ fi
 export CLICOLOR=true
 export MENU_COMPLETE=false
 
+export DOKKU_HOST=dokku.lan
+export ERL_AFLAGS="-kernel shell_history enabled" # enables Erlang history
+export VAULT_URL="none"
+export GOPATH="$GOPATH:$HOME/.local/share/go"
+
+unamestr=`uname`
+
 bindkey -e
 
 HISTSIZE=1000
@@ -50,11 +57,7 @@ setopt histignorespace
 setopt sharehistory
 setopt histexpiredupsfirst
 
-export DOKKU_HOST=dokku.lan
-
 autoload -Uz vcs_info
-
-unamestr=`uname`
 
 if exists zoxide; then
   eval "$(zoxide init zsh)"
@@ -245,9 +248,6 @@ autoload run-help
 
 source "${HOME}/.iterm2_shell_integration.zsh"
 
-# enables Erlang history
-export ERL_AFLAGS="-kernel shell_history enabled"
-
 if exists mise; then
   eval "$(mise activate zsh)"
 fi
@@ -283,8 +283,6 @@ if brew_prefix_e /share/zsh-autosuggestions/zsh-autosuggestions.zsh; then
   source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
-export VAULT_URL="none"
-
 if brew_prefix_e /share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; then
   source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -319,8 +317,6 @@ ports() {
         ) | sed -E 's/ ([^ ]+):/ \1 /' | sort -k8,8 -k5,5 -k1,1 -k10,10n
     ) | awk '{ printf "%-16s %-6s %-9s %-5s %-7s %s:%s\n",$1,$2,$3,$5,$8,$9,$10 }'
 }
-
-export GOPATH="$GOPATH:$HOME/.local/share/go"
 
 if [ $(ps ax | grep "[s]sh-agent" | wc -l) -eq 0 ] ; then
     eval $(ssh-agent -s) > /dev/null

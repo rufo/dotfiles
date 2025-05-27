@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # lazy-lock.json hash: {{ include "dot_config/nvim/lazy-lock.json" | sha256sum }}
-nvim --headless "+Lazy! restore" +qa
+nvim --headless "+Lazy! restore" "+TSUpdateSync" +qa

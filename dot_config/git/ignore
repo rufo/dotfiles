@@ -21,3 +21,5 @@ xcuserdata/
 .Ulysses-*.plist
 
 .vscode/settings.json
+
+.aider*

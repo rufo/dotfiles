@@ -3,7 +3,7 @@ echo "Installing delta..."
 {{ if .brewPath -}}
 brew install git-delta
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+{{ if eq .chezmoi.osRelease.id "arch" -}}
 sudo pacman -Sy --noconfirm --needed git-delta
 {{ else if eq .chezmoi.osRelease.idLike "debian" -}}
 TMP_DEB=$(mktemp)

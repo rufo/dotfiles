@@ -2,7 +2,7 @@
 {{ if .brewPath -}}
 brew install zoxide
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+{{ if eq .chezmoi.osRelease.id "arch" -}}
 sudo pacman -Sy --noconfirm --needed zoxide
 {{ else if eq .chezmoi.osRelease.idLike "debian" -}}
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh

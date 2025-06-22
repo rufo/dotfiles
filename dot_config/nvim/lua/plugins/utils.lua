@@ -17,7 +17,7 @@ return {
       "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
-      {"cattokomo/json5.lua",
+      {"MikuAuahDark/json5.lua",
         build = function(plugin)
           local plug_path = function(path) return vim.fs.normalize(plugin.dir .. path) end
 

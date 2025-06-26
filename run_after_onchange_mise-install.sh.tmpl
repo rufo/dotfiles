@@ -1,4 +1,10 @@
 #!/bin/bash
 
 # mise base.toml hash: {{ include "dot_config/mise/conf.d/base.toml" | sha256sum }}
+{{ if lookPath "mise" }}
 mise install
+{{ else if $mise := findExecutable "mise" (list (expandenv "$HOME/.local/bin"))}}
+{{$mise}} install
+{{ else }}
+echo "No mise found!"
+{{end}}

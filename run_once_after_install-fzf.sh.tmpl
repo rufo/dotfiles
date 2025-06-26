@@ -3,7 +3,7 @@ echo "Installing fzf..."
 {{ if .brewPath -}}
 brew install fzf
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if eq .idLike "arch" -}}
 sudo pacman -Sy --noconfirm --needed fzf
 {{ else -}}
 mkdir -p $HOME/.local/bin

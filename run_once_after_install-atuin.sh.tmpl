@@ -2,9 +2,9 @@
 {{ if .brewPath -}}
 brew install atuin
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if eq .idLike "arch" -}}
 sudo pacman -Sy --noconfirm --needed atuin
-{{ else if eq .chezmoi.osRelease.idLike "debian" -}}
+{{ else if eq .idLike "debian" -}}
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 {{ end }}
 {{ end }}

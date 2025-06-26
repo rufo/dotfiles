@@ -2,9 +2,9 @@
 {{ if .brewPath -}}
 brew install eza
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if eq .idLike "arch" -}}
 sudo pacman -Sy --noconfirm --needed eza
-{{ else if eq .chezmoi.osRelease.idLike "debian" -}}
+{{ else if eq .idLike "debian" -}}
 sudo mkdir -p /etc/apt/keyrings
 wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list

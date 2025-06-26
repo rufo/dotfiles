@@ -3,9 +3,9 @@ echo "Installing fd..."
 {{ if .brewPath -}}
 brew install fd
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if eq .idLike "arch" -}}
 sudo pacman -Sy --noconfirm --needed fd
-{{ else if eq .chezmoi.osRelease.idLike "debian" -}}
+{{ else if eq .idLike "debian" -}}
 TMP_DEB=$(mktemp)
 curl -L {{ gitHubLatestReleaseAssetURL "sharkdp/fd" (printf "fd_*_%s.deb" .chezmoi.arch) }} -o "$TMP_DEB"
 sudo dpkg -i "$TMP_DEB"

@@ -11,3 +11,13 @@ brewPath = {{ $brewPath | quote }}
 {{- else }}
 brewPath = false
 {{- end}}
+
+{{- if (eq .chezmoi.os "linux") }}
+{{/* some linux distros use idLike, some don't,
+       so set it if it doesn't exist */}}
+{{- if (ne (get .chezmoi.osRelease "idLike") "") }}
+idLike = {{ .chezmoi.osRelease.idLike | quote }}
+{{- else -}}
+idLike = {{ .chezmoi.osRelease.id | quote }}
+{{- end}}
+{{- end}}

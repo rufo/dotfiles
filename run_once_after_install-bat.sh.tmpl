@@ -3,9 +3,9 @@ echo "Installing bat..."
 {{ if .brewPath -}}
 brew install bat
 {{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.osRelease.id "arch" -}}
+{{ if eq .idLike "arch" -}}
 sudo pacman -Sy --noconfirm --needed bat
-{{ else if eq .chezmoi.osRelease.idLike "debian" -}}
+{{ else if eq .idLike "debian" -}}
 TMP_DEB=$(mktemp)
 curl -L {{ gitHubLatestReleaseAssetURL "sharkdp/bat" (printf "bat_*_%s.deb" .chezmoi.arch) }} -o "$TMP_DEB"
 sudo dpkg -i "$TMP_DEB"

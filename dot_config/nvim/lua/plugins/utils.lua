@@ -18,6 +18,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
       {"MikuAuahDark/json5.lua",
+        commit = "c59dbf6",
         build = function(plugin)
           local plug_path = function(path) return vim.fs.normalize(plugin.dir .. path) end
 

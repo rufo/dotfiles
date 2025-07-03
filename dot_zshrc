@@ -42,7 +42,7 @@ export MENU_COMPLETE=false
 export DOKKU_HOST=dokku.lan
 export ERL_AFLAGS="-kernel shell_history enabled" # enables Erlang history
 export VAULT_URL="none"
-export GOPATH="$GOPATH:$HOME/.local/share/go"
+export GOPATH="$HOME/.local/share/go"
 
 unamestr=`uname`
 

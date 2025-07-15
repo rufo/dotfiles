@@ -25,3 +25,13 @@
     helper = osxkeychain
     helper = cache --timeout 86400
     helper = oauth
+{{- if lookPath "delta" }}
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
+{{- end }}

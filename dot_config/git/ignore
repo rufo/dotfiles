@@ -23,3 +23,5 @@ xcuserdata/
 .vscode/settings.json
 
 .aider*
+
+**/.claude/settings.local.json

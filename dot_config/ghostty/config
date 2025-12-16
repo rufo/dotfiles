@@ -1,3 +1,4 @@
 font-family = Berkeley Mono
 font-family = BerkeleyMono Nerd Font
 theme = Kanagawa Wave
+config-file = ?config.local

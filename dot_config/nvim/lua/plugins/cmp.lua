@@ -16,7 +16,6 @@ return {
     },
     config = function()
       local cmp = require('cmp')
-      local cmp_action = require('lsp-zero').cmp_action()
 
       require('luasnip.loaders.from_vscode').lazy_load()
 
@@ -48,15 +47,38 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({select = false}),
-          ['<C-e>'] = cmp_action.toggle_completion(),
-          ['<Tab>'] = vim.schedule_wrap(function(fallback)
-            if cmp.visible() and has_words_before() then
-              cmp_action.luasnip_supertab()
+          ['<C-e>'] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.abort()
             else
-              fallback()
+              cmp.complete()
             end
           end),
-          ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            local luasnip = require('luasnip')
+            local col = vim.fn.col('.') - 1
+
+            if cmp.visible() then
+              cmp.select_next_item({behavior = 'select'})
+            elseif luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
+            elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+              fallback()
+            else
+              cmp.complete()
+            end
+          end, {'i', 's'}),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+              local luasnip = require('luasnip')
+
+              if cmp.visible() then
+                cmp.select_prev_item({behavior = 'select'})
+              elseif luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+              else
+                fallback()
+              end
+            end, {'i', 's'}),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         }),

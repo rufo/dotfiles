@@ -13,6 +13,7 @@ return {
       'hrsh7th/cmp-cmdline',
       'petertriho/cmp-git',
       'onsails/lspkind.nvim',
+      'folke/lazydev.nvim',
     },
     config = function()
       local cmp = require('cmp')
@@ -92,6 +93,7 @@ return {
           { name = 'buffer' },
           { name = 'nvim_lsp'},
           { name = 'luasnip' },
+          { name = 'lazydev', group_index = 0, }
         }),
         sorting = {
           priority_weight = 2,

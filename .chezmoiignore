@@ -7,3 +7,7 @@ synergy-personal.conf
 todo.txt
 key.txt.age
 install.sh
+
+{{- if ne .chezmoi.os "windows" }}
+run_after__symlink-neovim-config_windows.ps1
+{{- end }}

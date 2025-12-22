@@ -1,5 +1,8 @@
+{{ if eq .chezmoi.os "windows" -}}
+# from https://stackoverflow.com/questions/77304680/how-do-i-handle-different-configuration-paths-on-nix-and-windows-with-chezmoi
 If ($PSVersionTable.PSVersion.Major -Le 5 -Or $isWindows) {
     If (-Not (Test-Path $env:LOCALAPPDATA\nvim)) {
         New-Item -Path $env:LOCALAPPDATA\nvim -ItemType Junction -Value $env:USERPROFILE\.config/nvim
     }
 }
+{{ end -}}

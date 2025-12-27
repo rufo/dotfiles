@@ -57,3 +57,9 @@
 {{- else }}
 ; no delta, skipping delta diff setup
 {{- end }}
+{{- if lookPath "bbdiff" }}
+[difftool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+[mergetool "bbdiff"]
+	cmd = bbdiff --wait --resume \"$LOCAL\" \"$REMOTE\"
+{{- end }}

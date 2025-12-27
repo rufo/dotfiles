@@ -1,3 +1,14 @@
+{{- /* 1. Get the Git internal execution path */ -}}
+{{- $gitExecPath := and (lookPath "git") (output "git" "--exec-path" | trim) -}}
+
+{{- /* 2. Define helper names based on OS */ -}}
+{{- $osHelper := "" -}}
+{{- if eq .chezmoi.os "darwin" -}}
+    {{- $osHelper = "git-credential-osxkeychain" -}}
+{{- else if eq .chezmoi.os "linux" -}}
+    {{- $osHelper = "git-credential-libsecret" -}}
+{{- end -}}
+
 [user]
 	name = Rufo Sanchez
 	email = rufo@rufosanchez.com
@@ -18,13 +29,20 @@
 	ff = only
 [commit]
 	verbose = true
+{{- if (lookPath "git-credential-oauth") }}
 [credential "https://forgejo.home.ru.fo"]
-    oauthClientId = a4792ccc-144e-407e-86c9-5e7d8d9c3269
-    oauthAuthURL = /login/oauth/authorize
-    oauthTokenURL = /login/oauth/access_token
-    helper = osxkeychain
-    helper = cache --timeout 86400
+    oauthDeviceName = "{{ .chezmoi.hostname }} (git-credential-oauth)"
+    helper =
+    {{- /* Check if the OS helper exists in the Git Exec Path or the system PATH */}}
+    {{- if or (stat (joinPath $gitExecPath $osHelper)) (lookPath $osHelper) }}
+    helper = {{ $osHelper | trimPrefix "git-credential-" }}
+    {{- else if eq .chezmoi.os "linux" }}
+    helper = cache --timeout=3600
+    {{- end }}
     helper = oauth
+{{- else }}
+; no oauth credential helper, skipping forgejo setup
+{{- end }}
 {{- if lookPath "delta" }}
 [core]
 	pager = delta

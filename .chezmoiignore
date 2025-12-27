@@ -1,9 +1,0 @@
-script
-Brewfile*
-Dockerfile
-*.itermcolors
-gitconfig-github
-synergy-personal.conf
-todo.txt
-key.txt.age
-install.sh

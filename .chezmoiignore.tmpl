@@ -1,0 +1,17 @@
+script
+Brewfile*
+Dockerfile
+*.itermcolors
+gitconfig-github
+synergy-personal.conf
+todo.txt
+key.txt.age
+install.sh
+
+# Ignore all config.d files by default
+.ssh/config.d/*
+
+# Un-ignore files that are part of our profile
+{{- range .sshProfiles }}
+!.ssh/config.d/{{ . }}
+{{- end }}

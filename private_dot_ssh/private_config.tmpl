@@ -1,0 +1,21 @@
+{{ if stat (joinPath .chezmoi.homeDir ".colima" "ssh_config") -}}
+Include ~/.colima/ssh_config
+{{- end }}
+Include config.d/*
+
+Host *
+  TCPKeepAlive yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+
+  {{ if eq .chezmoi.os "darwin" -}}
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  UseKeychain yes
+  {{ else if and (eq .chezmoi.os "linux") (stat (joinPath .chezmoi.homeDir ".1password")) -}}
+  IdentityAgent "~/.1password/agent.sock"
+  {{- end -}}
+  AddKeysToAgent yes
+
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+  ControlPersist 10m

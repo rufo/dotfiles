@@ -1,6 +1,15 @@
 encryption = "age"
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
+{{ $available_ssh_profile_paths := glob (joinPath .chezmoi.sourceDir "private_dot_ssh" "config.d" "*") -}}
+{{- $available_ssh_profiles := list -}}
+{{- $ssh_profiles := or (get . "sshProfiles") list -}}
+{{- range $available_ssh_profile_paths -}}
+  {{- $available_ssh_profiles = append $available_ssh_profiles (base . | trimPrefix "encrypted_" | trimSuffix ".age") -}}
+{{- end -}}
+
+{{- $ssh_profiles := promptMultichoiceOnce . "sshProfiles" "Which SSH config profiles do you want to enable?" $available_ssh_profiles $ssh_profiles -}}
+
 [age]
 identity = "~/.config/chezmoi/key.txt"
 recipient = "age1qsf00af2hm3y6dkvxvftajk93aw4n3u5n8vj3wn9psag3p8nhs7qkkztes"
@@ -29,3 +38,5 @@ idLike = {{ .chezmoi.osRelease.idLike | quote }}
 idLike = {{ .chezmoi.osRelease.id | quote }}
 {{- end}}
 {{- end}}
+
+sshProfiles = {{ $ssh_profiles | toToml }}

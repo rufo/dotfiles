@@ -7,6 +7,11 @@ recipient = "age1qsf00af2hm3y6dkvxvftajk93aw4n3u5n8vj3wn9psag3p8nhs7qkkztes"
 {{ $otherBinPaths := (list "/opt/homebrew/bin" "/home/linuxbrew/.linuxbrew/bin/" "/usr/local/bin/") -}}
 {{ $brewPath := findExecutable "brew" $otherBinPaths -}}
 
+{{- if or (lookPath "delta") (findExecutable $otherBinPaths "delta") }}
+[diff]
+pager = "delta"
+{{- end}}
+
 [data]
 {{- if $brewPath }}
 {{/* store homebrew path, or lack of homebrew */ -}}

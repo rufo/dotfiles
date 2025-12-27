@@ -18,8 +18,10 @@
 	user = rufo
 [push]
 	default = simple
+{{- if (lookPath "gh") }}
 [credential "https://github.com"]
 	helper = !gh auth git-credential
+{{- end }}
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

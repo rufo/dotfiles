@@ -13,7 +13,7 @@ Host *
   UseKeychain yes
   {{ else if and (eq .chezmoi.os "linux") (stat (joinPath .chezmoi.homeDir ".1password")) -}}
   IdentityAgent "~/.1password/agent.sock"
-  {{- end -}}
+  {{- end }}
   AddKeysToAgent yes
 
   ControlMaster auto

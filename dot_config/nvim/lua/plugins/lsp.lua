@@ -90,6 +90,7 @@ return {
       vim.lsp.enable('bashls')
       vim.lsp.enable('yamlls')
       vim.lsp.enable('jsonls')
+      vim.lsp.enable('docker_compose_language_service')
       -- require('lspconfig').ruby_lsp.setup({
       --   mason = false,
       -- })

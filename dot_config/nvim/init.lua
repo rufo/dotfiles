@@ -108,3 +108,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('lazy').setup('plugins', {
 })
+
+vim.filetype.add {
+  filename = {
+    ['docker-compose.yml'] = 'yaml.docker-compose',
+    ['docker-compose.yaml'] = 'yaml.docker-compose'
+  }
+}
